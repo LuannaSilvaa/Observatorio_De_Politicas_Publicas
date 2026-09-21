@@ -1,0 +1,405 @@
+/* v76 — polimento visual específico da página Habitação
+   Corrige proporções, fluxo vertical, tipografia e alinhamentos sem alterar dados. */
+
+#page-habitacao{
+  --housing-gap:16px;
+}
+
+/* KPIs: cinco cartões proporcionais em uma única linha em telas largas */
+#page-habitacao .kpi-grid.five{
+  grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  gap:var(--housing-gap) !important;
+  align-items:stretch !important;
+  margin-bottom:18px !important;
+}
+
+#page-habitacao .kpi-card{
+  min-height:122px !important;
+  height:auto !important;
+  padding:16px 15px !important;
+  grid-template-columns:50px minmax(0,1fr) !important;
+  gap:12px !important;
+  align-items:center !important;
+}
+
+#page-habitacao .kpi-icon{
+  width:48px !important;
+  height:48px !important;
+  border-radius:12px !important;
+}
+
+#page-habitacao .kpi-copy small{
+  min-height:32px !important;
+  margin:0 0 4px !important;
+  font-size:11px !important;
+  line-height:1.4 !important;
+  font-weight:700 !important;
+}
+
+#page-habitacao .kpi-copy strong{
+  font-size:24px !important;
+  line-height:1.18 !important;
+  letter-spacing:-.025em !important;
+  margin:0 !important;
+}
+
+#page-habitacao .kpi-copy span{
+  margin-top:6px !important;
+  font-size:12px !important;
+  line-height:1.4 !important;
+}
+
+/* Mapa + coluna lateral: altura passa a ser determinada pelo conteúdo.
+   Isso elimina a sobreposição que aparecia antes dos cartões inferiores. */
+#page-habitacao .housing-split{
+  grid-template-columns:minmax(0,1.18fr) minmax(430px,.92fr) !important;
+  gap:var(--housing-gap) !important;
+  align-items:stretch !important;
+  margin-bottom:18px !important;
+  height:auto !important;
+  min-height:0 !important;
+  overflow:visible !important;
+}
+
+#page-habitacao .housing-map-card{
+  display:flex !important;
+  flex-direction:column !important;
+  height:auto !important;
+  min-height:748px !important;
+  overflow:hidden !important;
+}
+
+#page-habitacao .housing-map-card .card-head{
+  flex:0 0 auto !important;
+}
+
+#page-habitacao #housingMap{
+  flex:1 1 auto !important;
+  height:auto !important;
+  min-height:680px !important;
+}
+
+#page-habitacao .housing-side{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:var(--housing-gap) !important;
+  height:auto !important;
+  min-height:0 !important;
+  align-self:start !important;
+  overflow:visible !important;
+}
+
+#page-habitacao .housing-side > .card{
+  flex:0 0 auto !important;
+  height:auto !important;
+  min-height:0 !important;
+  overflow:visible !important;
+}
+
+/* Ranking: linhas mais arejadas e números alinhados */
+#page-habitacao .rank-card .ranking-list{
+  padding:8px 18px 12px !important;
+}
+
+#page-habitacao .rank-card .rank-row{
+  grid-template-columns:26px minmax(125px,1.25fr) minmax(80px,.9fr) 78px !important;
+  gap:11px !important;
+  min-height:47px !important;
+  padding:7px 0 !important;
+}
+
+#page-habitacao .rank-card .rank-name{
+  font-size:13px !important;
+  line-height:1.35 !important;
+  font-weight:650 !important;
+}
+
+#page-habitacao .rank-card .rank-value{
+  font-size:13px !important;
+  line-height:1.3 !important;
+  font-weight:750 !important;
+  text-align:right !important;
+}
+
+#page-habitacao .target-rank-footer{
+  min-height:46px !important;
+  padding:10px 16px !important;
+  font-size:13px !important;
+}
+
+/* Modalidades: versão compacta para caber naturalmente abaixo do ranking */
+#page-habitacao .housing-donut-card .ref-modality-content{
+  gap:12px !important;
+  padding:14px 16px 16px !important;
+}
+
+#page-habitacao .housing-donut-card .ref-modality-panel{
+  grid-template-columns:148px minmax(0,1fr) !important;
+  gap:16px !important;
+  padding:2px 0 !important;
+}
+
+#page-habitacao .housing-donut-card .ref-donut{
+  width:146px !important;
+  max-width:146px !important;
+}
+
+#page-habitacao .housing-donut-card .ref-legend{
+  gap:9px !important;
+}
+
+#page-habitacao .housing-donut-card .ref-legend-row span{
+  font-size:12.5px !important;
+  line-height:1.3 !important;
+}
+
+#page-habitacao .housing-donut-card .ref-legend-row small{
+  font-size:11px !important;
+  line-height:1.3 !important;
+}
+
+#page-habitacao .housing-donut-card .ref-legend-row b{
+  font-size:12px !important;
+}
+
+#page-habitacao .housing-donut-card .ref-modality-summary{
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:8px !important;
+}
+
+#page-habitacao .housing-donut-card .ref-summary-box{
+  grid-template-columns:28px minmax(0,1fr) !important;
+  gap:8px !important;
+  min-height:82px !important;
+  padding:10px !important;
+  align-items:center !important;
+}
+
+#page-habitacao .housing-donut-card .ref-summary-icon{
+  width:28px !important;
+  height:28px !important;
+}
+
+#page-habitacao .housing-donut-card .ref-summary-box small{
+  min-height:30px !important;
+  margin:0 0 3px !important;
+  font-size:9.5px !important;
+  line-height:1.25 !important;
+  font-weight:700 !important;
+}
+
+#page-habitacao .housing-donut-card .ref-summary-box strong{
+  font-size:14px !important;
+  line-height:1.2 !important;
+  letter-spacing:-.01em !important;
+}
+
+#page-habitacao .housing-donut-card .ref-summary-box em{
+  margin-top:2px !important;
+  font-size:10px !important;
+}
+
+/* Sínteses inferiores: três cartões equivalentes, na mesma linha */
+#page-habitacao .housing-bottom{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  grid-auto-rows:auto !important;
+  gap:var(--housing-gap) !important;
+  align-items:stretch !important;
+  margin-top:0 !important;
+}
+
+#page-habitacao .housing-bottom > article,
+#page-habitacao .housing-bottom > article:last-child:nth-child(3){
+  grid-column:auto !important;
+}
+
+#page-habitacao .housing-bottom > .metric-card{
+  display:flex !important;
+  flex-direction:column !important;
+  min-height:270px !important;
+  height:auto !important;
+  padding:20px !important;
+  overflow:hidden !important;
+}
+
+#page-habitacao .housing-bottom > .metric-card > h3{
+  min-height:25px !important;
+  margin:0 0 18px !important;
+  padding-right:24px !important;
+  font-size:17px !important;
+  line-height:1.35 !important;
+  font-weight:700 !important;
+}
+
+#page-habitacao .housing-bottom .reading-grid,
+#page-habitacao .housing-bottom > article:last-child:nth-child(3) .reading-grid{
+  flex:1 1 auto !important;
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:14px 10px !important;
+  align-items:start !important;
+  align-content:center !important;
+  height:auto !important;
+  min-height:0 !important;
+}
+
+#page-habitacao .housing-bottom .reading-item{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  min-height:98px !important;
+  padding:4px 8px !important;
+  text-align:center !important;
+  border:0 !important;
+}
+
+#page-habitacao .housing-bottom .reading-item .mini-icon{
+  width:38px !important;
+  height:38px !important;
+  margin:0 auto 7px !important;
+}
+
+#page-habitacao .housing-bottom .reading-item small{
+  min-height:31px !important;
+  margin:0 !important;
+  font-size:11.5px !important;
+  line-height:1.35 !important;
+  font-weight:650 !important;
+  color:#665f59 !important;
+  text-transform:none !important;
+}
+
+#page-habitacao .housing-bottom .reading-item strong{
+  margin:4px 0 0 !important;
+  font-size:20px !important;
+  line-height:1.2 !important;
+  font-weight:750 !important;
+  letter-spacing:-.02em !important;
+  white-space:nowrap !important;
+}
+
+#page-habitacao .housing-bottom .reading-item .reading-note{
+  display:block !important;
+  max-width:190px !important;
+  min-height:0 !important;
+  margin:6px auto 0 !important;
+  font-size:11px !important;
+  line-height:1.35 !important;
+  color:#7a736d !important;
+  text-transform:none !important;
+}
+
+/* títulos e cabeçalhos: mesma hierarquia em toda a tela */
+#page-habitacao .card-head{
+  min-height:64px !important;
+  padding:15px 18px !important;
+}
+
+#page-habitacao .card-head h2,
+#page-habitacao .card-head h3{
+  font-size:18px !important;
+  line-height:1.3 !important;
+  font-weight:700 !important;
+  text-transform:none !important;
+  letter-spacing:0 !important;
+}
+
+/* Breakpoints focados no conteúdo útil da página */
+@media (max-width:1300px){
+  #page-habitacao .kpi-grid.five{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+
+  #page-habitacao .housing-split{
+    grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr) !important;
+  }
+
+  #page-habitacao .housing-donut-card .ref-modality-summary{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  #page-habitacao .housing-bottom{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  #page-habitacao .housing-bottom > article:last-child:nth-child(3){
+    grid-column:1/-1 !important;
+  }
+
+  #page-habitacao .housing-bottom > article:last-child:nth-child(3) .reading-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  }
+}
+
+@media (max-width:1050px){
+  #page-habitacao .housing-split{
+    grid-template-columns:1fr !important;
+  }
+
+  #page-habitacao .housing-map-card{
+    min-height:600px !important;
+  }
+
+  #page-habitacao #housingMap{
+    min-height:530px !important;
+  }
+
+  #page-habitacao .housing-side{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    align-items:start !important;
+  }
+}
+
+@media (max-width:820px){
+  #page-habitacao .kpi-grid.five{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  #page-habitacao .housing-side{
+    grid-template-columns:1fr !important;
+  }
+
+  #page-habitacao .housing-bottom{
+    grid-template-columns:1fr !important;
+  }
+
+  #page-habitacao .housing-bottom > article:last-child:nth-child(3){
+    grid-column:auto !important;
+  }
+
+  #page-habitacao .housing-bottom > article:last-child:nth-child(3) .reading-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+@media (max-width:520px){
+  #page-habitacao .kpi-grid.five{
+    grid-template-columns:1fr !important;
+  }
+
+  #page-habitacao .kpi-card{
+    min-height:108px !important;
+  }
+
+  #page-habitacao .housing-map-card{
+    min-height:510px !important;
+  }
+
+  #page-habitacao #housingMap{
+    min-height:440px !important;
+  }
+
+  #page-habitacao .housing-donut-card .ref-modality-panel{
+    grid-template-columns:1fr !important;
+  }
+
+  #page-habitacao .housing-donut-card .ref-modality-summary{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  #page-habitacao .housing-bottom .reading-grid{
+    grid-template-columns:1fr 1fr !important;
+  }
+}
