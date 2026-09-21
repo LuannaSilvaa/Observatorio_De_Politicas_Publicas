@@ -949,7 +949,78 @@ function renderIndicators(rows,tot){
 function gapRows(rows){if(!rows.some(r=>urbanFields.some(f=>hasNumber(r['gap_fcu_'+f+'_pp']))))return '<p class="empty-state">Não há dados de entorno das FCUs para calcular as diferenças neste recorte.</p>';const fields=[['Pavimentação','gap_fcu_pct_via_pavimentada_pp'],['Iluminação','gap_fcu_pct_iluminacao_publica_pp'],['Calçadas','gap_fcu_pct_calcada_pp'],['Arborização','gap_fcu_pct_arborizacao_pp'],['Acessibilidade','gap_fcu_pct_rampa_cadeirante_pp']];const stats=fields.map(([lab,f])=>{const vals=rows.filter(r=>hasNumber(r[f])).map(r=>+r[f]);const v=vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:0;return {lab,value:v}});const worst=[...stats].sort((a,b)=>Math.abs(b.value)-Math.abs(a.value))[0];const avgGap=stats.length?stats.reduce((a,b)=>a+Math.abs(b.value),0)/stats.length:0;const positiveCount=stats.filter(x=>x.value>0).length;return `<div class="mini-bars">${stats.map(({lab,value:v})=>`<div class="mini-bar"><span>${lab}</span><span class="mini-bar-track"><i style="width:${clamp(Math.abs(v)*5,2,100)}%;background:${v>0?'#df6a31':'#5b814f'}"></i></span><b>${two.format(v)} p.p.</b></div>`).join('')}</div><div class="gap-summary"><div class="gap-pill"><span>Maior diferença</span><b>${esc(worst?.lab||'—')}</b><small>${worst?`${two.format(worst.value)} p.p.`:'—'}</small></div><div class="gap-pill"><span>Média absoluta</span><b>${two.format(avgGap)} p.p.</b><small>entre os indicadores</small></div><div class="gap-pill"><span>Indicadores positivos</span><b>${fmt.format(positiveCount)}</b><small>com pior condição nas FCUs</small></div></div><div class="insight-box">Valores positivos indicam pior condição média nas FCUs em relação ao conjunto municipal.</div>`}
 
 /* HOUSING */
-function renderHousing(rows,tot){const mods=modalityGroups(rows),ufRank=groupRows(rows,'uf');const avgTicket=tot.uh?tot.valor/tot.uh:0,avgArea='—';$('#page-habitacao').innerHTML=`<div class="kpi-grid five">${kpi('home','UH contratadas até 2022',fmt.format(tot.uh),`${fmt.format(tot.ops)} operações`,true)}${kpi('people','Beneficiários potenciais',compact.format(tot.benef),`${pct(tot.reach)} da população`)}${kpi('money','Valor contratado',currency.format(tot.valor),'até 2022',true)}${kpi('pin','Alcance potencial',pct(tot.reach),'pessoas potencialmente atendidas')}${kpi('building','Municípios atendidos',fmt.format(tot.present),`${pct(rows.length?tot.present/rows.length*100:0)} do recorte`,true)}</div><div class="split-main housing-split"><article class="card housing-map-card">${cardHead('Distribuição das UH contratadas por município')}<div class="map-frame" id="housingMap"><div class="map-loading">Carregando mapa habitacional…</div>${mapLegend('uh')}</div></article><div class="stack-right housing-side"><article class="card rank-card">${cardHead('Ranking de UFs por UH contratadas')}${rankListWithFooter(ufRank,v=>fmt.format(v),x=>x.key,5)}</article><article class="card housing-donut-card ref-modality-card">${cardHead('Distribuição por modalidade MCMV')}${referenceModalityPanel(mods,mods.reduce((a,b)=>a+b.value,0),{summary:true,municipios:tot.present})}</article></div></div><div class="bottom-cards housing-bottom"><article class="card metric-card housing-summary-card"><h3>Síntese habitacional</h3><div class="reading-grid housing-reading-grid">${miniReading('home','UH',compact.format(tot.uh))}${miniReading('people','Pessoas',compact.format(tot.benef))}${miniReading('percent','Alcance',pct(tot.reach))}${miniReading('building','Municípios',fmt.format(tot.present))}</div></article><article class="card metric-card housing-intensity-card"><h3>Intensidade econômica do MCMV</h3><div class="reading-grid reading-grid-two">${miniReading('money','Valor médio contratado por UH',currency.format(avgTicket),'ticket médio por unidade habitacional contratada')}${miniReading('home','UH por R$ 1 mi de PIB',two.format(tot.uhPib),'intensidade da política em relação à economia do recorte')}</div></article><article class="card metric-card housing-recorte-card"><h3>Recorte habitacional</h3><div class="reading-grid housing-reading-grid">${miniReading('people','População',compact.format(tot.pop))}${miniReading('money','PIB',currency.format(tot.pib))}${miniReading('home','UH MCMV',compact.format(tot.uh))}${miniReading('people','Pessoas potenciais',compact.format(tot.benef))}</div></article></div>`;hydrateIcons($('#page-habitacao'))}
+function renderHousing(rows,tot){
+  const mods=modalityGroups(rows),ufRank=groupRows(rows,'uf');
+  const avgTicket=tot.uh?tot.valor/tot.uh:0;
+
+  $('#page-habitacao').innerHTML=`
+    <div class="kpi-grid five">
+      ${kpi('home','UH contratadas até 2022',fmt.format(tot.uh),`${fmt.format(tot.ops)} operações`,true)}
+      ${kpi('people','Beneficiários potenciais',compact.format(tot.benef),`${pct(tot.reach)} da população`)}
+      ${kpi('money','Valor contratado',currency.format(tot.valor),'até 2022',true)}
+      ${kpi('pin','Alcance potencial',pct(tot.reach),'pessoas potencialmente atendidas')}
+      ${kpi('building','Municípios atendidos',fmt.format(tot.present),`${pct(rows.length?tot.present/rows.length*100:0)} do recorte`,true)}
+    </div>
+
+    <div class="split-main housing-split">
+      <article class="card housing-map-card">
+        ${cardHead('Distribuição das UH contratadas por município')}
+        <div class="map-frame" id="housingMap">
+          <div class="map-loading">Carregando mapa habitacional…</div>
+          ${mapLegend('uh')}
+        </div>
+      </article>
+
+      <div class="stack-right housing-side">
+        <article class="card rank-card housing-rank-card">
+          ${cardHead(
+            'Ranking de UFs por UH contratadas',
+            '<button type="button" class="ghost-btn housing-rank-toggle" data-rank-toggle="1">Ver ranking completo <span>→</span></button>'
+          )}
+          ${rankListWithFooter(ufRank,v=>fmt.format(v),x=>x.key,5)}
+        </article>
+
+        <article class="card housing-donut-card ref-modality-card">
+          ${cardHead('Distribuição por modalidade MCMV')}
+          ${referenceModalityPanel(mods,mods.reduce((a,b)=>a+b.value,0),{summary:false,municipios:tot.present})}
+        </article>
+      </div>
+    </div>
+
+    <div class="bottom-cards housing-bottom">
+      <article class="card metric-card housing-summary-card">
+        <h3>Síntese habitacional</h3>
+        <div class="reading-grid housing-reading-grid">
+          ${miniReading('home','UH',compact.format(tot.uh))}
+          ${miniReading('people','Pessoas',compact.format(tot.benef))}
+          ${miniReading('percent','Alcance',pct(tot.reach))}
+          ${miniReading('building','Municípios',fmt.format(tot.present))}
+        </div>
+      </article>
+
+      <article class="card metric-card housing-intensity-card">
+        <h3>Intensidade econômica do MCMV</h3>
+        <div class="reading-grid housing-reading-grid">
+          ${miniReading('money','Valor médio por UH',currency.format(avgTicket),'ticket médio por unidade contratada')}
+          ${miniReading('home','UH por R$ 1 mi de PIB',two.format(tot.uhPib),'intensidade em relação à economia do recorte')}
+          ${miniReading('money','Valor total contratado',currency.format(tot.valor),'até 2022')}
+          ${miniReading('building','Operações',fmt.format(tot.ops),'contratações registradas')}
+        </div>
+      </article>
+
+      <article class="card metric-card housing-recorte-card">
+        <h3>Recorte habitacional</h3>
+        <div class="reading-grid housing-reading-grid">
+          ${miniReading('people','População',compact.format(tot.pop))}
+          ${miniReading('money','PIB',currency.format(tot.pib))}
+          ${miniReading('home','UH MCMV',compact.format(tot.uh))}
+          ${miniReading('people','Pessoas potenciais',compact.format(tot.benef))}
+        </div>
+      </article>
+    </div>`;
+
+  hydrateIcons($('#page-habitacao'));
+}
 
 /* FCUS */
 function renderFcus(rows,tot){
