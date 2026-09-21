@@ -1,0 +1,94 @@
+/* v82 — KPIs superiores da Habitação sem texto vazando */
+
+#observatorio-app #pages #page-habitacao .kpi-grid.five{
+  align-items:stretch !important;
+  grid-auto-rows:1fr !important;
+}
+
+#observatorio-app #pages #page-habitacao .kpi-grid.five > .kpi-card{
+  box-sizing:border-box !important;
+  display:grid !important;
+  grid-template-columns:52px minmax(0,1fr) !important;
+  grid-template-rows:1fr !important;
+  align-items:center !important;
+  gap:12px !important;
+  min-height:140px !important;
+  height:140px !important;
+  max-height:none !important;
+  padding:16px 15px !important;
+  overflow:hidden !important;
+}
+
+#observatorio-app #pages #page-habitacao .kpi-grid.five > .kpi-card .kpi-icon{
+  width:50px !important;
+  height:50px !important;
+  align-self:center !important;
+  margin:0 !important;
+}
+
+#observatorio-app #pages #page-habitacao .kpi-grid.five > .kpi-card .kpi-copy{
+  min-width:0 !important;
+  height:auto !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  align-items:flex-start !important;
+  text-align:left !important;
+}
+
+#observatorio-app #pages #page-habitacao .kpi-grid.five > .kpi-card .kpi-copy small{
+  display:block !important;
+  min-height:0 !important;
+  margin:0 0 5px !important;
+  padding:0 !important;
+  font-size:10.5px !important;
+  line-height:1.25 !important;
+  white-space:normal !important;
+  overflow:visible !important;
+}
+
+#observatorio-app #pages #page-habitacao .kpi-grid.five > .kpi-card .kpi-copy strong{
+  display:block !important;
+  margin:0 !important;
+  font-size:23px !important;
+  line-height:1.08 !important;
+  white-space:normal !important;
+}
+
+#observatorio-app #pages #page-habitacao .kpi-grid.five > .kpi-card .kpi-copy span{
+  position:static !important;
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  margin:7px 0 0 !important;
+  padding:0 !important;
+  font-size:11px !important;
+  line-height:1.32 !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+}
+
+/* garante espaço extra para o texto mais longo do cartão Alcance potencial */
+#observatorio-app #pages #page-habitacao .kpi-grid.five > .kpi-card:nth-child(4) .kpi-copy span{
+  line-height:1.3 !important;
+}
+
+/* em telas menores os cartões podem crescer conforme o conteúdo */
+@media(max-width:1250px){
+  #observatorio-app #pages #page-habitacao .kpi-grid.five > .kpi-card{
+    min-height:138px !important;
+    height:auto !important;
+    max-height:none !important;
+  }
+}
+
+@media(max-width:600px){
+  #observatorio-app #pages #page-habitacao .kpi-grid.five > .kpi-card{
+    min-height:118px !important;
+    height:auto !important;
+    grid-template-columns:48px minmax(0,1fr) !important;
+    padding:14px !important;
+  }
+}
