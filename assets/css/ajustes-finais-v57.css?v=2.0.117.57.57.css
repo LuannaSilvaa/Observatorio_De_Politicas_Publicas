@@ -1,0 +1,159 @@
+/* v2.0.117.57 — escala tipográfica consolidada e ajustes pontuais de encaixe */
+
+:root{
+  --obs-titulo-1:26px;
+  --obs-titulo-2:20px;
+  --obs-titulo-3:16px;
+  --obs-titulo-4:14px;
+  --obs-texto:14px;
+  --obs-legenda:12px;
+}
+
+/* Hierarquia única em todas as abas. */
+.app-shell > .site-header h1{
+  font-size:var(--obs-titulo-1)!important;
+  line-height:1.15!important;
+}
+
+#pages .page[id] h2{
+  font-size:var(--obs-titulo-2)!important;
+  line-height:1.25!important;
+}
+
+#pages .page[id] h3{
+  font-size:var(--obs-titulo-3)!important;
+  line-height:1.3!important;
+}
+
+#pages .page[id] h4{
+  font-size:var(--obs-titulo-4)!important;
+  line-height:1.35!important;
+}
+
+#pages .page[id] p{
+  font-size:var(--obs-texto)!important;
+  line-height:1.5!important;
+}
+
+#pages .page[id] h2,
+#pages .page[id] h3,
+#pages .page[id] h4,
+#pages .page[id] p,
+#pages .page[id] small{
+  overflow-wrap:anywhere!important;
+}
+
+/* O título pode quebrar linha sem alcançar os botões ou o conteúdo abaixo. */
+#pages .page[id] article.card > .card-head h2,
+#pages .page[id] article.card > .card-head h3{
+  min-width:0!important;
+  max-width:100%!important;
+  white-space:normal!important;
+}
+
+#pages .page[id] article.card > .card-head .actions{
+  flex:0 0 auto!important;
+}
+
+/* Corpo, controles e rótulos de uso recorrente. */
+#pages .page[id] button,
+#pages .page[id] select,
+#pages .page[id] input,
+#pages .page[id] label,
+#pages .page[id] .rank-name,
+#pages .page[id] .rank-value,
+#pages .page[id] .ref-legend-row span,
+#pages .page[id] .ref-legend-row b,
+#pages .page[id] .donut-item span,
+#pages .page[id] .donut-item b,
+#pages .page[id] .format-row,
+#pages .page[id] .term-row,
+#pages .page[id] .list-row,
+#pages .page[id] .list-row strong{
+  font-size:var(--obs-texto)!important;
+  line-height:1.35!important;
+}
+
+/* Legendas e metadados preservam uma escala própria e uniforme. */
+#pages .page[id] small,
+#pages .page[id] .section-kicker,
+#pages .page[id] .chart-legend,
+#pages .page[id] .map-legend-panel p,
+#pages .page[id] .legend-line,
+#pages .page[id] .legend-help,
+#pages .page[id] .map-reading-note,
+#pages .page[id] .target-map-source,
+#pages .page[id] .target-map-legend small,
+#pages .page[id] .ref-legend-row small,
+#pages .page[id] .visual-chart-note,
+#pages .page[id] .academic-chart-source,
+#pages .page[id] .ranking-note,
+#pages .page[id] .report-source-line,
+#pages .page[id] .report-section-title > div > p{
+  font-size:var(--obs-legenda)!important;
+  line-height:1.4!important;
+}
+
+#pages .page[id] .map-legend-panel strong,
+#pages .page[id] .legend-title,
+#pages .page[id] .target-map-legend strong{
+  font-size:13px!important;
+  line-height:1.35!important;
+}
+
+/* O total central permanece inteiro dentro do furo do gráfico. */
+#pages .page[id] article.ref-modality-card .ref-modality-donut .ref-donut-hole strong{
+  display:block!important;
+  width:auto!important;
+  max-width:calc(100% - 12px)!important;
+  margin:0 auto!important;
+  font-size:15px!important;
+  line-height:1!important;
+  letter-spacing:-.025em!important;
+  white-space:nowrap!important;
+}
+
+/* O ranking territorial usa toda a largura e toda a altura útil do bloco. */
+#pages #page-territorio article.territory-polished-rank .ranking-list{
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  flex:1 1 auto!important;
+  display:grid!important;
+  grid-template-rows:repeat(5,minmax(0,1fr))!important;
+  align-content:stretch!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+}
+
+#pages #page-territorio article.territory-polished-rank .rank-row{
+  width:100%!important;
+  min-width:0!important;
+  box-sizing:border-box!important;
+}
+
+@media(min-width:1281px){
+  #pages #page-territorio article.territory-polished-rank .rank-row{
+    grid-template-columns:28px minmax(200px,.9fr) minmax(260px,1.8fr) 76px!important;
+    gap:14px!important;
+  }
+}
+
+@media(min-width:981px) and (max-width:1280px){
+  #pages #page-territorio article.territory-polished-rank .rank-row{
+    grid-template-columns:26px minmax(150px,1fr) minmax(150px,1.35fr) 72px!important;
+    gap:12px!important;
+  }
+}
+
+@media(max-width:600px){
+  :root{
+    --obs-titulo-1:23px;
+    --obs-titulo-2:18px;
+    --obs-titulo-3:15px;
+    --obs-titulo-4:14px;
+    --obs-texto:13px;
+    --obs-legenda:12px;
+  }
+}

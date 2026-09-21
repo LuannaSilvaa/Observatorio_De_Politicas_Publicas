@@ -1,0 +1,109 @@
+/* v2.0.117.44 — ícones e textos maiores nos cartões-resumo */
+
+/* Resumos de modalidade na página inicial e em FCUs. */
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-box,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-box{
+  grid-template-columns:40px minmax(0,1fr) !important;
+  gap:10px !important;
+  padding:8px 9px 8px 12px !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-icon,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-icon{
+  width:40px !important;
+  height:40px !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-icon svg,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-icon svg{
+  width:22px !important;
+  height:22px !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-box small,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-box small{
+  margin:0 0 4px !important;
+  font-size:9px !important;
+  line-height:1.08 !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-box strong,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-box strong{
+  font-size:14.5px !important;
+  line-height:1.05 !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-box em,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-box em{
+  margin-top:3px !important;
+  font-size:9.5px !important;
+  line-height:1.05 !important;
+}
+
+/* Resumo da qualidade da cobertura territorial. */
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box{
+  grid-template-columns:40px minmax(0,1fr) !important;
+  gap:10px !important;
+  padding:8px 9px 8px 12px !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-icon{
+  width:40px !important;
+  height:40px !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-icon svg{
+  width:22px !important;
+  height:22px !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box small{
+  margin:0 0 4px !important;
+  font-size:9px !important;
+  line-height:1.08 !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box strong{
+  font-size:14.5px !important;
+  line-height:1.05 !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box em{
+  margin-top:3px !important;
+  font-size:9.5px !important;
+  line-height:1.05 !important;
+}
+
+/* Resumo compacto do índice de infraestrutura. */
+#page-infraestrutura .infra-index-summary .ref-summary-box{
+  grid-template-columns:34px minmax(0,1fr) !important;
+  gap:7px !important;
+  padding:6px 7px 6px 10px !important;
+}
+
+#page-infraestrutura .infra-index-summary .ref-summary-icon{
+  width:32px !important;
+  height:32px !important;
+}
+
+#page-infraestrutura .infra-index-summary .ref-summary-icon svg{
+  width:18px !important;
+  height:18px !important;
+}
+
+#page-infraestrutura .infra-index-summary .ref-summary-box small{
+  margin:0 0 3px !important;
+  font-size:7.4px !important;
+  line-height:1.08 !important;
+}
+
+#page-infraestrutura .infra-index-summary .ref-summary-box strong{
+  font-size:12.5px !important;
+  line-height:1.04 !important;
+}
+
+#page-infraestrutura .infra-index-summary .ref-summary-box em{
+  margin-top:2px !important;
+  font-size:8px !important;
+  line-height:1.05 !important;
+}

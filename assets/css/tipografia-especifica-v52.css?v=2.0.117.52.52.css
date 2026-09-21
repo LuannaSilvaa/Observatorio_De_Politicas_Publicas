@@ -1,0 +1,27 @@
+/* v2.0.117.52 — elementos específicos ainda pequenos nas capturas */
+#pages .page .visual-title-copy h2{font-size:24px !important;line-height:1.2 !important}
+#pages .page .visual-title-copy p{font-size:15px !important;line-height:1.4 !important}
+#pages .page .visual-actions button,#pages .page .visual-actions select,#pages .page .visual-options-btn{font-size:15px !important}
+#pages .page .visual-options-heading strong,#pages .page .visual-options-heading small,#pages .page .visual-options-section-title{font-size:14px !important}
+#pages .page .map-reading-note{font-size:14px !important;line-height:1.45 !important}
+#pages .page .panel-title-row h2{font-size:24px !important;line-height:1.2 !important}
+#pages .page .panel-title-row .panel-intro{font-size:15px !important;line-height:1.45 !important}
+#pages .page .step-badge,#pages .page .preview-status{font-size:13px !important}
+#pages .page .download-summary-strip span{font-size:15px !important}
+#pages .page .download-summary-strip b{font-size:17px !important}
+#pages .page .report-filter-card strong,#pages .page .report-filter-card span{font-size:14px !important}
+#pages .page .report-preview .preview-sheet{font-size:14px !important}
+#pages .page .preview-sheet p,#pages .page .preview-sheet span,#pages .page .preview-sheet small{font-size:13px !important;line-height:1.4 !important}
+#pages .page .preview-sheet h2{font-size:24px !important}
+#pages .page .preview-sheet .preview-kpi b{font-size:18px !important}
+#pages .page .visual-option b,#pages .page .visual-option small{font-size:14px !important}
+#pages .page .format-row span,#pages .page .term-row{font-size:14px !important}
+#pages .page .about-card-foot{font-size:13px !important}
+#pages .page .source-card .source-type{font-size:13px !important}
+#pages .page .ref-donut-hole span{font-size:13px !important}
+#pages .page .target-map-source,#pages .page .target-map-legend small{font-size:14px !important}
+@media(max-width:600px){
+  #pages .page .visual-title-copy h2,#pages .page .panel-title-row h2{font-size:21px !important}
+  #pages .page .visual-title-copy p,#pages .page .panel-title-row .panel-intro{font-size:14px !important}
+  #pages .page .preview-sheet p,#pages .page .preview-sheet span,#pages .page .preview-sheet small{font-size:12px !important}
+}

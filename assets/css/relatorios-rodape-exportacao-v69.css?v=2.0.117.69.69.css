@@ -1,0 +1,60 @@
+/* v2.0.117.69 — rodapé útil na área livre da pré-visualização */
+#page-relatorios .report-preview-footer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  min-height: 25px !important;
+  margin-top: 8px !important;
+  padding: 5px 10px !important;
+  border: 1px solid #e2e8df !important;
+  border-radius: 10px !important;
+  background: #f7faf5 !important;
+  color: #625d57 !important;
+  font-size: 11.5px !important;
+  line-height: 1.25 !important;
+}
+
+#page-relatorios .report-preview-footer-status {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  flex: 0 0 auto !important;
+  color: #356b35 !important;
+  white-space: nowrap !important;
+}
+
+#page-relatorios .report-preview-footer-status svg {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+#page-relatorios .report-preview-footer-status strong {
+  font-size: 12px !important;
+  line-height: 1.1 !important;
+}
+
+#page-relatorios .report-preview-footer > span:last-child {
+  text-align: right !important;
+}
+
+body.dark #page-relatorios .report-preview-footer {
+  border-color: #4d5849 !important;
+  background: #293127 !important;
+  color: #ddd6ce !important;
+}
+
+body.dark #page-relatorios .report-preview-footer-status {
+  color: #b9dfad !important;
+}
+
+@media (max-width: 720px) {
+  #page-relatorios .report-preview-footer {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  #page-relatorios .report-preview-footer > span:last-child {
+    text-align: left !important;
+  }
+}

@@ -1,0 +1,137 @@
+/* v2.0.117.28.26 — cards territoriais visíveis abaixo do mapa e dos rankings */
+
+#page-territorio .territory-polished-layout + .bottom-cards.territory-summary-strip{
+  display:grid !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+
+#page-territorio .territory-summary-strip{
+  margin:14px 0 0 !important;
+  align-items:stretch !important;
+  grid-template-columns:1fr 1fr 1fr !important;
+  gap:14px !important;
+}
+
+#page-territorio .territory-summary-strip > .card{
+  height:190px !important;
+  min-height:190px !important;
+  max-height:190px !important;
+  padding:16px 18px !important;
+  overflow:hidden !important;
+}
+
+#page-territorio .territory-summary-strip h3{
+  margin:0 0 14px !important;
+  font-size:13px !important;
+  line-height:1.15 !important;
+  font-weight:900 !important;
+  text-transform:uppercase !important;
+}
+
+#page-territorio .territory-summary-strip .housing-reading-grid{
+  height:132px !important;
+  min-height:132px !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:0 !important;
+}
+
+#page-territorio .territory-summary-strip .reading-item{
+  min-height:124px !important;
+  padding:8px 10px !important;
+  border-left:1px solid var(--line) !important;
+}
+
+#page-territorio .territory-summary-strip .reading-item:first-child{
+  border-left:0 !important;
+}
+
+#page-territorio .territory-summary-strip .mini-icon{
+  width:42px !important;
+  height:42px !important;
+  margin:0 auto 9px !important;
+}
+
+#page-territorio .territory-summary-strip .reading-item small{
+  min-height:26px !important;
+  font-size:9px !important;
+  line-height:1.12 !important;
+  text-align:center !important;
+  text-transform:uppercase !important;
+}
+
+#page-territorio .territory-summary-strip .reading-item strong{
+  margin-top:4px !important;
+  font-size:16px !important;
+  line-height:1 !important;
+  text-align:center !important;
+}
+
+#page-territorio .territory-intensity-card .housing-intensity{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:12px !important;
+  height:132px !important;
+}
+
+#page-territorio .territory-intensity-card .intensity-block{
+  height:100% !important;
+  min-height:0 !important;
+  padding:14px 16px !important;
+  border:1px solid var(--line) !important;
+  border-radius:14px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+}
+
+#page-territorio .territory-intensity-card .muted{
+  font-size:10px !important;
+  line-height:1.15 !important;
+}
+
+#page-territorio .territory-intensity-card .metric-big{
+  margin:7px 0 5px !important;
+  font-size:29px !important;
+  line-height:1 !important;
+}
+
+#page-territorio .territory-intensity-card .intensity-note{
+  font-size:9px !important;
+  line-height:1.2 !important;
+}
+
+@media(max-width:1180px){
+  #page-territorio .territory-summary-strip{
+    grid-template-columns:1fr 1fr !important;
+  }
+  #page-territorio .territory-summary-strip > .card:last-child{
+    grid-column:1 / -1 !important;
+  }
+}
+
+@media(max-width:900px){
+  #page-territorio .territory-summary-strip{
+    width:100% !important;
+    grid-template-columns:1fr !important;
+  }
+  #page-territorio .territory-summary-strip > .card{
+    height:auto !important;
+    min-height:190px !important;
+    max-height:none !important;
+  }
+  #page-territorio .territory-summary-strip > .card:last-child{
+    grid-column:auto !important;
+  }
+}
+
+@media(max-width:560px){
+  #page-territorio .territory-summary-strip .housing-reading-grid,
+  #page-territorio .territory-intensity-card .housing-intensity{
+    height:auto !important;
+    grid-template-columns:1fr 1fr !important;
+  }
+  #page-territorio .territory-summary-strip .reading-item{
+    min-height:110px !important;
+  }
+}

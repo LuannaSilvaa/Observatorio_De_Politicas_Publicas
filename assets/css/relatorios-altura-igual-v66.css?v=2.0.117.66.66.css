@@ -1,0 +1,30 @@
+/* v2.0.117.66 — painéis da aba Relatórios com a mesma altura */
+
+@media (min-width:1181px){
+  #page-relatorios .report-grid.report-grid-detailed,
+  #page-relatorios .report-grid.polished-report-grid.report-grid-detailed{
+    align-items:stretch!important;
+  }
+
+  #page-relatorios .report-grid.report-grid-detailed > .report-config.polished-panel,
+  #page-relatorios .report-grid.report-grid-detailed > .report-preview.polished-panel,
+  #page-relatorios .report-grid.polished-report-grid.report-grid-detailed > .report-config.polished-panel,
+  #page-relatorios .report-grid.polished-report-grid.report-grid-detailed > .report-preview.polished-panel{
+    align-self:stretch!important;
+    height:auto!important;
+  }
+
+  #page-relatorios .report-grid.report-grid-detailed > .report-config.polished-panel,
+  #page-relatorios .report-grid.polished-report-grid.report-grid-detailed > .report-config.polished-panel{
+    grid-template-rows:auto auto auto auto minmax(54px,1fr)!important;
+    align-content:stretch!important;
+  }
+
+  #page-relatorios .report-grid.report-grid-detailed > .report-config.polished-panel > .config-actions,
+  #page-relatorios .report-grid.polished-report-grid.report-grid-detailed > .report-config.polished-panel > .config-actions{
+    grid-row:5!important;
+    align-self:end!important;
+    margin-top:0!important;
+  }
+}
+

@@ -1,0 +1,38 @@
+/* v2.0.117.60 — cinco posições inteiras no ranking da página inicial */
+
+@media(min-width:981px){
+  #pages #page-inicio article.home-exact-rank{
+    display:flex!important;
+    flex-direction:column!important;
+    overflow:hidden!important;
+  }
+
+  #pages #page-inicio article.home-exact-rank > .card-head{
+    flex:0 0 60px!important;
+  }
+
+  #pages #page-inicio article.home-exact-rank > .ranking-list{
+    display:grid!important;
+    grid-template-rows:repeat(5,minmax(0,1fr))!important;
+    gap:0!important;
+    flex:1 1 auto!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    padding:6px 18px 14px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+
+  #pages #page-inicio article.home-exact-rank > .ranking-list > .rank-row{
+    height:auto!important;
+    min-height:0!important;
+    padding:0!important;
+    box-sizing:border-box!important;
+  }
+
+  #pages #page-inicio article.home-exact-rank > .ranking-list > .rank-row:last-child{
+    padding-bottom:2px!important;
+  }
+}

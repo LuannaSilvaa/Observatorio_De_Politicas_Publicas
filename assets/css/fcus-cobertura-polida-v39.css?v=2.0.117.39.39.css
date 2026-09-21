@@ -1,0 +1,260 @@
+/* v2.0.117.39 — cobertura das FCUs mais legível, preservando o tamanho do cartão */
+
+#page-fcus .fcu-coverage-summary-card{
+  position:relative !important;
+  box-sizing:border-box !important;
+  background:linear-gradient(145deg,#ffffff 0%,#ffffff 64%,#f7faf5 100%) !important;
+  border-color:#ddd9d3 !important;
+}
+
+#page-fcus .fcu-coverage-heading{
+  height:20px !important;
+  min-height:20px !important;
+  margin:0 0 8px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  padding-right:30px !important;
+}
+
+#page-fcus .fcu-coverage-heading h3{
+  min-width:0 !important;
+  margin:0 !important;
+  font-size:13px !important;
+  line-height:1.1 !important;
+  letter-spacing:.012em !important;
+}
+
+#page-fcus .fcu-coverage-heading-icon{
+  width:20px !important;
+  height:20px !important;
+  flex:0 0 20px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:6px !important;
+  color:#3d7139 !important;
+  background:#eef6ea !important;
+  border:1px solid #dbe8d5 !important;
+}
+
+#page-fcus .fcu-coverage-heading-icon svg{
+  width:13px !important;
+  height:13px !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.8 !important;
+}
+
+#page-fcus .fcu-coverage-summary-card .fcu-summary-pairs{
+  height:130px !important;
+  min-height:130px !important;
+  gap:12px !important;
+}
+
+#page-fcus .fcu-coverage-summary-card .fcu-summary-pair{
+  --fcu-summary-accent:#4c7845;
+  position:relative !important;
+  height:130px !important;
+  min-height:130px !important;
+  padding:11px 14px 10px !important;
+  display:grid !important;
+  grid-template-rows:26px auto 6px auto !important;
+  align-content:center !important;
+  gap:4px !important;
+  overflow:hidden !important;
+  border-color:#dfe6dc !important;
+  border-radius:14px !important;
+  background:linear-gradient(155deg,#fff 0%,#fbfdf9 100%) !important;
+  box-shadow:0 3px 10px rgba(44,78,42,.045) !important;
+}
+
+#page-fcus .fcu-coverage-summary-card .fcu-summary-pair::after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 auto 0 0 !important;
+  width:3px !important;
+  background:var(--fcu-summary-accent) !important;
+  opacity:.85 !important;
+}
+
+#page-fcus .fcu-coverage-summary-card .fcu-summary-pair-coverage{
+  --fcu-summary-accent:#357449;
+  background:linear-gradient(155deg,#fff 0%,#f7fbf8 100%) !important;
+}
+
+#page-fcus .fcu-summary-pair-head{
+  min-width:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:8px !important;
+}
+
+#page-fcus .fcu-summary-pair-icon{
+  width:26px !important;
+  height:26px !important;
+  flex:0 0 26px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:8px !important;
+  color:var(--fcu-summary-accent) !important;
+  background:#edf5e9 !important;
+  border:1px solid #dce9d6 !important;
+}
+
+#page-fcus .fcu-summary-pair-coverage .fcu-summary-pair-icon{
+  background:#eaf5ed !important;
+  border-color:#d4e8da !important;
+}
+
+#page-fcus .fcu-summary-pair-icon svg{
+  width:16px !important;
+  height:16px !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.8 !important;
+}
+
+#page-fcus .fcu-coverage-summary-card .fcu-summary-pair .muted{
+  min-width:0 !important;
+  font-size:10px !important;
+  line-height:1.15 !important;
+  font-weight:700 !important;
+  color:#5e665b !important;
+}
+
+#page-fcus .fcu-coverage-summary-card .fcu-summary-pair .metric-big{
+  margin:1px 0 0 !important;
+  font-size:27px !important;
+  line-height:1 !important;
+  letter-spacing:-.025em !important;
+  color:#172117 !important;
+  font-variant-numeric:tabular-nums !important;
+}
+
+#page-fcus .fcu-summary-progress{
+  width:100% !important;
+  height:6px !important;
+  overflow:hidden !important;
+  border-radius:999px !important;
+  background:#e8ece5 !important;
+  box-shadow:inset 0 0 0 1px rgba(58,88,54,.035) !important;
+}
+
+#page-fcus .fcu-summary-progress i{
+  display:block !important;
+  height:100% !important;
+  max-width:100% !important;
+  border-radius:inherit !important;
+  background:linear-gradient(90deg,var(--fcu-summary-accent),#76a36d) !important;
+}
+
+#page-fcus .fcu-coverage-summary-card .fcu-summary-pair small{
+  min-width:0 !important;
+  margin:0 !important;
+  font-size:8.8px !important;
+  line-height:1.15 !important;
+  color:#74706a !important;
+  white-space:normal !important;
+}
+
+#page-fcus .fcu-coverage-summary-card .fcu-summary-pair small strong{
+  color:#3f5f3b !important;
+  font-weight:850 !important;
+}
+
+#page-fcus .fcu-coverage-summary-card > .context-help{
+  top:10px !important;
+  right:11px !important;
+  width:25px !important;
+  height:25px !important;
+  border:1px solid #c9d8c4 !important;
+  border-radius:50% !important;
+  color:#476d42 !important;
+  background:#f8fbf6 !important;
+  box-shadow:0 3px 9px rgba(44,78,42,.10) !important;
+  font-size:11px !important;
+  font-weight:850 !important;
+}
+
+#page-fcus .fcu-coverage-summary-card > .context-help:hover,
+#page-fcus .fcu-coverage-summary-card > .context-help:focus{
+  color:#fff !important;
+  border-color:#416e3c !important;
+  background:#416e3c !important;
+}
+
+body.dark #page-fcus .fcu-coverage-summary-card{
+  background:linear-gradient(145deg,#171a16 0%,#171a16 64%,#1b241a 100%) !important;
+  border-color:#414a3e !important;
+}
+
+body.dark #page-fcus .fcu-coverage-heading-icon,
+body.dark #page-fcus .fcu-summary-pair-icon{
+  color:#a8d29e !important;
+  background:#233021 !important;
+  border-color:#43523f !important;
+}
+
+body.dark #page-fcus .fcu-coverage-summary-card .fcu-summary-pair{
+  background:linear-gradient(155deg,#1a1d19 0%,#1e261d 100%) !important;
+  border-color:#414a3e !important;
+}
+
+body.dark #page-fcus .fcu-coverage-summary-card .fcu-summary-pair .muted,
+body.dark #page-fcus .fcu-coverage-summary-card .fcu-summary-pair small{
+  color:#c7c2ba !important;
+}
+
+body.dark #page-fcus .fcu-coverage-summary-card .fcu-summary-pair .metric-big,
+body.dark #page-fcus .fcu-coverage-summary-card .fcu-summary-pair small strong{
+  color:#f5f4ef !important;
+}
+
+body.dark #page-fcus .fcu-summary-progress{
+  background:#343b31 !important;
+}
+
+body.dark #page-fcus .fcu-coverage-summary-card > .context-help{
+  color:#b9ddaf !important;
+  background:#202a1f !important;
+  border-color:#52634e !important;
+}
+
+body.high-contrast #page-fcus .fcu-coverage-summary-card,
+body.high-contrast #page-fcus .fcu-coverage-summary-card .fcu-summary-pair{
+  color:#fff !important;
+  background:#000 !important;
+  border-color:#fff !important;
+}
+
+body.high-contrast #page-fcus .fcu-coverage-heading-icon,
+body.high-contrast #page-fcus .fcu-summary-pair-icon,
+body.high-contrast #page-fcus .fcu-coverage-summary-card > .context-help{
+  color:#fff !important;
+  background:#000 !important;
+  border-color:#fff !important;
+}
+
+body.high-contrast #page-fcus .fcu-coverage-summary-card .fcu-summary-pair .muted,
+body.high-contrast #page-fcus .fcu-coverage-summary-card .fcu-summary-pair .metric-big,
+body.high-contrast #page-fcus .fcu-coverage-summary-card .fcu-summary-pair small,
+body.high-contrast #page-fcus .fcu-coverage-summary-card .fcu-summary-pair small strong{
+  color:#fff !important;
+}
+
+body.high-contrast #page-fcus .fcu-summary-progress{
+  background:#000 !important;
+  border:1px solid #fff !important;
+}
+
+@media(max-width:560px){
+  #page-fcus .fcu-coverage-summary-card .fcu-summary-pairs{
+    height:auto !important;
+    min-height:0 !important;
+  }
+
+  #page-fcus .fcu-coverage-summary-card .fcu-summary-pair{
+    height:124px !important;
+    min-height:124px !important;
+  }
+}

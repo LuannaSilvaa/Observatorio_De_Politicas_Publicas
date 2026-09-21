@@ -1,0 +1,47 @@
+/* v2.0.117.28.6 — layout final sem esticamento ou colapso dos cards */
+
+@media (min-width:1181px){
+  #page-territorio .territory-polished-layout{
+    container-type:normal !important;
+    align-items:start !important;
+  }
+
+  #page-territorio .territory-polished-map{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    aspect-ratio:965 / 843 !important;
+    align-self:start !important;
+  }
+
+  #page-territorio .territory-polished-side{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    display:grid !important;
+    grid-template-rows:auto auto !important;
+    gap:clamp(12px,1vw,18px) !important;
+    align-content:start !important;
+    align-self:start !important;
+  }
+
+  #page-territorio .territory-polished-rank{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    aspect-ratio:646 / 421 !important;
+    align-self:start !important;
+  }
+
+  #page-territorio .territory-polished-coverage{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    aspect-ratio:646 / 404 !important;
+    align-self:start !important;
+  }
+}

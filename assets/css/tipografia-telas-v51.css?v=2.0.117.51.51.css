@@ -1,0 +1,43 @@
+/* v2.0.117.51 — reforço de legibilidade nas telas de metodologia, downloads e relatórios */
+#pages .page .section-kicker{font-size:14px !important;line-height:1.2 !important}
+#pages .page .method-section-title{font-size:19px !important;line-height:1.2 !important}
+#pages .page .section-heading-row>p{font-size:13px !important;line-height:1.4 !important}
+#pages .page .source-card h3,#pages .page .process-card h3,#pages .page .formula-head h3{font-size:16px !important;line-height:1.25 !important}
+#pages .page .source-card p,#pages .page .process-card p,#pages .page .formula-card p{font-size:14px !important;line-height:1.45 !important}
+#pages .page .source-type,.source-card small{font-size:12px !important}
+#pages .page .process-number{font-size:13px !important}
+#pages .page .formula{font-size:14px !important;line-height:1.35 !important}
+#pages .page .about-info-head h3,#pages .page .about-bottom h3{font-size:16px !important}
+#pages .page .about-info-card p,#pages .page .about-card-foot,#pages .page .about-bottom p{font-size:14px !important;line-height:1.5 !important}
+#pages .page .timeline-step strong,#pages .page .timeline-step span{font-size:14px !important}
+#pages .page .download-summary-strip span,#pages .page .download-summary-strip b{font-size:14px !important}
+#pages .page .download-card h3{font-size:17px !important;line-height:1.25 !important}
+#pages .page .download-card p{font-size:14px !important;line-height:1.5 !important}
+#pages .page .download-card small,#pages .page .download-meta,#pages .page .download-card button,#pages .page .tag{font-size:13px !important}
+#pages .page .report-config .panel-intro,#pages .page .report-preview .panel-intro{font-size:14px !important;line-height:1.45 !important}
+#pages .page .config-section h3{font-size:16px !important}
+#pages .page .config-help,#pages .page .config-section p{font-size:14px !important;line-height:1.45 !important}
+#pages .page .config-fields label,#pages .page .config-fields select{font-size:14px !important}
+#pages .page .visual-option{font-size:14px !important}
+#pages .page .list-card h3{font-size:16px !important}
+#pages .page .list-row,#pages .page .list-row strong,#pages .page .card-explain{font-size:14px !important;line-height:1.45 !important}
+#pages .page .inline-link,#pages .page .generate-btn{font-size:15px !important}
+#pages .page .map-legend-panel p,#pages .page .legend-line,#pages .page .legend-help{font-size:14px !important;line-height:1.5 !important}
+#pages .page .map-legend-panel strong{font-size:17px !important}
+#pages .page .rank-name,#pages .page .rank-value{font-size:16px !important}
+#pages .page .rank-pos{font-size:14px !important}
+#pages .page .ref-legend-row span{font-size:16px !important}
+#pages .page .ref-legend-row small{font-size:14px !important}
+#pages .page .ref-legend-row b{font-size:16px !important}
+#pages .page .summary-lines span,#pages .page .muted{font-size:14px !important}
+#pages .page .reading-item small{font-size:13px !important}
+#pages .page .reading-item strong{font-size:20px !important}
+#pages .page .ref-summary-box small{font-size:12px !important}
+#pages .page .ref-summary-box strong{font-size:18px !important}
+#pages .page .ref-summary-box em{font-size:13px !important}
+#pages .page .target-map-source,#pages .page .target-map-legend small{font-size:13px !important}
+@media(max-width:600px){
+  #pages .page .method-section-title{font-size:18px !important}
+  #pages .page .source-card p,#pages .page .process-card p,#pages .page .formula-card p,#pages .page .about-info-card p,#pages .page .download-card p,#pages .page .config-help,#pages .page .config-section p{font-size:13px !important}
+  #pages .page .rank-name,#pages .page .rank-value,#pages .page .ref-legend-row span{font-size:14px !important}
+}

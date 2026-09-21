@@ -1,0 +1,174 @@
+/* v2.0.117.42 — gráfico de distribuição mais alto e mapa alinhado à coluna lateral */
+
+@media (min-width:1281px){
+  #page-infraestrutura .infra-split{
+    align-items:stretch !important;
+  }
+
+  #page-infraestrutura .infra-map-card{
+    height:708px !important;
+    min-height:708px !important;
+    max-height:708px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    overflow:hidden !important;
+  }
+
+  #page-infraestrutura .infra-map-card .map-frame{
+    flex:1 1 auto !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+  }
+
+  #page-infraestrutura .infra-side{
+    height:708px !important;
+    min-height:708px !important;
+    max-height:708px !important;
+    display:grid !important;
+    grid-template-rows:272px 420px !important;
+    gap:16px !important;
+    align-items:stretch !important;
+    align-content:stretch !important;
+  }
+
+  #page-infraestrutura .infra-side > .rank-card{
+    height:272px !important;
+    min-height:272px !important;
+    max-height:272px !important;
+  }
+
+  #page-infraestrutura .infra-side > .infra-distribution-card{
+    height:420px !important;
+    min-height:420px !important;
+    max-height:420px !important;
+    overflow:hidden !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference{
+    box-sizing:border-box !important;
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    display:grid !important;
+    grid-template-rows:minmax(0,1fr) 88px !important;
+    gap:9px !important;
+    padding:0 12px 12px !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference > .donut-wrap{
+    box-sizing:border-box !important;
+    min-height:0 !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:8px 10px 6px !important;
+    display:grid !important;
+    grid-template-columns:225px minmax(0,1fr) !important;
+    gap:18px !important;
+    align-items:center !important;
+    align-content:center !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference .donut{
+    width:210px !important;
+    height:210px !important;
+    justify-self:center !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference .donut-center{
+    padding:0 12px !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference .donut-center .chart-center-value{
+    font-size:22px !important;
+    line-height:1 !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference .donut-center span{
+    margin-top:4px !important;
+    font-size:9px !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference .donut-legend{
+    width:100% !important;
+    min-width:0 !important;
+    gap:7px !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference .donut-item{
+    min-height:38px !important;
+    grid-template-columns:10px minmax(0,1fr) auto !important;
+    gap:9px !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference .donut-item i{
+    width:9px !important;
+    height:9px !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference .donut-item span,
+  #page-infraestrutura .infra-distribution-card .infra-index-reference .donut-item b{
+    font-size:11px !important;
+    line-height:1.15 !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference .donut-item small{
+    margin-top:3px !important;
+    font-size:9px !important;
+    line-height:1.15 !important;
+  }
+
+  #page-infraestrutura .infra-index-summary{
+    min-height:88px !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:8px !important;
+  }
+
+  #page-infraestrutura .infra-index-summary .ref-summary-box{
+    min-height:88px !important;
+    grid-template-columns:32px minmax(0,1fr) !important;
+    gap:8px !important;
+    padding:9px 8px 9px 11px !important;
+    border-radius:12px !important;
+  }
+
+  #page-infraestrutura .infra-index-summary .ref-summary-icon{
+    width:30px !important;
+    height:30px !important;
+  }
+
+  #page-infraestrutura .infra-index-summary .ref-summary-icon svg{
+    width:17px !important;
+    height:17px !important;
+  }
+
+  #page-infraestrutura .infra-index-summary .ref-summary-box small{
+    margin:0 0 4px !important;
+    font-size:6.7px !important;
+    line-height:1.12 !important;
+  }
+
+  #page-infraestrutura .infra-index-summary .ref-summary-box strong{
+    font-size:12px !important;
+    line-height:1.08 !important;
+  }
+
+  #page-infraestrutura .infra-index-summary .ref-summary-box em{
+    margin-top:3px !important;
+    font-size:8px !important;
+  }
+}
+
+@media (min-width:981px) and (max-width:1280px){
+  #page-infraestrutura .infra-map-card,
+  #page-infraestrutura .infra-side{
+    min-height:650px !important;
+  }
+
+  #page-infraestrutura .infra-map-card .map-frame{
+    min-height:590px !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference > .donut-wrap{
+    min-height:255px !important;
+  }
+}

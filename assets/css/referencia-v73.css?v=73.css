@@ -1,0 +1,84 @@
+/* v73 — padrão das referências; os dados e mapas continuam sendo elementos reais. */
+:root{--sidebar:194px}
+html{overflow-x:clip}
+body{font-family:"Segoe UI",Arial,sans-serif}
+.nav-group-label{font-size:11px;font-weight:800;letter-spacing:.05em;color:#9db3a4;padding:22px 12px 9px}
+.sidebar .side-nav{flex:1;min-height:0;padding:5px 12px;overflow-y:auto}
+.sidebar .brand{flex-shrink:0}
+.sidebar .nav-item{flex-shrink:0;min-height:50px}
+.sidebar .side-bottom{flex-shrink:0;margin-top:0;padding:10px 14px 14px}
+.sidebar .theme-toggle{height:46px}
+.share-trigger{color:#3f7337!important;border-color:#b8ceac!important;background:#f8fbf5!important}
+.home-axes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:14px}
+.home-axis{display:flex;gap:12px;min-height:132px;padding:16px;border-bottom:3px solid #709966;background:linear-gradient(115deg,#fff,#f7faf4)}
+.home-axis:nth-child(2){border-bottom-color:#e97330}.home-axis:nth-child(3){border-bottom-color:#7e9ec7}.home-axis:nth-child(4){border-bottom-color:#c28b4a}
+.home-axis-icon{width:38px;height:40px;border-radius:12px;background:#edf4e8;color:#497a3e;display:grid;place-items:center;flex-shrink:0}
+.home-axis:nth-child(2) .home-axis-icon{background:#fff1e8;color:#e65a16}.home-axis:nth-child(3) .home-axis-icon{background:#eef4fa;color:#4c7faa}
+.home-axis-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6}
+.home-axis h2{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:#65615b;margin:2px 0 5px}
+.home-axis strong{display:block;font-size:20px;line-height:1.3}.home-axis small{display:block;margin-top:2px;font-size:12px;color:var(--muted)}
+.home-axis button{border:0;background:transparent;color:#41733a;padding:9px 0 0;font-size:14px;font-weight:750;text-align:left}
+.guiding-questions{padding:20px;margin:0 0 14px;background:linear-gradient(100deg,#f7f9f3,#fffaf6)}
+.guiding-questions>span{font-size:12px}.guiding-questions h2{font-size:20px;margin:18px 0}.guiding-questions p{font-size:14px;margin:0 0 14px}
+.guiding-questions>div{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.guiding-questions button{background:var(--card);color:var(--ink);border:1px solid #e5d6c9;border-radius:9px;text-align:left;padding:13px 10px;min-height:58px;font-size:14px;line-height:1.45}
+.guiding-questions button:hover{border-color:var(--orange);box-shadow:0 0 0 2px #e65a1614}
+/* Equal-width grids replace accumulated fixed pixel expansions. */
+#page-inicio .home-exact-primary,#page-territorio .territory-polished-layout,#page-fcus .fcu-exact-layout,#page-habitacao .housing-split,#page-infraestrutura .infra-split{display:grid!important;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)!important;width:100%!important;max-width:100%!important;gap:16px!important;align-items:stretch!important}
+#page-inicio .home-exact-right,#page-territorio .territory-polished-side,#page-fcus .fcu-exact-side,#page-habitacao .housing-side,#page-infraestrutura .infra-side{display:grid!important;grid-template-rows:auto minmax(0,1fr)!important;gap:16px!important;width:100%!important;min-width:0!important;height:auto!important;max-height:none!important;align-self:stretch!important}
+#page-inicio .home-exact-map,#page-territorio .territory-polished-map,#page-fcus .fcu-exact-map-card,#page-habitacao .housing-map-card,#page-infraestrutura .infra-map-card{display:flex!important;flex-direction:column!important;width:100%!important;min-width:0!important;height:auto!important;min-height:650px!important;max-height:none!important}
+#page-inicio #homeMap,#page-territorio #territoryMap,#page-fcus #fcuMap,#page-habitacao #housingMap,#page-infraestrutura #infraMap{flex:1 1 auto!important;height:auto!important;min-height:500px!important;max-height:none!important;width:100%!important}
+#page-inicio .home-exact-rank,#page-territorio .territory-polished-rank,#page-fcus .fcu-exact-rank-card,#page-habitacao .housing-side>.rank-card,#page-infraestrutura .infra-side>.rank-card{height:auto!important;min-height:0!important;max-height:none!important;width:100%!important}
+#page-inicio .home-exact-modality,#page-territorio .territory-polished-coverage,#page-fcus .fcu-exact-modality-card,#page-habitacao .housing-donut-card,#page-infraestrutura .infra-distribution-card{display:flex!important;flex-direction:column!important;height:auto!important;min-height:0!important;max-height:none!important;width:100%!important;align-self:stretch!important;overflow:visible!important}
+#page-territorio .ref-coverage-content,#page-fcus .ref-modality-content,#page-inicio .ref-modality-content{flex:1!important;height:auto!important;min-height:0!important;max-height:none!important}
+#page-territorio .ref-coverage-panel{height:auto!important;min-height:220px!important}
+#page-territorio .territory-summary-strip,#page-fcus .fcu-summary-strip,.bottom-cards{width:100%!important;max-width:100%!important}
+.territory-svg{width:100%!important;height:100%!important;object-fit:contain!important;transform:none!important}
+.map-frame:not(.expanded-map-frame) .territory-svg{position:absolute;inset:0}
+.card-head{height:auto!important;min-height:58px;flex-shrink:0;padding-top:14px!important;padding-bottom:14px!important}
+.card-head h2,.card-head h3{overflow-wrap:anywhere}
+.page .kpi-card{height:auto!important;max-height:none!important;min-height:110px!important}
+.page .kpi-card .kpi-copy strong{font-size:clamp(20px,1.5vw,28px)!important;overflow-wrap:anywhere}
+.rank-row .rank-name{white-space:normal!important;overflow:visible!important;line-height:1.35!important}
+.rank-row{min-height:34px!important}.ranking-list{padding-bottom:14px!important}
+.ref-donut-hole strong{font-size:clamp(14px,1.2vw,21px)!important;white-space:nowrap}
+.ref-summary-box{min-width:0!important}.ref-summary-box strong{overflow-wrap:anywhere}
+/* Comparison table and relationship chart match the supplied composition. */
+.comparison-card{padding:20px;margin-bottom:14px}
+.comparison-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:22px;margin-bottom:16px}
+.comparison-heading h2{margin:5px 0;font-size:21px}.comparison-heading p{margin:5px 0;color:var(--muted);font-size:14px;line-height:1.5}
+.comparison-heading>label{min-width:200px;font-size:14px;font-weight:750;color:var(--muted)}
+.comparison-card select{display:block;width:100%;margin-top:7px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font-size:14px;min-height:38px}
+.comparison-selectors{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;align-items:end;gap:9px;background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:13px;margin-bottom:18px}
+.comparison-selectors label{font-size:14px;font-weight:650;color:var(--muted);min-width:0}.comparison-selectors .generate-btn{width:auto;height:40px;padding:0 14px;margin:0;white-space:nowrap}
+.comparison-active{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:10px}.comparison-active h3{margin:5px 0 0;font-size:16px;line-height:1.4}.comparison-active .ghost-btn{height:38px;color:#47773a;font-size:14px;white-space:nowrap}
+.comparison-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:9px}
+.comparison-table{width:100%;border-collapse:collapse;min-width:700px;font-size:13px;table-layout:fixed}
+.comparison-table th,.comparison-table td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:right;overflow-wrap:anywhere}
+.comparison-table thead{background:var(--bg);color:#47703b}.comparison-table thead th{font-size:14px}.comparison-table th:first-child{text-align:left;width:22%}.comparison-table tbody th{font-weight:500}
+.comparison-table .highest{background:#edf5e8;color:#365f2c;font-weight:750}
+.comparison-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.comparison-highlights>div{padding:12px;border:1px solid var(--line);border-radius:9px;background:var(--bg)}.comparison-highlights small,.comparison-highlights b,.comparison-highlights strong{display:block;font-size:13px;margin-bottom:4px}.comparison-highlights small{color:var(--muted)}.comparison-highlights strong{color:#48703a}
+.comparison-foot{display:flex;flex-wrap:wrap;gap:18px;padding:14px 8px 0;border-top:1px solid var(--line);margin-top:12px;font-size:12px}.comparison-foot span:last-child{color:#b95221;margin-left:auto}
+.relation-plot{border:1px solid var(--line);border-radius:11px;padding:10px;overflow:hidden}.relation-plot svg{width:100%;height:auto}.relation-plot text{font:13px "Segoe UI",Arial,sans-serif;fill:var(--muted)}.relation-plot .relation-axis-title{font-size:17px}.relation-grid{stroke:var(--line);stroke-width:.65}.relation-mean{stroke:#bd9b85;stroke-width:1.3;stroke-dasharray:6 7}.relation-caption{display:flex;flex-wrap:wrap;gap:18px;padding:12px 0;font-size:12px}.relation-caption i{display:inline-block;width:8px;height:8px;background:#517f43;border-radius:50%;margin-right:7px}.relation-caption .selected{background:#e76c32}.relation-note{font-size:13px;color:var(--muted);line-height:1.5;margin:0}
+.empty-state{padding:30px;text-align:center;color:var(--muted)}.share-address{width:100%;padding:14px}
+button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #e68035!important;outline-offset:3px}
+.filter-option input{display:block!important;position:absolute;opacity:0;width:1px;height:1px}.filter-option:focus-within{outline:2px solid #e68035;outline-offset:-2px}
+body.dark .home-axis,body.dark .guiding-questions{background:var(--card)!important}body.dark .home-axis h2,body.dark .home-axis strong{color:var(--ink)}body.dark .comparison-table .highest{background:#26402b;color:#d9efcf}
+body.high-contrast .home-axis,body.high-contrast .guiding-questions,body.high-contrast .comparison-highlights>div,body.high-contrast .comparison-selectors{background:#fff;color:#000}body.high-contrast .comparison-table .highest{background:#d9f0b8;color:#000}
+@media(max-width:1400px){.home-axes{grid-template-columns:repeat(2,minmax(0,1fr))}.guiding-questions>div{grid-template-columns:repeat(3,minmax(0,1fr))}.comparison-selectors{grid-template-columns:repeat(2,minmax(0,1fr))}.comparison-selectors .generate-btn{grid-column:1/-1}.page .kpi-grid.six{grid-template-columns:repeat(3,minmax(0,1fr))!important}.page .kpi-grid.five{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:1180px){
+#page-inicio .home-exact-primary,#page-territorio .territory-polished-layout,#page-fcus .fcu-exact-layout,#page-habitacao .housing-split,#page-infraestrutura .infra-split{grid-template-columns:minmax(0,1fr)!important}
+#page-inicio .home-exact-map,#page-territorio .territory-polished-map,#page-fcus .fcu-exact-map-card,#page-habitacao .housing-map-card,#page-infraestrutura .infra-map-card{min-height:560px!important}
+.page .bottom-cards,.page .territory-summary-strip,.page .indicator-bottom{grid-template-columns:repeat(2,minmax(0,1fr))!important}.page .polished-report-grid{grid-template-columns:minmax(0,1fr)!important}.page .analytics-main{grid-template-columns:minmax(0,1fr)!important}
+.filters-row{grid-template-columns:repeat(3,minmax(0,1fr))!important}.site-header{height:auto!important;min-height:111px;flex-wrap:wrap}.site-header .header-logo{width:160px}.header-actions{margin-left:auto}
+}
+@media(max-width:760px){
+:root{--sidebar:194px}.sidebar{transform:translateX(-100%)!important}.sidebar.open{transform:translateX(0)!important}.app-shell{margin-left:0!important;padding:60px 12px 18px!important;width:100%!important}.mobile-menu{display:block!important;position:fixed;top:12px;left:12px;z-index:80}.mobile-overlay.show{display:block!important;position:fixed;inset:0;background:#0006;z-index:50}
+.home-axes,.guiding-questions>div,.comparison-highlights{grid-template-columns:1fr}.guiding-questions{padding:16px}.comparison-heading,.comparison-active{flex-direction:column;align-items:stretch}.comparison-heading>label{width:100%}.comparison-selectors{grid-template-columns:1fr}.comparison-card{padding:14px}.relation-plot{padding:0}.relation-plot svg{min-width:580px}.relation-plot{overflow-x:auto}.comparison-foot span:last-child{margin-left:0}
+.filters-row{grid-template-columns:repeat(2,minmax(0,1fr))!important}.filter-summary{height:auto!important;min-height:54px;grid-template-columns:1fr auto!important;padding:10px 5px}.filter-summary>span{grid-column:1/-1;grid-row:2;white-space:normal}.filter-menu{max-width:min(330px,calc(100vw - 32px))}.filter-control:nth-child(even) .filter-menu{left:auto;right:0}.filter-trigger{padding:0 8px;grid-template-columns:20px minmax(0,1fr) 12px;gap:4px}.filter-copy small{font-size:11px!important}
+.page .kpi-grid.six,.page .kpi-grid.five,.page .bottom-cards,.page .territory-summary-strip,.page .indicator-bottom,.page .analytics-right{grid-template-columns:1fr!important}.page .kpi-card{min-height:110px!important}.header-actions{width:100%;justify-content:flex-start}.header-logo{display:none}.site-header h1{font-size:25px!important;line-height:1.2!important}.site-header p{font-size:14px!important;line-height:1.5!important}
+.page .reading-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;height:auto!important;row-gap:16px}.page .metric-card{height:auto!important;max-height:none!important}.ref-panel{grid-template-columns:1fr!important}.ref-donut{margin:auto!important}.ref-modality-summary{grid-template-columns:repeat(2,minmax(0,1fr))!important;height:auto!important}.ref-modality-content.with-summary{grid-template-rows:auto auto!important}.ref-summary-box{min-height:90px!important}.site-footer{flex-wrap:wrap;gap:8px}
+}
+@media print{.share-trigger,.guiding-questions,.home-axes{display:none!important}.comparison-table .highest{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+.report-real-map{width:100%;height:320px!important;min-height:320px!important;border-radius:8px}.preview-map:has(.report-real-map){display:block!important;padding:0!important}.report-data-table{margin-top:20px}.report-data-table h3{font-size:16px}.report-data-table .comparison-table{min-width:440px;font-size:12px}.visual-option>input{width:18px;height:18px;accent-color:#477739;cursor:pointer}
+@media print{.pages .page{display:none!important}.pages #page-relatorios{display:block!important}.app-shell{padding:0!important}.report-preview-footer,.report-real-map .svg-map-controls,.report-real-map .map-wheel-hint{display:none!important}.report-data-table{break-inside:avoid}.report-real-map{height:220px!important;min-height:220px!important}.report-preview .preview-sheet{color:#111!important;background:#fff!important}.comparison-table-wrap{overflow:visible!important}}

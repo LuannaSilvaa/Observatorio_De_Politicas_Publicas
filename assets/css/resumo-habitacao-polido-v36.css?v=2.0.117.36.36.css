@@ -1,0 +1,103 @@
+/* v2.0.117.36 — resumo habitacional mais legível sem alterar o tamanho dos cartões */
+#page-habitacao .ref-modality-summary{
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:8px !important;
+  align-items:stretch !important;
+}
+#page-habitacao .ref-modality-summary .ref-summary-box{
+  box-sizing:border-box !important;
+  position:relative !important;
+  display:grid !important;
+  grid-template-columns:34px minmax(0,1fr) !important;
+  align-items:center !important;
+  gap:9px !important;
+  height:96px !important;
+  min-height:96px !important;
+  max-height:96px !important;
+  padding:9px 10px !important;
+  border-radius:12px !important;
+  box-shadow:0 3px 10px rgba(52,89,49,.06) !important;
+  overflow:hidden !important;
+}
+#page-habitacao .ref-modality-summary .ref-summary-box::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 auto 0 0 !important;
+  width:3px !important;
+  background:#5c8c51 !important;
+  border-radius:12px 0 0 12px !important;
+}
+#page-habitacao .ref-modality-summary .ref-summary-box.blue::before{background:#63a0e0 !important}
+#page-habitacao .ref-modality-summary .ref-summary-box.rose::before{background:#df8496 !important}
+#page-habitacao .ref-modality-summary .ref-summary-icon{
+  width:32px !important;
+  height:32px !important;
+  border-radius:10px !important;
+  display:grid !important;
+  place-items:center !important;
+  background:#edf5e9 !important;
+  color:#3e7a3b !important;
+  box-shadow:inset 0 0 0 1px rgba(65,110,57,.07) !important;
+}
+#page-habitacao .ref-modality-summary .ref-summary-box.blue .ref-summary-icon{
+  background:#eaf4fd !important;
+  color:#438bd0 !important;
+}
+#page-habitacao .ref-modality-summary .ref-summary-box.rose .ref-summary-icon{
+  background:#fdf0f3 !important;
+  color:#d36e86 !important;
+}
+#page-habitacao .ref-modality-summary .ref-summary-icon svg{
+  width:17px !important;
+  height:17px !important;
+  stroke-width:1.9 !important;
+}
+#page-habitacao .ref-modality-summary .ref-summary-box > div:last-child{
+  min-width:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  align-items:flex-start !important;
+}
+#page-habitacao .ref-modality-summary .ref-summary-box small{
+  margin:0 0 5px !important;
+  color:#6a7164 !important;
+  font-size:7.5px !important;
+  line-height:1.18 !important;
+  letter-spacing:.025em !important;
+  font-weight:850 !important;
+}
+#page-habitacao .ref-modality-summary .ref-summary-box strong{
+  margin:0 !important;
+  color:#255f2c !important;
+  font-size:13.5px !important;
+  line-height:1.05 !important;
+  letter-spacing:-.01em !important;
+  font-weight:850 !important;
+  overflow-wrap:anywhere !important;
+}
+#page-habitacao .ref-modality-summary .ref-summary-box em{
+  margin:4px 0 0 !important;
+  color:#77736e !important;
+  font-size:8.5px !important;
+  line-height:1 !important;
+  font-style:normal !important;
+}
+@media(max-width:720px){
+  #page-habitacao .ref-modality-summary{
+    grid-template-columns:1fr 1fr !important;
+  }
+}
+@media(max-width:460px){
+  #page-habitacao .ref-modality-summary .ref-summary-box{
+    grid-template-columns:30px minmax(0,1fr) !important;
+    gap:7px !important;
+    padding:8px !important;
+  }
+  #page-habitacao .ref-modality-summary .ref-summary-icon{
+    width:29px !important;
+    height:29px !important;
+  }
+  #page-habitacao .ref-modality-summary .ref-summary-box small{font-size:7px !important}
+  #page-habitacao .ref-modality-summary .ref-summary-box strong{font-size:12.5px !important}
+}

@@ -1,0 +1,41 @@
+/* v2.0.117.28.27 — mapa e coluna de blocos da aba FCUs com a mesma altura */
+
+@media (min-width:1181px){
+  #page-fcus .fcu-exact-layout{
+    align-items:stretch !important;
+  }
+
+  #page-fcus .fcu-exact-map-card{
+    display:flex !important;
+    flex-direction:column !important;
+    align-self:stretch !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+  }
+
+  #page-fcus .fcu-exact-map-card .card-head{
+    flex:0 0 auto !important;
+  }
+
+  #page-fcus .fcu-exact-map-card .map-frame,
+  #page-fcus .fcu-exact-map-card.visual-chart-mode .visual-chart{
+    flex:1 1 auto !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+  }
+
+  #page-fcus .fcu-exact-side{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    align-self:stretch !important;
+  }
+
+  #page-fcus .fcu-exact-side > .card{
+    width:100% !important;
+    max-width:none !important;
+  }
+}

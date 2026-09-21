@@ -1,0 +1,70 @@
+/* v2.0.117.32 — síntese territorial usa toda a largura do cartão */
+
+#page-territorio .territory-summary-card{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+  justify-self:stretch !important;
+  overflow:hidden !important;
+}
+
+#page-territorio .territory-summary-card .housing-reading-grid{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+  justify-self:stretch !important;
+  align-self:stretch !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:0 !important;
+}
+
+#page-territorio .territory-summary-card .reading-item{
+  width:100% !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  text-align:center !important;
+  padding:8px 10px !important;
+  border-left:1px solid var(--line) !important;
+  border-right:0 !important;
+}
+
+#page-territorio .territory-summary-card .reading-item:first-child{
+  border-left:0 !important;
+}
+
+#page-territorio .territory-summary-card .reading-item .mini-icon{
+  flex:0 0 auto !important;
+  margin:0 auto 9px !important;
+}
+
+#page-territorio .territory-summary-card .reading-item small,
+#page-territorio .territory-summary-card .reading-item strong{
+  width:100% !important;
+  max-width:100% !important;
+  text-align:center !important;
+}
+
+#page-territorio .territory-summary-card .reading-item small{
+  min-height:26px !important;
+  line-height:1.12 !important;
+}
+
+#page-territorio .territory-summary-card .reading-item strong{
+  margin-top:4px !important;
+  line-height:1 !important;
+}
+
+@media(max-width:560px){
+  #page-territorio .territory-summary-card .housing-reading-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    height:auto !important;
+  }
+  #page-territorio .territory-summary-card .reading-item{
+    min-height:110px !important;
+  }
+}

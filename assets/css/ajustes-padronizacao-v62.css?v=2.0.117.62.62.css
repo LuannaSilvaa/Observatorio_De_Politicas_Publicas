@@ -1,0 +1,247 @@
+/* v2.0.117.62 — alinhamento final dos painéis sem sobreposição */
+
+/* Valores dos resumos: uma linha, com redução apenas quando o conteúdo é longo. */
+#pages .page[id][data-page] .bottom-cards .reading-item > strong{
+  white-space:nowrap!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+  text-wrap:nowrap!important;
+}
+
+#pages .page[id][data-page] .bottom-cards .reading-grid:not(.reading-grid-two) .reading-item{
+  padding-left:8px!important;
+  padding-right:8px!important;
+}
+
+#pages .page[id][data-page] .bottom-cards .reading-grid:not(.reading-grid-two) .reading-value-medium{
+  font-size:17px!important;
+  letter-spacing:-.015em!important;
+}
+
+#pages .page[id][data-page] .bottom-cards .reading-grid:not(.reading-grid-two) .reading-value-long{
+  font-size:15.5px!important;
+  letter-spacing:-.035em!important;
+}
+
+#pages .page[id][data-page] .bottom-cards .reading-grid-two .reading-item{
+  padding-left:14px!important;
+  padding-right:14px!important;
+}
+
+#pages .page[id][data-page] .bottom-cards .reading-grid-two .reading-item > strong{
+  font-size:18px!important;
+}
+
+/* FCUs e Habitação: os três cartões começam e terminam no mesmo eixo. */
+@media (min-width:1181px){
+  #page-fcus .fcu-summary-strip,
+  #page-habitacao .housing-bottom{
+    align-items:stretch!important;
+  }
+
+  #page-fcus .fcu-summary-strip > .metric-card,
+  #page-habitacao .housing-bottom > .metric-card{
+    min-height:196px!important;
+    height:auto!important;
+  }
+}
+
+/* Infraestrutura: altura suficiente para texto e indicadores, sem corte inferior. */
+@media (min-width:1181px){
+  #page-infraestrutura .infra-bottom{
+    align-items:stretch!important;
+    grid-auto-rows:minmax(278px,auto)!important;
+  }
+
+  #page-infraestrutura .infra-bottom > .card{
+    min-height:278px!important;
+    height:auto!important;
+  }
+
+  #page-infraestrutura .infra-summary-card .gauge-layout,
+  #page-infraestrutura .infra-coverage-card .gauge-layout{
+    flex:1 1 auto!important;
+    align-self:stretch!important;
+    align-content:center!important;
+  }
+}
+
+#page-infraestrutura .infra-reading-card > p{
+  flex:0 0 auto!important;
+  min-height:0!important;
+  margin:0 0 12px!important;
+  font-size:13px!important;
+  line-height:1.45!important;
+}
+
+#page-infraestrutura .infra-reading-card .reading-grid{
+  flex:0 0 auto!important;
+  min-height:112px!important;
+}
+
+#page-infraestrutura .infra-reading-card .reading-item{
+  min-height:112px!important;
+}
+
+/* Relatórios: cartões de elementos com conteúdo no mesmo eixo. */
+#page-relatorios .report-grid-detailed .visual-options{
+  grid-auto-rows:102px!important;
+  align-items:stretch!important;
+}
+
+#page-relatorios .report-grid-detailed .visual-option{
+  min-height:102px!important;
+  height:102px!important;
+  display:grid!important;
+  grid-template-columns:32px minmax(0,1fr)!important;
+  grid-template-rows:auto auto!important;
+  align-content:center!important;
+  align-items:center!important;
+  column-gap:10px!important;
+  row-gap:2px!important;
+  padding:12px 14px!important;
+}
+
+#page-relatorios .report-grid-detailed .visual-option > span{
+  grid-column:1!important;
+  grid-row:1 / 3!important;
+  align-self:center!important;
+  margin:0!important;
+}
+
+#page-relatorios .report-grid-detailed .visual-option > b,
+#page-relatorios .report-grid-detailed .visual-option > small{
+  grid-column:2!important;
+  min-width:0!important;
+  margin:0!important;
+  text-align:left!important;
+}
+
+/* Prévia do relatório: mapa e ranking ocupam a mesma altura; nomes ganham espaço. */
+#page-relatorios .report-visual-section .preview-body{
+  grid-template-columns:minmax(250px,1.04fr) minmax(330px,.96fr)!important;
+  align-items:stretch!important;
+  gap:18px!important;
+}
+
+#page-relatorios .report-visual-section .preview-map{
+  height:auto!important;
+  min-height:286px!important;
+}
+
+#page-relatorios .report-visual-section .preview-bars{
+  display:grid!important;
+  grid-template-rows:auto repeat(5,minmax(46px,1fr)) auto!important;
+  gap:0!important;
+  padding:0!important;
+  min-width:0!important;
+}
+
+#page-relatorios .report-visual-section .preview-bars h4{
+  margin:0!important;
+  padding:0 0 8px!important;
+  align-self:start!important;
+}
+
+#page-relatorios .report-visual-section .preview-bar{
+  grid-template-columns:minmax(150px,1.45fr) minmax(72px,.95fr) 52px!important;
+  gap:9px!important;
+  min-height:46px!important;
+  padding:7px 0!important;
+  border-bottom:1px solid #ebe4de!important;
+  align-items:center!important;
+}
+
+#page-relatorios .report-visual-section .preview-bar > span{
+  min-width:0!important;
+  line-height:1.3!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+}
+
+#page-relatorios .report-visual-section .preview-bar > b{
+  text-align:right!important;
+  white-space:nowrap!important;
+}
+
+#page-relatorios .report-visual-section .ranking-note{
+  margin:8px 0 0!important;
+  padding-top:0!important;
+}
+
+/* Downloads: mesma altura de linha e rótulos de formato sem quebra. */
+#page-downloads .polished-download-bottom{
+  align-items:stretch!important;
+}
+
+#page-downloads .polished-download-bottom > .card{
+  height:auto!important;
+  min-height:248px!important;
+}
+
+#page-downloads .format-row{
+  grid-template-columns:96px minmax(0,1fr)!important;
+  min-height:44px!important;
+  height:auto!important;
+  align-items:stretch!important;
+  overflow:hidden!important;
+}
+
+#page-downloads .format-row > b{
+  min-width:0!important;
+  padding:0 8px!important;
+  white-space:nowrap!important;
+  text-align:center!important;
+}
+
+#page-downloads .format-row > span{
+  display:flex!important;
+  align-items:center!important;
+  min-width:0!important;
+  padding:8px 12px!important;
+  line-height:1.4!important;
+}
+
+@media (max-width:1180px){
+  #page-infraestrutura .infra-bottom > .card{
+    height:auto!important;
+    min-height:240px!important;
+  }
+
+  #page-relatorios .report-visual-section .preview-body{
+    grid-template-columns:minmax(0,1fr) minmax(320px,.9fr)!important;
+  }
+}
+
+@media (max-width:760px){
+  #page-relatorios .report-visual-section .preview-body{
+    grid-template-columns:1fr!important;
+  }
+
+  #page-relatorios .report-visual-section .preview-map{
+    min-height:220px!important;
+  }
+
+  #page-relatorios .report-visual-section .preview-bar{
+    grid-template-columns:minmax(130px,1.35fr) minmax(58px,.8fr) 52px!important;
+  }
+
+  #page-downloads .format-row{
+    grid-template-columns:88px minmax(0,1fr)!important;
+  }
+}
+
+@media (max-width:480px){
+  #pages .page[id][data-page] .bottom-cards .reading-item > strong{
+    white-space:normal!important;
+    text-wrap:wrap!important;
+  }
+
+  #page-relatorios .report-visual-section .preview-bar{
+    grid-template-columns:minmax(0,1fr) 70px!important;
+  }
+
+  #page-relatorios .report-visual-section .preview-bar > i{
+    display:none!important;
+  }
+}

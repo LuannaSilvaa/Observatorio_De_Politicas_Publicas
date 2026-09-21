@@ -1,0 +1,94 @@
+/* v2.0.117.63 — resumo de infraestrutura equilibrado e sem cortes */
+
+@media (min-width:1181px){
+  #page-infraestrutura .infra-bottom{
+    grid-auto-rows:minmax(278px,auto)!important;
+    align-items:stretch!important;
+  }
+
+  #page-infraestrutura .infra-bottom > .card{
+    min-height:278px!important;
+    height:auto!important;
+    padding:16px 18px!important;
+  }
+}
+
+#page-infraestrutura .infra-summary-card .gauge-layout,
+#page-infraestrutura .infra-coverage-card .gauge-layout{
+  grid-template-columns:132px minmax(0,1fr)!important;
+  gap:18px!important;
+  align-items:center!important;
+  align-content:center!important;
+}
+
+#page-infraestrutura .infra-summary-card .summary-lines,
+#page-infraestrutura .infra-coverage-card .summary-lines{
+  align-self:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  padding-left:16px!important;
+}
+
+#page-infraestrutura .infra-summary-card .summary-lines span,
+#page-infraestrutura .infra-coverage-card .summary-lines span{
+  line-height:1.45!important;
+}
+
+/* O texto permanece legível, enquanto os indicadores sobem e ganham margem inferior. */
+#page-infraestrutura .infra-reading-card > h3{
+  margin-bottom:10px!important;
+}
+
+#page-infraestrutura .infra-reading-card > p{
+  margin:0 0 8px!important;
+  font-size:13px!important;
+  line-height:1.45!important;
+}
+
+#page-infraestrutura .infra-reading-card .reading-grid{
+  min-height:102px!important;
+  height:auto!important;
+  align-items:start!important;
+}
+
+#page-infraestrutura .infra-reading-card .reading-item{
+  min-height:102px!important;
+  height:auto!important;
+  grid-template-rows:42px 28px auto auto!important;
+  padding:0 8px 10px!important;
+}
+
+#page-infraestrutura .infra-reading-card .reading-item > small{
+  height:28px!important;
+  padding-top:6px!important;
+  line-height:1.15!important;
+}
+
+#page-infraestrutura .infra-reading-card .reading-item > strong{
+  margin-top:4px!important;
+  line-height:1.05!important;
+}
+
+@media (max-width:1180px){
+  #page-infraestrutura .infra-bottom > .card{
+    min-height:240px!important;
+    height:auto!important;
+  }
+}
+
+@media (max-width:600px){
+  #page-infraestrutura .infra-summary-card .gauge-layout,
+  #page-infraestrutura .infra-coverage-card .gauge-layout{
+    grid-template-columns:1fr!important;
+    justify-items:center!important;
+    text-align:center!important;
+  }
+
+  #page-infraestrutura .infra-summary-card .summary-lines,
+  #page-infraestrutura .infra-coverage-card .summary-lines{
+    width:100%!important;
+    padding:12px 0 0!important;
+    border-left:0!important;
+    border-top:2px solid #6f9c67!important;
+  }
+}

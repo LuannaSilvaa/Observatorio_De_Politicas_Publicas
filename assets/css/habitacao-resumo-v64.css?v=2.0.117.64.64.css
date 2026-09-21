@@ -1,0 +1,42 @@
+/* v2.0.117.64 — três cartões habitacionais com a mesma altura */
+
+@media (min-width:1181px){
+  #page-habitacao .housing-bottom{
+    grid-auto-rows:220px!important;
+    align-items:stretch!important;
+  }
+
+  #page-habitacao .housing-bottom > .metric-card{
+    box-sizing:border-box!important;
+    width:100%!important;
+    min-height:220px!important;
+    height:220px!important;
+    align-self:stretch!important;
+    padding:16px 18px!important;
+  }
+
+  #page-habitacao .housing-bottom > .metric-card > h3{
+    min-height:25px!important;
+    margin:0 0 16px!important;
+  }
+
+  #page-habitacao .housing-bottom > .metric-card > .reading-grid{
+    flex:1 1 auto!important;
+    height:auto!important;
+    min-height:0!important;
+    align-content:start!important;
+  }
+}
+
+@media (max-width:1180px){
+  #page-habitacao .housing-bottom > .metric-card{
+    min-height:220px!important;
+    height:auto!important;
+  }
+}
+
+@media (max-width:600px){
+  #page-habitacao .housing-bottom > .metric-card{
+    min-height:0!important;
+  }
+}

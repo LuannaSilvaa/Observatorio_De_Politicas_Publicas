@@ -1,0 +1,38 @@
+/* v2.0.117.28.23 — cards laterais estendidos até o limite direito visível */
+
+@media (min-width:901px){
+  #page-territorio,
+  #page-territorio .territory-polished-layout,
+  #page-territorio .territory-polished-side{
+    max-width:none !important;
+    overflow:visible !important;
+  }
+
+  #page-territorio .territory-polished-layout{
+    display:grid !important;
+    grid-template-columns:minmax(0,calc(53% - 9px)) minmax(0,calc(47% - 9px)) !important;
+    gap:18px !important;
+    align-items:start !important;
+  }
+
+  #page-territorio .territory-polished-map,
+  #page-territorio .territory-polished-side,
+  #page-territorio .territory-polished-rank,
+  #page-territorio .territory-polished-coverage{
+    min-width:0 !important;
+    max-width:none !important;
+  }
+}
+
+@media (max-width:900px){
+  #page-territorio .territory-polished-layout{
+    width:100% !important;
+    grid-template-columns:1fr !important;
+  }
+
+  #page-territorio .territory-polished-side,
+  #page-territorio .territory-polished-rank,
+  #page-territorio .territory-polished-coverage{
+    width:100% !important;
+  }
+}

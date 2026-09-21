@@ -1,0 +1,202 @@
+/* v2.0.117.38 — conteúdo dos rankings estendido até a borda interna, sem alterar os cartões */
+
+/* O wrapper e cada linha agora ocupam explicitamente toda a largura útil. */
+.rank-card .ranking-list--full,
+.ranking-list--full{
+  display:grid !important;
+  width:100% !important;
+  inline-size:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+  align-self:stretch !important;
+  justify-self:stretch !important;
+  justify-items:stretch !important;
+  box-sizing:border-box !important;
+}
+
+#page-inicio .rank-card .ranking-list--full,
+#page-territorio .rank-card .ranking-list--full,
+#page-indicadores .rank-card .ranking-list--full,
+#page-habitacao .rank-card .ranking-list--full,
+#page-fcus .rank-card .ranking-list--full,
+#page-infraestrutura .rank-card .ranking-list--full{
+  display:grid !important;
+  width:100% !important;
+  inline-size:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+  align-self:stretch !important;
+  justify-self:stretch !important;
+  justify-items:stretch !important;
+}
+
+.rank-card .rank-row--full,
+.ranking-list--full > .rank-row{
+  display:grid !important;
+  width:100% !important;
+  inline-size:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+  justify-self:stretch !important;
+  box-sizing:border-box !important;
+  grid-template-columns:28px minmax(0,1.18fr) minmax(0,1.72fr) 86px !important;
+  gap:12px !important;
+  align-items:center !important;
+}
+
+/* Mesma especificidade dos estilos antigos por página, porém com a regra nova por último. */
+#page-inicio .rank-card .rank-row--full,
+#page-territorio .rank-card .rank-row--full,
+#page-indicadores .rank-card .rank-row--full,
+#page-habitacao .rank-card .rank-row--full,
+#page-fcus .rank-card .rank-row--full,
+#page-infraestrutura .rank-card .rank-row--full{
+  width:100% !important;
+  inline-size:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+  justify-self:stretch !important;
+  grid-template-columns:28px minmax(0,1.18fr) minmax(0,1.72fr) 86px !important;
+  gap:12px !important;
+}
+
+/* O nome nunca mais é reduzido por reticências: ele quebra dentro da coluna. */
+.rank-card .rank-row--full .rank-name,
+.ranking-list--full > .rank-row .rank-name{
+  display:block !important;
+  min-width:0 !important;
+  max-width:none !important;
+  width:100% !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  overflow-wrap:anywhere !important;
+  word-break:normal !important;
+  line-height:1.18 !important;
+}
+
+#page-inicio .rank-card .rank-row--full .rank-name,
+#page-territorio .rank-card .rank-row--full .rank-name,
+#page-indicadores .rank-card .rank-row--full .rank-name,
+#page-habitacao .rank-card .rank-row--full .rank-name,
+#page-fcus .rank-card .rank-row--full .rank-name,
+#page-infraestrutura .rank-card .rank-row--full .rank-name{
+  width:100% !important;
+  max-width:none !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  overflow-wrap:anywhere !important;
+  display:block !important;
+}
+
+/* Barra elástica e valor ancorado no limite direito da mesma linha. */
+.rank-card .rank-row--full .rank-track,
+.ranking-list--full > .rank-row .rank-track{
+  display:block !important;
+  width:100% !important;
+  inline-size:100% !important;
+  min-width:0 !important;
+  justify-self:stretch !important;
+}
+
+#page-inicio .rank-card .rank-row--full .rank-track,
+#page-territorio .rank-card .rank-row--full .rank-track,
+#page-indicadores .rank-card .rank-row--full .rank-track,
+#page-habitacao .rank-card .rank-row--full .rank-track,
+#page-fcus .rank-card .rank-row--full .rank-track,
+#page-infraestrutura .rank-card .rank-row--full .rank-track{
+  width:100% !important;
+  inline-size:100% !important;
+  min-width:0 !important;
+  justify-self:stretch !important;
+}
+
+.rank-card .rank-row--full .rank-value,
+.ranking-list--full > .rank-row .rank-value{
+  display:block !important;
+  width:100% !important;
+  inline-size:100% !important;
+  min-width:0 !important;
+  justify-self:stretch !important;
+  text-align:right !important;
+  white-space:nowrap !important;
+}
+
+#page-inicio .rank-card .rank-row--full .rank-value,
+#page-territorio .rank-card .rank-row--full .rank-value,
+#page-indicadores .rank-card .rank-row--full .rank-value,
+#page-habitacao .rank-card .rank-row--full .rank-value,
+#page-fcus .rank-card .rank-row--full .rank-value,
+#page-infraestrutura .rank-card .rank-row--full .rank-value{
+  width:100% !important;
+  inline-size:100% !important;
+  min-width:0 !important;
+  justify-self:stretch !important;
+  text-align:right !important;
+}
+
+/* Mais respiro lateral somente dentro da lista; altura e dimensões externas permanecem iguais. */
+#page-inicio .rank-card .ranking-list--full,
+#page-territorio .rank-card .ranking-list--full,
+#page-indicadores .rank-card .ranking-list--full,
+#page-habitacao .rank-card .ranking-list--full,
+#page-fcus .rank-card .ranking-list--full,
+#page-infraestrutura .rank-card .ranking-list--full{
+  padding-left:18px !important;
+  padding-right:18px !important;
+}
+
+@media (max-width:900px){
+  .rank-card .rank-row--full,
+  .ranking-list--full > .rank-row{
+    grid-template-columns:24px minmax(0,1.05fr) minmax(0,1.35fr) 70px !important;
+    gap:10px !important;
+  }
+
+  #page-inicio .rank-card .rank-row--full,
+  #page-territorio .rank-card .rank-row--full,
+  #page-indicadores .rank-card .rank-row--full,
+  #page-habitacao .rank-card .rank-row--full,
+  #page-fcus .rank-card .rank-row--full,
+  #page-infraestrutura .rank-card .rank-row--full{
+    grid-template-columns:24px minmax(0,1.05fr) minmax(0,1.35fr) 70px !important;
+    gap:10px !important;
+  }
+}
+
+@media (max-width:600px){
+  #page-inicio .rank-card .ranking-list--full,
+  #page-territorio .rank-card .ranking-list--full,
+  #page-indicadores .rank-card .ranking-list--full,
+  #page-habitacao .rank-card .ranking-list--full,
+  #page-fcus .rank-card .ranking-list--full,
+  #page-infraestrutura .rank-card .ranking-list--full{
+    padding-left:12px !important;
+    padding-right:12px !important;
+  }
+
+  .rank-card .rank-row--full,
+  .ranking-list--full > .rank-row{
+    grid-template-columns:22px minmax(0,1fr) minmax(0,1.1fr) 62px !important;
+    gap:8px !important;
+  }
+
+  #page-inicio .rank-card .rank-row--full,
+  #page-territorio .rank-card .rank-row--full,
+  #page-indicadores .rank-card .rank-row--full,
+  #page-habitacao .rank-card .rank-row--full,
+  #page-fcus .rank-card .rank-row--full,
+  #page-infraestrutura .rank-card .rank-row--full{
+    grid-template-columns:22px minmax(0,1fr) minmax(0,1.1fr) 62px !important;
+    gap:8px !important;
+  }
+}
+
+/* Preserva o comportamento do ranking com rodapé: linhas extras só aparecem ao expandir. */
+.ranking-list--full > .target-rank-extra{
+  display:none !important;
+}
+.rank-expanded .ranking-list--full > .target-rank-extra{
+  display:grid !important;
+}

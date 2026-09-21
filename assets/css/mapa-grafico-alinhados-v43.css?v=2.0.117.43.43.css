@@ -1,0 +1,36 @@
+/* v2.0.117.43 — gráfico lateral alinhado à base do mapa */
+
+#page-inicio .home-exact-modality,
+#page-fcus .fcu-exact-modality-card{
+  box-sizing:border-box !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-content.with-summary,
+#page-fcus .fcu-exact-modality-card .ref-modality-content.with-summary{
+  box-sizing:border-box !important;
+  flex:1 1 auto !important;
+  height:auto !important;
+  min-height:0 !important;
+  grid-template-rows:minmax(0,1fr) 92px !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-panel,
+#page-fcus .fcu-exact-modality-card .ref-modality-panel{
+  align-content:center !important;
+}
+
+@media (max-width:1180px){
+  #page-inicio .home-exact-modality,
+  #page-fcus .fcu-exact-modality-card{
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+  }
+
+  #page-inicio .home-exact-modality .ref-modality-content.with-summary,
+  #page-fcus .fcu-exact-modality-card .ref-modality-content.with-summary{
+    grid-template-rows:auto auto !important;
+  }
+}

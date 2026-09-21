@@ -1,0 +1,27 @@
+/* v2.0.117.28.16 — coluna lateral ampliada para 45% */
+
+@media (min-width:1181px){
+  #page-territorio .territory-polished-layout{
+    width:100% !important;
+    grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) !important;
+    gap:18px !important;
+    align-items:start !important;
+  }
+
+  #page-territorio .territory-polished-map{
+    aspect-ratio:auto !important;
+    align-self:start !important;
+  }
+
+  #page-territorio .territory-polished-side{
+    width:100% !important;
+    max-width:none !important;
+    align-self:start !important;
+  }
+
+  #page-territorio .territory-polished-rank,
+  #page-territorio .territory-polished-coverage{
+    width:100% !important;
+    max-width:none !important;
+  }
+}

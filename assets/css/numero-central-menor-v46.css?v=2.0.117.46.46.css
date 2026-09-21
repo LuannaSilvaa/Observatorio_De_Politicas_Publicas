@@ -1,0 +1,12 @@
+/* v2.0.117.46 — ajuste final para o número caber no círculo */
+
+#page-inicio .home-exact-modality .ref-modality-donut .ref-donut-hole strong,
+#page-fcus .fcu-exact-modality-card .ref-modality-donut .ref-donut-hole strong{
+  display:block !important;
+  width:100% !important;
+  font-size:12px !important;
+  line-height:1 !important;
+  letter-spacing:-.045em !important;
+  white-space:nowrap !important;
+  text-align:center !important;
+}

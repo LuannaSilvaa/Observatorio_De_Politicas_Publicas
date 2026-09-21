@@ -1,0 +1,292 @@
+/* v2.0.117.54 — hierarquia tipográfica padronizada somente no conteúdo das abas */
+#pages{
+  --type-title-1:24px;
+  --type-title-2:20px;
+  --type-title-3:16px;
+  --type-title-4:14px;
+  --type-body:14px;
+  --type-caption:12px;
+  --type-micro:11px;
+}
+
+/* Título 1: abertura de cada visualização ou página informativa. */
+#pages .page .info-hero-copy h2,
+#pages .page .visual-title-copy h2,
+#pages .page .download-title h2,
+#pages .page .about-hero-content h2,
+#pages .page .about-banner h2{
+  font-size:var(--type-title-1)!important;
+  line-height:1.2!important;
+  letter-spacing:-.02em!important;
+}
+
+/* Título 2: seções e cabeçalhos de cartões. */
+#pages .page .panel-title-row h2,
+#pages .page .section-heading-row .method-section-title,
+#pages .page .section-heading-row>div>h2:not(.method-section-title),
+#pages .page .card-head h2,
+#pages .page .card-head h3,
+#pages .page .about-connection .section-heading-row h2,
+#pages .page .preview-sheet>h2{
+  font-size:var(--type-title-2)!important;
+  line-height:1.25!important;
+  letter-spacing:-.01em!important;
+}
+
+/* Título 3: subtítulos de cartões e blocos internos. */
+#pages .page .config-section h3,
+#pages .page .source-card h3,
+#pages .page .source-head h3,
+#pages .page .process-card h3,
+#pages .page .formula-head h3,
+#pages .page .method-bottom h3,
+#pages .page .download-card h3,
+#pages .page .list-card h3,
+#pages .page .about-info-head h3,
+#pages .page .timeline-card h3,
+#pages .page .partners-card h3,
+#pages .page .about-bottom h3,
+#pages .page .report-section-title h3,
+#pages .page .academic-chart-head h3{
+  font-size:var(--type-title-3)!important;
+  line-height:1.3!important;
+}
+
+/* Título 4: indicadores compactos e subblocos de leitura. */
+#pages .page .indicator-mini h4,
+#pages .page .preview-bars h4{
+  font-size:var(--type-title-4)!important;
+  line-height:1.35!important;
+}
+
+/* Corpo de texto — apenas grupos textuais nomeados, sem regra genérica para todos os p/span. */
+#pages .page .info-hero-copy p,
+#pages .page .visual-title-copy p,
+#pages .page .panel-title-row .panel-intro,
+#pages .page .section-heading-row>p,
+#pages .page .source-card p,
+#pages .page .process-card p,
+#pages .page .formula-card p,
+#pages .page .method-bottom p,
+#pages .page .method-bottom li,
+#pages .page .download-title p,
+#pages .page .download-card p,
+#pages .page .format-card p,
+#pages .page .terms-card p,
+#pages .page .about-hero-content p,
+#pages .page .about-info-card p,
+#pages .page .about-info-card li,
+#pages .page .about-bottom p,
+#pages .page .partners-card p,
+#pages .page .about-connection .section-heading-row>p,
+#pages .page .list-card>p,
+#pages .page .card-explain,
+#pages .page .config-help,
+#pages .page .config-section>p,
+#pages .page .filter-explanation p,
+#pages .page .report-plain-text,
+#pages .page .report-preview .preview-scope,
+#pages .page .indicator-mini p{
+  font-size:var(--type-body)!important;
+  line-height:1.5!important;
+}
+
+/* Legendas, metadados e textos auxiliares. */
+#pages .page .section-kicker,
+#pages .page .source-type,
+#pages .page .download-card-head small,
+#pages .page .download-card small,
+#pages .page .download-meta,
+#pages .page .tag,
+#pages .page .about-card-foot,
+#pages .page .timeline-step span,
+#pages .page .connection-flow>div span,
+#pages .page .target-map-source,
+#pages .page .target-map-legend small,
+#pages .page .map-reading-note,
+#pages .page .map-legend-panel p,
+#pages .page .legend-line,
+#pages .page .legend-help,
+#pages .page .visual-chart-head>span,
+#pages .page .visual-chart-head>small,
+#pages .page .visual-chart-note,
+#pages .page .preview-brand small,
+#pages .page .preview-kpi span,
+#pages .page .preview-kpi small,
+#pages .page .preview-map small,
+#pages .page .ranking-note,
+#pages .page .report-source-line,
+#pages .page .report-section-title>div>p{
+  font-size:var(--type-caption)!important;
+  line-height:1.4!important;
+}
+
+/* Rótulos de controles, filtros e opções. */
+#pages .page .config-fields label,
+#pages .page .config-fields select,
+#pages .page .report-filter-cards small,
+#pages .page .report-filter-cards b,
+#pages .page .preview-filter-grid small,
+#pages .page .preview-filter-grid b,
+#pages .page .visual-option b,
+#pages .page .visual-option small,
+#pages .page .visual-actions button,
+#pages .page .visual-actions select,
+#pages .page .visual-options-btn,
+#pages .page .visual-options-heading strong,
+#pages .page .visual-options-heading small,
+#pages .page .visual-options-section-title,
+#pages .page .visual-option-toggle,
+#pages .page .visual-option-toggle small,
+#pages .page .generate-btn,
+#pages .page .secondary-action,
+#pages .page .inline-link,
+#pages .page .about-bottom button,
+#pages .page .download-card button,
+#pages .page .preview-actions button,
+#pages .page .format-row,
+#pages .page .term-row,
+#pages .page .list-row,
+#pages .page .list-row strong{
+  font-size:var(--type-body)!important;
+  line-height:1.35!important;
+}
+
+/* Dentro dos controles, o nome é corpo e a explicação permanece legenda. */
+#pages .page .config-fields label,
+#pages .page .report-filter-cards small,
+#pages .page .preview-filter-grid small,
+#pages .page .visual-option small,
+#pages .page .visual-options-heading small,
+#pages .page .visual-option-toggle small{font-size:var(--type-caption)!important;line-height:1.35!important}
+
+/* Rankings, legendas de rosca e gráficos comparativos. */
+#pages .page .rank-name,
+#pages .page .rank-value,
+#pages .page .ref-legend-row span,
+#pages .page .ref-legend-row b,
+#pages .page .donut-item span,
+#pages .page .donut-item b,
+#pages .page .visual-chart-name,
+#pages .page .visual-chart-row>b,
+#pages .page .summary-lines span,
+#pages .page .muted,
+#pages .page .intensity-note,
+#pages .page .connection-flow>div b,
+#pages .page .timeline-step strong,
+#pages .page .preview-bar{
+  font-size:var(--type-body)!important;
+  line-height:1.35!important;
+}
+#pages .page .rank-pos,
+#pages .page .ref-legend-row small,
+#pages .page .donut-item small,
+#pages .page .visual-chart-rank,
+#pages .page .info-hero-stats span,
+#pages .page .target-scale,
+#pages .page .target-map-legend strong,
+#pages .page .map-legend strong{
+  font-size:var(--type-caption)!important;
+  line-height:1.3!important;
+}
+/* Documento de pré-visualização: mantém a própria escala sem atingir os demais cartões. */
+#pages .page .report-preview .preview-sheet{font-size:var(--type-body)!important}
+#pages .page .preview-brand>span{font-size:var(--type-caption)!important;line-height:1.3!important}
+#pages .page .preview-sheet .preview-kpi b{font-size:var(--type-title-3)!important;line-height:1.2!important}
+#pages .page .preview-map b{font-size:var(--type-title-4)!important;line-height:1.3!important}
+#pages .page .report-glossary b{font-size:var(--type-caption)!important}
+#pages .page .report-glossary span{font-size:var(--type-micro)!important}
+
+@media(max-width:600px){
+  #pages .page .info-hero-copy h2,
+  #pages .page .visual-title-copy h2,
+  #pages .page .download-title h2,
+  #pages .page .about-hero-content h2,
+  #pages .page .about-banner h2{font-size:21px!important}
+  #pages .page .panel-title-row h2,
+  #pages .page .section-heading-row .method-section-title,
+  #pages .page .section-heading-row>div>h2:not(.method-section-title),
+  #pages .page .card-head h2,
+  #pages .page .card-head h3,
+  #pages .page .about-connection .section-heading-row h2,
+  #pages .page .preview-sheet>h2{font-size:18px!important}
+  #pages .page .config-section h3,
+  #pages .page .source-card h3,
+  #pages .page .process-card h3,
+  #pages .page .formula-head h3,
+  #pages .page .method-bottom h3,
+  #pages .page .download-card h3,
+  #pages .page .list-card h3,
+  #pages .page .about-info-head h3,
+  #pages .page .timeline-card h3,
+  #pages .page .partners-card h3,
+  #pages .page .about-bottom h3,
+  #pages .page .report-section-title h3,
+  #pages .page .academic-chart-head h3{font-size:15px!important}
+  #pages .page .info-hero-copy p,
+  #pages .page .visual-title-copy p,
+  #pages .page .panel-title-row .panel-intro,
+  #pages .page .section-heading-row>p,
+  #pages .page .source-card p,
+  #pages .page .process-card p,
+  #pages .page .formula-card p,
+  #pages .page .method-bottom p,
+  #pages .page .method-bottom li,
+  #pages .page .download-title p,
+  #pages .page .download-card p,
+  #pages .page .format-card p,
+  #pages .page .terms-card p,
+  #pages .page .about-hero-content p,
+  #pages .page .about-info-card p,
+  #pages .page .about-info-card li,
+  #pages .page .about-bottom p,
+  #pages .page .partners-card p,
+  #pages .page .about-connection .section-heading-row>p,
+  #pages .page .list-card>p,
+  #pages .page .card-explain,
+  #pages .page .config-help,
+  #pages .page .config-section>p,
+  #pages .page .filter-explanation p,
+  #pages .page .report-plain-text,
+  #pages .page .report-preview .preview-scope,
+  #pages .page .indicator-mini p{font-size:13px!important}
+  #pages .page .rank-name,
+  #pages .page .rank-value,
+  #pages .page .ref-legend-row span,
+  #pages .page .ref-legend-row b,
+  #pages .page .donut-item span,
+  #pages .page .donut-item b,
+  #pages .page .visual-chart-name,
+  #pages .page .visual-chart-row>b,
+  #pages .page .summary-lines span,
+  #pages .page .muted,
+  #pages .page .intensity-note,
+  #pages .page .connection-flow>div b,
+  #pages .page .timeline-step strong,
+  #pages .page .preview-bar{font-size:13px!important}
+  #pages .page .section-kicker,
+  #pages .page .source-type,
+  #pages .page .download-card-head small,
+  #pages .page .download-card small,
+  #pages .page .download-meta,
+  #pages .page .tag,
+  #pages .page .about-card-foot,
+  #pages .page .timeline-step span,
+  #pages .page .connection-flow>div span,
+  #pages .page .target-map-source,
+  #pages .page .target-map-legend small,
+  #pages .page .map-reading-note,
+  #pages .page .map-legend-panel p,
+  #pages .page .legend-line,
+  #pages .page .legend-help,
+  #pages .page .visual-chart-head>span,
+  #pages .page .visual-chart-head>small,
+  #pages .page .visual-chart-note,
+  #pages .page .preview-brand small,
+  #pages .page .preview-kpi span,
+  #pages .page .preview-kpi small,
+  #pages .page .preview-map small,
+  #pages .page .ranking-note,
+  #pages .page .report-source-line,
+  #pages .page .report-section-title>div>p{font-size:11px!important}
+}

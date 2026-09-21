@@ -1,0 +1,99 @@
+/* v2.0.117.59 — correções pontuais de legibilidade e encaixe */
+
+/* O total central mantém uma margem visível dentro do círculo. */
+#pages .page[id][data-page] article.ref-modality-card .ref-modality-donut .ref-donut-hole strong{
+  display:block!important;
+  width:auto!important;
+  max-width:calc(100% - 18px)!important;
+  margin:0 auto!important;
+  font-size:13px!important;
+  line-height:1!important;
+  letter-spacing:-.01em!important;
+  white-space:nowrap!important;
+  text-align:center!important;
+}
+
+/* Legendas das modalidades: mesma escala nas abas em que o componente aparece. */
+#pages .page[id][data-page] article.ref-modality-card .ref-modality-legend .ref-legend-row span,
+#pages .page[id][data-page] article.ref-modality-card .ref-modality-legend .ref-legend-row b{
+  font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+  font-size:15px!important;
+  line-height:1.25!important;
+}
+
+#pages .page[id][data-page] article.ref-modality-card .ref-modality-legend .ref-legend-row small{
+  font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+  font-size:12px!important;
+  line-height:1.3!important;
+}
+
+/* Indicadores compactos e leituras usam rótulos e valores equivalentes. */
+#pages .page[id][data-page] .ref-modality-summary .ref-summary-box small,
+#pages .page[id][data-page] .reading-grid .reading-item small{
+  font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+  font-size:11px!important;
+  line-height:1.18!important;
+  font-weight:750!important;
+  letter-spacing:.01em!important;
+  overflow-wrap:anywhere!important;
+}
+
+#pages .page[id][data-page] .ref-modality-summary .ref-summary-box strong,
+#pages .page[id][data-page] .reading-grid .reading-item strong{
+  font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+  font-size:18px!important;
+  line-height:1.08!important;
+  font-weight:800!important;
+  letter-spacing:-.01em!important;
+  overflow-wrap:anywhere!important;
+}
+
+#pages .page[id][data-page] .ref-modality-summary .ref-summary-box em{
+  font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+  font-size:11px!important;
+  line-height:1.15!important;
+}
+
+/* A última linha do ranking fica afastada do limite inferior do cartão. */
+@media(min-width:981px){
+  #pages #page-territorio article.territory-polished-rank .ranking-list{
+    padding-top:8px!important;
+    padding-bottom:24px!important;
+  }
+}
+
+/* A legenda ocupa somente a lateral do mapa e inicia recolhida pelo JavaScript. */
+#pages #page-inicio .home-exact-map .map-legend,
+#pages #page-fcus .fcu-exact-map-card .map-legend{
+  left:14px!important;
+  right:auto!important;
+  bottom:16px!important;
+  min-width:0!important;
+  width:min(270px,calc(100% - 28px))!important;
+  max-width:calc(100% - 28px)!important;
+}
+
+#pages #page-inicio .home-exact-map .map-legend-toggle,
+#pages #page-fcus .fcu-exact-map-card .map-legend-toggle{
+  width:auto!important;
+  max-width:100%!important;
+}
+
+#pages #page-inicio .home-exact-map .map-legend-panel,
+#pages #page-fcus .fcu-exact-map-card .map-legend-panel{
+  width:100%!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+}
+
+@media(max-width:600px){
+  #pages .page[id][data-page] article.ref-modality-card .ref-modality-legend .ref-legend-row span,
+  #pages .page[id][data-page] article.ref-modality-card .ref-modality-legend .ref-legend-row b{
+    font-size:14px!important;
+  }
+
+  #pages .page[id][data-page] .ref-modality-summary .ref-summary-box strong,
+  #pages .page[id][data-page] .reading-grid .reading-item strong{
+    font-size:17px!important;
+  }
+}

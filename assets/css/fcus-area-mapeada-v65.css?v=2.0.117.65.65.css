@@ -1,0 +1,19 @@
+/* v2.0.117.65 — valor de área mapeada em uma linha, sem corte */
+
+#page-fcus .fcu-summary-card .fcu-summary-readings .reading-item:nth-child(3) > strong{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin:5px auto 0!important;
+  font-size:15px!important;
+  line-height:1.08!important;
+  letter-spacing:-.035em!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+  text-wrap:nowrap!important;
+  overflow:visible!important;
+  overflow-wrap:normal!important;
+  word-break:keep-all!important;
+  font-variant-numeric:tabular-nums!important;
+}
+

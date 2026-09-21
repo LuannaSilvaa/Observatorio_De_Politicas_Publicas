@@ -1,0 +1,135 @@
+/* v2.0.117.33 — acabamento dos rankings sem alterar o tamanho dos cartões */
+
+#page-habitacao .housing-side > .rank-card,
+#page-infraestrutura .infra-side > .rank-card{
+  width:100% !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+}
+
+#page-habitacao .housing-side > .rank-card .card-head,
+#page-infraestrutura .infra-side > .rank-card .card-head{
+  padding-left:16px !important;
+  padding-right:42px !important;
+}
+
+#page-habitacao .housing-side > .rank-card .card-head h2,
+#page-infraestrutura .infra-side > .rank-card .card-head h2{
+  font-size:13px !important;
+  line-height:1.2 !important;
+  letter-spacing:.02em !important;
+}
+
+#page-habitacao .housing-side > .rank-card .ranking-list,
+#page-infraestrutura .infra-side > .rank-card .ranking-list{
+  width:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+  align-self:stretch !important;
+  box-sizing:border-box !important;
+  padding-left:16px !important;
+  padding-right:16px !important;
+}
+
+#page-habitacao .housing-side > .rank-card .rank-row,
+#page-infraestrutura .infra-side > .rank-card .rank-row{
+  width:100% !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+  grid-template-columns:28px minmax(0,1.35fr) minmax(140px,1.35fr) 78px !important;
+  gap:14px !important;
+  align-items:center !important;
+}
+
+#page-habitacao .housing-side > .rank-card .rank-pos,
+#page-infraestrutura .infra-side > .rank-card .rank-pos{
+  width:24px !important;
+  height:24px !important;
+  border-color:#e59a72 !important;
+  color:#c75a25 !important;
+  background:#fffaf7 !important;
+  font-size:10px !important;
+  box-shadow:0 1px 3px rgba(140,72,34,.08) !important;
+}
+
+#page-habitacao .housing-side > .rank-card .rank-name,
+#page-infraestrutura .infra-side > .rank-card .rank-name{
+  min-width:0 !important;
+  font-size:11.5px !important;
+  line-height:1.2 !important;
+  font-weight:750 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+
+#page-habitacao .housing-side > .rank-card .rank-track,
+#page-infraestrutura .infra-side > .rank-card .rank-track{
+  width:100% !important;
+  min-width:0 !important;
+  height:7px !important;
+  background:#eeeae6 !important;
+  box-shadow:inset 0 0 0 1px rgba(120,104,92,.04) !important;
+}
+
+#page-habitacao .housing-side > .rank-card .rank-track i,
+#page-infraestrutura .infra-side > .rank-card .rank-track i{
+  background:linear-gradient(90deg,#527e48,#6a955c) !important;
+}
+
+#page-habitacao .housing-side > .rank-card .rank-value,
+#page-infraestrutura .infra-side > .rank-card .rank-value{
+  font-size:11.5px !important;
+  line-height:1 !important;
+  color:#263a25 !important;
+  text-align:right !important;
+  white-space:nowrap !important;
+  font-variant-numeric:tabular-nums !important;
+}
+
+#page-habitacao .housing-side > .rank-card .rank-row:hover,
+#page-infraestrutura .infra-side > .rank-card .rank-row:hover{
+  background:linear-gradient(90deg,rgba(245,249,242,.7),rgba(255,255,255,0)) !important;
+}
+
+#page-habitacao .housing-side > .rank-card .context-help,
+#page-infraestrutura .infra-side > .rank-card .context-help{
+  top:9px !important;
+  right:10px !important;
+  width:24px !important;
+  height:24px !important;
+  border:1px solid #d7b59f !important;
+  color:#9a512e !important;
+  background:#fffdfb !important;
+  font-size:12px !important;
+  box-shadow:0 2px 7px rgba(104,62,39,.12) !important;
+}
+
+#page-habitacao .housing-side > .rank-card .context-help:hover,
+#page-habitacao .housing-side > .rank-card .context-help:focus,
+#page-infraestrutura .infra-side > .rank-card .context-help:hover,
+#page-infraestrutura .infra-side > .rank-card .context-help:focus{
+  color:#7c3e20 !important;
+  border-color:#bd7046 !important;
+  background:#fff7f0 !important;
+}
+
+@media(max-width:900px){
+  #page-habitacao .housing-side > .rank-card .rank-row,
+  #page-infraestrutura .infra-side > .rank-card .rank-row{
+    grid-template-columns:24px minmax(0,1fr) minmax(118px,1fr) 68px !important;
+    gap:10px !important;
+  }
+}
+
+@media(max-width:600px){
+  #page-habitacao .housing-side > .rank-card .rank-row,
+  #page-infraestrutura .infra-side > .rank-card .rank-row{
+    grid-template-columns:22px minmax(0,1fr) minmax(92px,1fr) 58px !important;
+    gap:8px !important;
+  }
+  #page-habitacao .housing-side > .rank-card .rank-name,
+  #page-infraestrutura .infra-side > .rank-card .rank-name{
+    font-size:10.5px !important;
+  }
+}

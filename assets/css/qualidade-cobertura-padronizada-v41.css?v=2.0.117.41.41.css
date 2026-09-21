@@ -1,0 +1,175 @@
+/* v2.0.117.41 — qualidade da cobertura no mesmo padrão visual das distribuições */
+
+#page-territorio .territory-polished-coverage .ref-coverage-content.with-summary{
+  box-sizing:border-box !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 14px 14px !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-coverage-panel{
+  box-sizing:border-box !important;
+  min-height:228px !important;
+  display:grid !important;
+  grid-template-columns:252px minmax(0,1fr) !important;
+  gap:22px !important;
+  align-items:center !important;
+  padding:8px 10px 5px !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-coverage-donut{
+  width:210px !important;
+  height:210px !important;
+  margin:0 auto !important;
+  justify-self:center !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-coverage-donut .ref-donut-hole{
+  inset:31% !important;
+  padding:6px !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-coverage-donut .ref-donut-hole strong{
+  font-size:23px !important;
+  line-height:1 !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-coverage-donut .ref-donut-hole span{
+  margin-top:5px !important;
+  font-size:9px !important;
+  line-height:1.1 !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-coverage-legend{
+  width:100% !important;
+  min-width:0 !important;
+  gap:2px !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-legend-row{
+  min-height:72px !important;
+  grid-template-columns:11px minmax(0,1fr) auto !important;
+  gap:11px !important;
+  padding:8px 0 !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-legend-row + .ref-legend-row{
+  border-top:1px solid #eee8e2 !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-legend-row span{
+  font-size:12px !important;
+  line-height:1.2 !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-legend-row small{
+  margin-top:3px !important;
+  font-size:9px !important;
+  line-height:1.15 !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-legend-row b{
+  font-size:13px !important;
+  line-height:1 !important;
+  color:#2f6d33 !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary{
+  min-height:94px !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:8px !important;
+  margin:5px 0 0 !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box{
+  position:relative !important;
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  min-height:94px !important;
+  display:grid !important;
+  grid-template-columns:34px minmax(0,1fr) !important;
+  gap:8px !important;
+  align-items:center !important;
+  padding:9px 9px 9px 11px !important;
+  overflow:hidden !important;
+  border-radius:12px !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 auto 0 0 !important;
+  width:3px !important;
+  background:#4f8247 !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box.warm::before{background:#d98731 !important}
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box.blue::before{background:#4a8ed8 !important}
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box.rose::before{background:#d96d86 !important}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-icon{
+  width:32px !important;
+  height:32px !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-icon svg{
+  width:18px !important;
+  height:18px !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box small{
+  display:block !important;
+  margin:0 0 4px !important;
+  font-size:6.8px !important;
+  line-height:1.12 !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box strong{
+  display:block !important;
+  font-size:12px !important;
+  line-height:1.08 !important;
+}
+
+#page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box em{
+  margin-top:3px !important;
+  font-size:8px !important;
+  line-height:1.1 !important;
+}
+
+@media (max-width:1180px){
+  #page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-coverage-panel{
+    grid-template-columns:220px minmax(0,1fr) !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-coverage-donut{
+    width:190px !important;
+    height:190px !important;
+  }
+}
+
+@media (max-width:760px){
+  #page-territorio .territory-polished-coverage .ref-coverage-content.with-summary .ref-coverage-panel{
+    grid-template-columns:1fr !important;
+    justify-items:center !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-coverage-summary{
+    grid-template-columns:1fr 1fr !important;
+  }
+}
+
+body.dark #page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box{
+  color:#f6f5f1 !important;
+  background:#1d211c !important;
+  border-color:#414a3e !important;
+}
+
+body.dark #page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box small,
+body.dark #page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box em{
+  color:#c8c4bd !important;
+}
+
+body.dark #page-territorio .territory-polished-coverage .ref-coverage-summary .ref-summary-box strong{
+  color:#d7efcf !important;
+}

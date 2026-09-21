@@ -1,0 +1,315 @@
+/* v2.0.117.28.3 — composição proporcional à imagem de referência */
+
+@media (min-width:901px){
+  #page-territorio .territory-polished-layout{
+    grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) !important;
+    gap:clamp(12px,1vw,18px) !important;
+    align-items:start !important;
+  }
+
+  /* A altura passa a acompanhar a largura, evitando distorção por escala do tablet. */
+  #page-territorio .territory-polished-map{
+    container-type:inline-size;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    aspect-ratio:965 / 843 !important;
+  }
+
+  #page-territorio .territory-polished-side{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    display:grid !important;
+    grid-template-rows:auto auto !important;
+    gap:clamp(12px,1vw,18px) !important;
+    align-content:start !important;
+  }
+
+  #page-territorio .territory-polished-rank{
+    container-type:inline-size;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    aspect-ratio:646 / 421 !important;
+  }
+
+  #page-territorio .territory-polished-coverage{
+    container-type:inline-size;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    aspect-ratio:646 / 404 !important;
+  }
+
+  /* Cabeçalho do mapa: 96 + 82 px na referência, reduzido proporcionalmente. */
+  #page-territorio .territory-polished-map .card-head:has(.visual-title-block){
+    --map-title-height:clamp(64px,10cqw,96px);
+    --map-actions-height:clamp(54px,8.5cqw,82px);
+    grid-template-rows:var(--map-title-height) var(--map-actions-height) !important;
+    height:calc(var(--map-title-height) + var(--map-actions-height)) !important;
+    min-height:calc(var(--map-title-height) + var(--map-actions-height)) !important;
+    max-height:calc(var(--map-title-height) + var(--map-actions-height)) !important;
+    flex-basis:calc(var(--map-title-height) + var(--map-actions-height)) !important;
+  }
+
+  #page-territorio .territory-polished-map .card-head:has(.visual-title-block) > .visual-title-block{
+    height:var(--map-title-height) !important;
+    min-height:var(--map-title-height) !important;
+    padding:clamp(10px,1.65cqw,16px) clamp(34px,5.6cqw,54px) clamp(9px,1.45cqw,14px) clamp(11px,1.65cqw,16px) !important;
+    grid-template-columns:clamp(44px,6.2cqw,60px) minmax(0,1fr) !important;
+    gap:clamp(9px,1.45cqw,14px) !important;
+  }
+
+  #page-territorio .territory-polished-map .visual-title-icon{
+    width:clamp(44px,6.2cqw,60px) !important;
+    height:clamp(44px,6.2cqw,60px) !important;
+    border-radius:clamp(11px,1.55cqw,15px) !important;
+  }
+
+  #page-territorio .territory-polished-map .visual-title-icon svg{
+    width:clamp(22px,3.1cqw,30px) !important;
+    height:clamp(22px,3.1cqw,30px) !important;
+  }
+
+  #page-territorio .territory-polished-map .visual-title-copy h2,
+  #page-territorio .territory-polished-map .visual-title-copy h3{
+    font-size:clamp(14px,1.86cqw,18px) !important;
+  }
+
+  #page-territorio .territory-polished-map .visual-title-copy p{
+    font-size:clamp(10px,1.24cqw,12px) !important;
+  }
+
+  #page-territorio .territory-polished-map .card-head:has(.visual-title-block) > .actions{
+    height:var(--map-actions-height) !important;
+    min-height:var(--map-actions-height) !important;
+    max-height:var(--map-actions-height) !important;
+    padding:clamp(9px,1.45cqw,14px) clamp(11px,1.65cqw,16px) !important;
+  }
+
+  #page-territorio .territory-polished-map .visual-actions-simple{
+    grid-template-columns:21cqw minmax(0,1fr) 15cqw !important;
+    gap:clamp(9px,1.65cqw,16px) !important;
+  }
+
+  #page-territorio .territory-polished-map .visual-switch,
+  #page-territorio .territory-polished-map .visual-metric-select,
+  #page-territorio .territory-polished-map .visual-options-btn{
+    height:clamp(34px,5.2cqw,50px) !important;
+  }
+
+  #page-territorio .territory-polished-map .visual-switch{
+    width:21cqw !important;
+    min-width:0 !important;
+    max-width:200px !important;
+  }
+
+  #page-territorio .territory-polished-map .visual-switch button{
+    height:clamp(30px,4.35cqw,42px) !important;
+  }
+
+  #page-territorio .territory-polished-map .visual-options-control,
+  #page-territorio .territory-polished-map .visual-options-btn{
+    width:15cqw !important;
+    min-width:0 !important;
+    max-width:145px !important;
+  }
+
+  /* Cabeçalhos dos dois cards laterais na mesma escala da referência. */
+  #page-territorio .territory-polished-rank .card-head,
+  #page-territorio .territory-polished-coverage .card-head{
+    height:clamp(56px,12.4cqw,80px) !important;
+    min-height:clamp(56px,12.4cqw,80px) !important;
+    max-height:clamp(56px,12.4cqw,80px) !important;
+    flex-basis:clamp(56px,12.4cqw,80px) !important;
+    padding:0 clamp(17px,3.7cqw,24px) !important;
+  }
+
+  #page-territorio .territory-polished-rank .card-head h2,
+  #page-territorio .territory-polished-coverage .card-head h2{
+    font-size:clamp(14px,2.65cqw,17px) !important;
+  }
+
+  #page-territorio .territory-polished-rank .small-select{
+    height:clamp(36px,7.75cqw,50px) !important;
+    min-width:clamp(160px,35.6cqw,230px) !important;
+    padding:0 clamp(11px,2.5cqw,16px) !important;
+    font-size:clamp(10px,1.86cqw,12px) !important;
+  }
+
+  #page-territorio .territory-polished-rank .ranking-list{
+    padding:clamp(7px,1.55cqw,10px) clamp(17px,3.7cqw,24px) clamp(10px,2.2cqw,14px) !important;
+  }
+
+  #page-territorio .territory-polished-rank .rank-row{
+    grid-template-columns:clamp(22px,4.65cqw,30px) minmax(0,1.25fr) minmax(105px,1fr) clamp(58px,12.7cqw,82px) !important;
+    gap:clamp(9px,2.15cqw,14px) !important;
+  }
+
+  #page-territorio .territory-polished-rank .rank-pos{
+    width:clamp(20px,4cqw,26px) !important;
+    height:clamp(20px,4cqw,26px) !important;
+    font-size:clamp(9px,1.7cqw,11px) !important;
+  }
+
+  #page-territorio .territory-polished-rank .rank-name,
+  #page-territorio .territory-polished-rank .rank-value{
+    font-size:clamp(10px,1.86cqw,12px) !important;
+  }
+
+  #page-territorio .territory-polished-rank .rank-track{
+    height:clamp(6px,1.25cqw,8px) !important;
+  }
+
+  /* Cobertura: donut com 37,5% da largura do card, como na foto aprovada. */
+  #page-territorio .territory-polished-coverage .ref-coverage-content{
+    flex:1 1 auto !important;
+    height:auto !important;
+    min-height:0 !important;
+    padding:clamp(5px,1cqw,7px) clamp(12px,2.5cqw,16px) clamp(6px,1.25cqw,8px) !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-coverage-panel{
+    width:100% !important;
+    height:100% !important;
+    min-height:0 !important;
+    grid-template-columns:minmax(0,44%) minmax(0,56%) !important;
+    gap:clamp(12px,3.4cqw,22px) !important;
+    padding:0 !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-coverage-donut{
+    width:clamp(155px,37.5cqw,242px) !important;
+    height:clamp(155px,37.5cqw,242px) !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-coverage-donut .ref-donut-hole strong{
+    font-size:clamp(22px,4.5cqw,29px) !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-legend-row{
+    min-height:clamp(54px,13.8cqw,89px) !important;
+    padding:clamp(6px,1.25cqw,8px) 0 !important;
+    gap:clamp(10px,2.15cqw,14px) !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-legend-row span{
+    font-size:clamp(11px,2cqw,13px) !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-legend-row small{
+    font-size:clamp(9px,1.7cqw,11px) !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-legend-row b{
+    font-size:clamp(12px,2.15cqw,14px) !important;
+  }
+}
+
+/* Em larguras médias, mapa em cima e os dois cards lado a lado. */
+@media (min-width:901px) and (max-width:1180px){
+  #page-territorio .territory-polished-layout{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+
+  #page-territorio .territory-polished-map{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    aspect-ratio:965 / 843 !important;
+  }
+
+  #page-territorio .territory-polished-side{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    grid-template-rows:auto !important;
+    gap:16px !important;
+  }
+
+  #page-territorio .territory-polished-rank,
+  #page-territorio .territory-polished-coverage{
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+  }
+
+  #page-territorio .territory-polished-rank{aspect-ratio:646 / 421 !important}
+  #page-territorio .territory-polished-coverage{aspect-ratio:646 / 404 !important}
+}
+
+/* Tablets menores: o card permanece curto, sem faixas brancas extensas. */
+@media (max-width:900px) and (min-width:561px){
+  #page-territorio .territory-polished-coverage{
+    height:350px !important;
+    min-height:350px !important;
+    max-height:350px !important;
+  }
+
+  #page-territorio .territory-polished-coverage .card-head{
+    height:62px !important;
+    min-height:62px !important;
+    max-height:62px !important;
+    flex-basis:62px !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-coverage-content{
+    padding:4px 16px 6px !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-coverage-panel{
+    grid-template-columns:205px minmax(0,1fr) !important;
+    gap:16px !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-coverage-donut{
+    width:200px !important;
+    height:200px !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-legend-row{
+    min-height:68px !important;
+    padding:6px 0 !important;
+  }
+}
+
+@media (max-width:560px){
+  #page-territorio .territory-polished-coverage .card-head{
+    min-height:58px !important;
+    padding:10px 42px 10px 16px !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-coverage-content{
+    padding:8px 16px 12px !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-coverage-panel{
+    gap:4px !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-coverage-donut{
+    width:190px !important;
+    height:190px !important;
+  }
+
+  #page-territorio .territory-polished-coverage .ref-legend-row{
+    min-height:52px !important;
+    padding:5px 0 !important;
+  }
+}
+
+#page-territorio .territory-polished-rank .territory-card-note,
+#page-territorio .territory-polished-coverage .territory-coverage-note{
+  display:none !important;
+}

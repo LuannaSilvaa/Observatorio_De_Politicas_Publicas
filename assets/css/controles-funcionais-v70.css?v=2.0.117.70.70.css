@@ -1,0 +1,321 @@
+/* v2.0.117.70 — controles funcionais de ranking e mapa expandido */
+#page-territorio .territory-ranking-select {
+  cursor: pointer !important;
+  color: #3f3934 !important;
+  background-color: #fff !important;
+}
+
+#page-territorio .territory-ranking-select:hover,
+#page-territorio .territory-ranking-select:focus-visible {
+  border-color: #84a97a !important;
+  box-shadow: 0 0 0 3px rgba(72, 119, 62, .12) !important;
+  outline: none !important;
+}
+
+[data-open-ranking],
+[data-expand-map] {
+  cursor: pointer !important;
+}
+
+[data-open-ranking]:focus-visible,
+[data-expand-map]:focus-visible {
+  outline: 3px solid rgba(224, 87, 26, .24) !important;
+  outline-offset: 2px !important;
+}
+
+#modal.ranking-open .modal-card {
+  width: min(1080px, calc(100vw - 32px)) !important;
+  max-height: 90vh !important;
+  margin: 5vh auto !important;
+  padding: 22px !important;
+  overflow: hidden !important;
+}
+
+#modal.ranking-open #modalContent,
+#modal.ranking-open .complete-ranking-modal {
+  min-height: 0 !important;
+  height: 100% !important;
+}
+
+#modal.ranking-open .complete-ranking-modal {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.complete-ranking-head {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, .8fr) !important;
+  align-items: end !important;
+  gap: 24px !important;
+  padding-right: 28px !important;
+}
+
+.complete-ranking-head > div:first-child > span,
+.expanded-map-head > div > span {
+  display: block !important;
+  margin-bottom: 4px !important;
+  color: #d85218 !important;
+  font-size: 11px !important;
+  font-weight: 850 !important;
+  letter-spacing: .07em !important;
+}
+
+.complete-ranking-head h2,
+.expanded-map-head h2 {
+  margin: 0 !important;
+  color: #1f2f1f !important;
+  font-size: 22px !important;
+  line-height: 1.15 !important;
+}
+
+.complete-ranking-head p,
+.expanded-map-head p {
+  margin: 6px 0 0 !important;
+  color: #6d655e !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+}
+
+.complete-ranking-controls {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+}
+
+.complete-ranking-controls label {
+  display: grid !important;
+  gap: 5px !important;
+  color: #625b55 !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+
+.complete-ranking-controls select,
+.complete-ranking-controls input {
+  width: 100% !important;
+  height: 42px !important;
+  padding: 0 11px !important;
+  border: 1px solid #ded7d1 !important;
+  border-radius: 9px !important;
+  background: #fff !important;
+  color: #2d2926 !important;
+  font: inherit !important;
+}
+
+.complete-ranking-controls select:focus,
+.complete-ranking-controls input:focus {
+  border-color: #74a169 !important;
+  box-shadow: 0 0 0 3px rgba(72, 119, 62, .12) !important;
+  outline: none !important;
+}
+
+.complete-ranking-summary {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  padding: 9px 12px !important;
+  border: 1px solid #e2e8df !important;
+  border-radius: 9px !important;
+  background: #f6faf4 !important;
+  color: #625d57 !important;
+  font-size: 12px !important;
+}
+
+.complete-ranking-summary strong {
+  color: #356b35 !important;
+  font-size: 13px !important;
+}
+
+.complete-ranking-list {
+  flex: 1 1 auto !important;
+  min-height: 260px !important;
+  max-height: 60vh !important;
+  overflow: auto !important;
+  border: 1px solid #e6dfd9 !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+}
+
+.complete-rank-row {
+  width: 100% !important;
+  min-height: 46px !important;
+  display: grid !important;
+  grid-template-columns: 42px minmax(220px, 1fr) minmax(140px, .85fr) 112px !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 7px 12px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #eee8e3 !important;
+  background: #fff !important;
+  color: #292522 !important;
+  text-align: left !important;
+  cursor: pointer !important;
+}
+
+.complete-rank-row:last-child {
+  border-bottom: 0 !important;
+}
+
+.complete-rank-row:hover,
+.complete-rank-row:focus-visible {
+  background: #f7faf5 !important;
+  outline: none !important;
+}
+
+.complete-rank-row .rank-name {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  color: #2d2926 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.complete-rank-row .rank-value {
+  color: #245f2c !important;
+  font-size: 13px !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+
+.complete-ranking-empty {
+  padding: 34px 18px !important;
+  color: #6d655e !important;
+  font-size: 13px !important;
+  text-align: center !important;
+}
+
+#modal.map-expanded-open .modal-card {
+  width: min(1400px, calc(100vw - 24px)) !important;
+  max-height: calc(100vh - 24px) !important;
+  margin: 12px auto !important;
+  padding: 18px !important;
+  overflow: hidden !important;
+}
+
+#modal.map-expanded-open #modalContent,
+#modal.map-expanded-open .expanded-map-modal {
+  height: 100% !important;
+  min-height: 0 !important;
+}
+
+#modal.map-expanded-open .expanded-map-modal {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.expanded-map-head {
+  display: flex !important;
+  align-items: end !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+  padding-right: 30px !important;
+}
+
+.expanded-map-reset {
+  flex: 0 0 auto !important;
+  height: 40px !important;
+  padding: 0 16px !important;
+  border: 1px solid #cfdcc9 !important;
+  border-radius: 9px !important;
+  background: #fff !important;
+  color: #3f733a !important;
+  font-size: 13px !important;
+  font-weight: 750 !important;
+  cursor: pointer !important;
+}
+
+.expanded-map-reset:hover,
+.expanded-map-reset:focus-visible {
+  background: #f1f7ee !important;
+  outline: 3px solid rgba(72, 119, 62, .12) !important;
+}
+
+.expanded-map-frame {
+  position: relative !important;
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  height: calc(100vh - 135px) !important;
+  min-height: 500px !important;
+  overflow: hidden !important;
+  border: 1px solid #dce4d8 !important;
+  border-radius: 13px !important;
+  background: #e7f3f8 !important;
+}
+
+#modal.map-expanded-open .modal-close,
+#modal.ranking-open .modal-close {
+  z-index: 30 !important;
+}
+
+body.dark #modal.ranking-open .modal-card,
+body.dark #modal.map-expanded-open .modal-card,
+body.dark .complete-ranking-list,
+body.dark .complete-rank-row,
+body.dark .complete-ranking-controls select,
+body.dark .complete-ranking-controls input,
+body.dark .expanded-map-reset {
+  background: #222620 !important;
+  color: #f3eee8 !important;
+}
+
+body.dark .complete-ranking-head h2,
+body.dark .expanded-map-head h2,
+body.dark .complete-rank-row .rank-name {
+  color: #f5f1ec !important;
+}
+
+body.dark .complete-ranking-summary,
+body.dark .complete-rank-row:hover,
+body.dark .complete-rank-row:focus-visible {
+  background: #2c3329 !important;
+  color: #ded7cf !important;
+}
+
+@media (max-width: 760px) {
+  #modal.ranking-open .modal-card,
+  #modal.map-expanded-open .modal-card {
+    width: calc(100vw - 16px) !important;
+    max-height: calc(100vh - 16px) !important;
+    margin: 8px auto !important;
+    padding: 14px !important;
+  }
+
+  .complete-ranking-head {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .complete-ranking-controls {
+    grid-template-columns: 1fr !important;
+  }
+
+  .complete-ranking-summary {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  .complete-rank-row {
+    grid-template-columns: 36px minmax(0, 1fr) 78px !important;
+    gap: 8px !important;
+  }
+
+  .complete-rank-row .rank-track {
+    display: none !important;
+  }
+
+  .expanded-map-head {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .expanded-map-frame {
+    height: 72vh !important;
+    min-height: 360px !important;
+  }
+}

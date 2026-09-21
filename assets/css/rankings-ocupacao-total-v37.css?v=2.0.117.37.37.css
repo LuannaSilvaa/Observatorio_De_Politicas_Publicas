@@ -1,0 +1,265 @@
+/* v2.0.117.37 — rankings ocupam toda a largura disponível sem alterar os cartões */
+#page-inicio .home-exact-rank,
+#page-inicio .home-rank-card,
+#page-territorio .territory-polished-rank,
+#page-territorio .territory-rank-card,
+#page-habitacao .housing-side > .rank-card,
+#page-fcus .fcu-side > .rank-card,
+#page-fcus .fcu-exact-rank-card,
+#page-infraestrutura .infra-side > .rank-card,
+#page-indicadores .indicators-rank-card{
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  overflow:hidden !important;
+}
+
+#page-inicio .home-exact-rank .card-head,
+#page-inicio .home-rank-card .card-head,
+#page-territorio .territory-polished-rank .card-head,
+#page-territorio .territory-rank-card .card-head,
+#page-habitacao .housing-side > .rank-card .card-head,
+#page-fcus .fcu-side > .rank-card .card-head,
+#page-fcus .fcu-exact-rank-card .card-head,
+#page-infraestrutura .infra-side > .rank-card .card-head,
+#page-indicadores .indicators-rank-card .card-head{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:12px !important;
+  min-width:0 !important;
+}
+
+#page-inicio .home-exact-rank .card-head h2,
+#page-inicio .home-rank-card .card-head h2,
+#page-territorio .territory-polished-rank .card-head h2,
+#page-territorio .territory-rank-card .card-head h2,
+#page-habitacao .housing-side > .rank-card .card-head h2,
+#page-fcus .fcu-side > .rank-card .card-head h2,
+#page-fcus .fcu-exact-rank-card .card-head h2,
+#page-infraestrutura .infra-side > .rank-card .card-head h2,
+#page-indicadores .indicators-rank-card .card-head h2{
+  min-width:0 !important;
+  margin:0 !important;
+  font-size:14px !important;
+  line-height:1.2 !important;
+  letter-spacing:.012em !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+
+#page-inicio .home-exact-rank .ranking-list,
+#page-inicio .home-rank-card .ranking-list,
+#page-territorio .territory-polished-rank .ranking-list,
+#page-territorio .territory-rank-card .ranking-list,
+#page-habitacao .housing-side > .rank-card .ranking-list,
+#page-fcus .fcu-side > .rank-card .ranking-list,
+#page-fcus .fcu-exact-rank-card .ranking-list,
+#page-infraestrutura .infra-side > .rank-card .ranking-list,
+#page-indicadores .indicators-rank-card .ranking-list{
+  width:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+  align-self:stretch !important;
+  box-sizing:border-box !important;
+  display:grid !important;
+  padding-left:18px !important;
+  padding-right:18px !important;
+}
+
+#page-inicio .home-exact-rank .rank-row,
+#page-inicio .home-rank-card .rank-row,
+#page-territorio .territory-polished-rank .rank-row,
+#page-territorio .territory-rank-card .rank-row,
+#page-habitacao .housing-side > .rank-card .rank-row,
+#page-fcus .fcu-side > .rank-card .rank-row,
+#page-fcus .fcu-exact-rank-card .rank-row,
+#page-infraestrutura .infra-side > .rank-card .rank-row,
+#page-indicadores .indicators-rank-card .rank-row{
+  width:100% !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+  grid-template-columns:26px minmax(150px,1.15fr) minmax(150px,1.45fr) minmax(66px,78px) !important;
+  gap:12px !important;
+  align-items:center !important;
+  padding:0 !important;
+}
+
+#page-inicio .home-exact-rank .rank-name,
+#page-inicio .home-rank-card .rank-name,
+#page-territorio .territory-polished-rank .rank-name,
+#page-territorio .territory-rank-card .rank-name,
+#page-habitacao .housing-side > .rank-card .rank-name,
+#page-fcus .fcu-side > .rank-card .rank-name,
+#page-fcus .fcu-exact-rank-card .rank-name,
+#page-infraestrutura .infra-side > .rank-card .rank-name,
+#page-indicadores .indicators-rank-card .rank-name{
+  min-width:0 !important;
+  display:block !important;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  overflow-wrap:break-word !important;
+  font-size:11.5px !important;
+  line-height:1.18 !important;
+  font-weight:750 !important;
+  color:#273227 !important;
+}
+
+#page-inicio .home-exact-rank .rank-track,
+#page-inicio .home-rank-card .rank-track,
+#page-territorio .territory-polished-rank .rank-track,
+#page-territorio .territory-rank-card .rank-track,
+#page-habitacao .housing-side > .rank-card .rank-track,
+#page-fcus .fcu-side > .rank-card .rank-track,
+#page-fcus .fcu-exact-rank-card .rank-track,
+#page-infraestrutura .infra-side > .rank-card .rank-track,
+#page-indicadores .indicators-rank-card .rank-track{
+  width:100% !important;
+  min-width:0 !important;
+  height:7px !important;
+  border-radius:999px !important;
+  background:#eeeae6 !important;
+  box-shadow:inset 0 0 0 1px rgba(120,104,92,.04) !important;
+}
+
+#page-inicio .home-exact-rank .rank-track i,
+#page-inicio .home-rank-card .rank-track i,
+#page-territorio .territory-polished-rank .rank-track i,
+#page-territorio .territory-rank-card .rank-track i,
+#page-habitacao .housing-side > .rank-card .rank-track i,
+#page-fcus .fcu-side > .rank-card .rank-track i,
+#page-fcus .fcu-exact-rank-card .rank-track i,
+#page-infraestrutura .infra-side > .rank-card .rank-track i,
+#page-indicadores .indicators-rank-card .rank-track i{
+  background:linear-gradient(90deg,#4f7b47,#6f9e62) !important;
+}
+
+#page-inicio .home-exact-rank .rank-value,
+#page-inicio .home-rank-card .rank-value,
+#page-territorio .territory-polished-rank .rank-value,
+#page-territorio .territory-rank-card .rank-value,
+#page-habitacao .housing-side > .rank-card .rank-value,
+#page-fcus .fcu-side > .rank-card .rank-value,
+#page-fcus .fcu-exact-rank-card .rank-value,
+#page-infraestrutura .infra-side > .rank-card .rank-value,
+#page-indicadores .indicators-rank-card .rank-value{
+  min-width:0 !important;
+  justify-self:stretch !important;
+  text-align:right !important;
+  white-space:nowrap !important;
+  color:#2e6c35 !important;
+  font-size:11.5px !important;
+  line-height:1 !important;
+  font-weight:850 !important;
+  font-variant-numeric:tabular-nums !important;
+}
+
+#page-inicio .home-exact-rank .rank-row:hover,
+#page-inicio .home-rank-card .rank-row:hover,
+#page-territorio .territory-polished-rank .rank-row:hover,
+#page-territorio .territory-rank-card .rank-row:hover,
+#page-habitacao .housing-side > .rank-card .rank-row:hover,
+#page-fcus .fcu-side > .rank-card .rank-row:hover,
+#page-fcus .fcu-exact-rank-card .rank-row:hover,
+#page-infraestrutura .infra-side > .rank-card .rank-row:hover,
+#page-indicadores .indicators-rank-card .rank-row:hover{
+  border-radius:8px !important;
+  background:linear-gradient(90deg,rgba(239,247,236,.7),rgba(255,255,255,0)) !important;
+}
+
+#page-inicio .home-exact-rank .context-help,
+#page-inicio .home-rank-card .context-help,
+#page-territorio .territory-polished-rank .context-help,
+#page-territorio .territory-rank-card .context-help,
+#page-habitacao .housing-side > .rank-card .context-help,
+#page-fcus .fcu-side > .rank-card .context-help,
+#page-fcus .fcu-exact-rank-card .context-help,
+#page-infraestrutura .infra-side > .rank-card .context-help,
+#page-indicadores .indicators-rank-card .context-help{
+  top:9px !important;
+  right:10px !important;
+  width:24px !important;
+  height:24px !important;
+  border:1px solid #d7b59f !important;
+  border-radius:50% !important;
+  color:#9a512e !important;
+  background:#fffdfb !important;
+  font-size:12px !important;
+  box-shadow:0 2px 7px rgba(104,62,39,.12) !important;
+}
+
+#page-inicio .home-exact-rank .context-help:hover,
+#page-inicio .home-exact-rank .context-help:focus,
+#page-inicio .home-rank-card .context-help:hover,
+#page-inicio .home-rank-card .context-help:focus,
+#page-territorio .territory-polished-rank .context-help:hover,
+#page-territorio .territory-polished-rank .context-help:focus,
+#page-territorio .territory-rank-card .context-help:hover,
+#page-territorio .territory-rank-card .context-help:focus,
+#page-habitacao .housing-side > .rank-card .context-help:hover,
+#page-habitacao .housing-side > .rank-card .context-help:focus,
+#page-fcus .fcu-side > .rank-card .context-help:hover,
+#page-fcus .fcu-side > .rank-card .context-help:focus,
+#page-fcus .fcu-exact-rank-card .context-help:hover,
+#page-fcus .fcu-exact-rank-card .context-help:focus,
+#page-infraestrutura .infra-side > .rank-card .context-help:hover,
+#page-infraestrutura .infra-side > .rank-card .context-help:focus,
+#page-indicadores .indicators-rank-card .context-help:hover,
+#page-indicadores .indicators-rank-card .context-help:focus{
+  color:#7c3e20 !important;
+  border-color:#bd7046 !important;
+  background:#fff7f0 !important;
+}
+
+@media(max-width:900px){
+  #page-inicio .home-exact-rank .rank-row,
+  #page-inicio .home-rank-card .rank-row,
+  #page-territorio .territory-polished-rank .rank-row,
+  #page-territorio .territory-rank-card .rank-row,
+  #page-habitacao .housing-side > .rank-card .rank-row,
+  #page-fcus .fcu-side > .rank-card .rank-row,
+  #page-fcus .fcu-exact-rank-card .rank-row,
+  #page-infraestrutura .infra-side > .rank-card .rank-row,
+  #page-indicadores .indicators-rank-card .rank-row{
+    grid-template-columns:24px minmax(120px,1.1fr) minmax(110px,1.25fr) 68px !important;
+    gap:10px !important;
+  }
+}
+@media(max-width:600px){
+  #page-inicio .home-exact-rank .ranking-list,
+  #page-inicio .home-rank-card .ranking-list,
+  #page-territorio .territory-polished-rank .ranking-list,
+  #page-territorio .territory-rank-card .ranking-list,
+  #page-habitacao .housing-side > .rank-card .ranking-list,
+  #page-fcus .fcu-side > .rank-card .ranking-list,
+  #page-fcus .fcu-exact-rank-card .ranking-list,
+  #page-infraestrutura .infra-side > .rank-card .ranking-list,
+  #page-indicadores .indicators-rank-card .ranking-list{
+    padding-left:12px !important;
+    padding-right:12px !important;
+  }
+  #page-inicio .home-exact-rank .rank-row,
+  #page-inicio .home-rank-card .rank-row,
+  #page-territorio .territory-polished-rank .rank-row,
+  #page-territorio .territory-rank-card .rank-row,
+  #page-habitacao .housing-side > .rank-card .rank-row,
+  #page-fcus .fcu-side > .rank-card .rank-row,
+  #page-fcus .fcu-exact-rank-card .rank-row,
+  #page-infraestrutura .infra-side > .rank-card .rank-row,
+  #page-indicadores .indicators-rank-card .rank-row{
+    grid-template-columns:22px minmax(105px,1fr) minmax(92px,1.05fr) 62px !important;
+    gap:8px !important;
+  }
+  #page-inicio .home-exact-rank .rank-name,
+  #page-inicio .home-rank-card .rank-name,
+  #page-territorio .territory-polished-rank .rank-name,
+  #page-territorio .territory-rank-card .rank-name,
+  #page-habitacao .housing-side > .rank-card .rank-name,
+  #page-fcus .fcu-side > .rank-card .rank-name,
+  #page-fcus .fcu-exact-rank-card .rank-name,
+  #page-infraestrutura .infra-side > .rank-card .rank-name,
+  #page-indicadores .indicators-rank-card .rank-name{
+    font-size:10.5px !important;
+  }
+}

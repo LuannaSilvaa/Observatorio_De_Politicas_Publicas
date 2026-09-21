@@ -1,0 +1,23 @@
+/* v2.0.117.72 — clique estadual confiável */
+.state-path {
+  pointer-events: all !important;
+  cursor: pointer !important;
+  touch-action: none !important;
+}
+
+.state-path:hover,
+.state-path:focus-visible {
+  stroke: #e75a16 !important;
+  stroke-width: 2.5px !important;
+  filter: brightness(1.04) drop-shadow(0 2px 3px rgba(80, 48, 28, .2)) !important;
+  outline: none !important;
+}
+
+.map-state-summary {
+  animation: state-summary-enter .18s ease-out both !important;
+}
+
+@keyframes state-summary-enter {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}

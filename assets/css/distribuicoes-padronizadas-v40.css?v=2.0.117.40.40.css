@@ -1,0 +1,282 @@
+/* v2.0.117.40 — distribuições com o mesmo padrão visual de gráfico, legenda e resumos */
+
+/* Modalidade MCMV: usa a faixa compacta de indicadores aprovada como referência. */
+#page-inicio .home-exact-modality .ref-modality-content.with-summary,
+#page-fcus .fcu-exact-modality-card .ref-modality-content.with-summary{
+  box-sizing:border-box !important;
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  display:grid !important;
+  grid-template-rows:minmax(0,1fr) 92px !important;
+  gap:8px !important;
+  padding:0 14px 14px !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-content.with-summary .ref-modality-panel,
+#page-fcus .fcu-exact-modality-card .ref-modality-content.with-summary .ref-modality-panel{
+  box-sizing:border-box !important;
+  min-height:0 !important;
+  height:auto !important;
+  grid-template-columns:230px minmax(0,1fr) !important;
+  gap:18px !important;
+  padding:8px 8px 5px !important;
+  align-items:center !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-content.with-summary .ref-modality-donut,
+#page-fcus .fcu-exact-modality-card .ref-modality-content.with-summary .ref-modality-donut{
+  width:205px !important;
+  height:205px !important;
+  margin:0 auto !important;
+  justify-self:center !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-content.with-summary .ref-modality-summary,
+#page-fcus .fcu-exact-modality-card .ref-modality-content.with-summary .ref-modality-summary{
+  min-height:92px !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:8px !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-box,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-box,
+#page-infraestrutura .infra-index-summary .ref-summary-box{
+  position:relative !important;
+  box-sizing:border-box !important;
+  overflow:hidden !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-box::before,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-box::before,
+#page-infraestrutura .infra-index-summary .ref-summary-box::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 auto 0 0 !important;
+  width:3px !important;
+  background:#4f8247 !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-box.warm::before,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-box.warm::before,
+#page-infraestrutura .infra-index-summary .ref-summary-box.warm::before{background:#d98731 !important}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-box.blue::before,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-box.blue::before,
+#page-infraestrutura .infra-index-summary .ref-summary-box.blue::before{background:#4a8ed8 !important}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-box.rose::before,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-box.rose::before,
+#page-infraestrutura .infra-index-summary .ref-summary-box.rose::before{background:#d96d86 !important}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-box,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-box{
+  min-height:92px !important;
+  grid-template-columns:34px minmax(0,1fr) !important;
+  gap:8px !important;
+  padding:9px 9px 9px 11px !important;
+  align-items:center !important;
+  border-radius:12px !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-icon,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-icon{
+  width:32px !important;
+  height:32px !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-box small,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-box small{
+  margin:0 0 4px !important;
+  font-size:7px !important;
+  line-height:1.12 !important;
+}
+
+#page-inicio .home-exact-modality .ref-modality-summary .ref-summary-box strong,
+#page-fcus .fcu-exact-modality-card .ref-modality-summary .ref-summary-box strong{
+  font-size:12px !important;
+  line-height:1.08 !important;
+}
+
+/* Índice de infraestrutura: o mesmo arranjo, adaptado à altura existente do card. */
+#page-infraestrutura .infra-distribution-card .infra-index-reference{
+  box-sizing:border-box !important;
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  display:grid !important;
+  grid-template-rows:minmax(0,1fr) 70px !important;
+  gap:7px !important;
+  padding:0 10px 10px !important;
+}
+
+#page-infraestrutura .infra-distribution-card .infra-index-reference > .donut-wrap{
+  box-sizing:border-box !important;
+  min-height:0 !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:3px 8px 4px !important;
+  display:grid !important;
+  grid-template-columns:142px minmax(0,1fr) !important;
+  gap:12px !important;
+  align-items:center !important;
+  align-content:center !important;
+}
+
+#page-infraestrutura .infra-distribution-card .infra-index-reference .donut{
+  width:132px !important;
+  height:132px !important;
+  justify-self:center !important;
+}
+
+#page-infraestrutura .infra-distribution-card .infra-index-reference .donut:after{
+  inset:31% !important;
+}
+
+#page-infraestrutura .infra-distribution-card .infra-index-reference .donut-center{
+  padding:0 8px !important;
+}
+
+#page-infraestrutura .infra-distribution-card .infra-index-reference .donut-center .chart-center-value{
+  font-size:17px !important;
+}
+
+#page-infraestrutura .infra-distribution-card .infra-index-reference .donut-center span{
+  font-size:8px !important;
+}
+
+#page-infraestrutura .infra-distribution-card .infra-index-reference .donut-legend{
+  width:100% !important;
+  min-width:0 !important;
+  gap:3px !important;
+}
+
+#page-infraestrutura .infra-distribution-card .infra-index-reference .donut-item{
+  min-height:25px !important;
+  grid-template-columns:9px minmax(0,1fr) auto !important;
+  gap:7px !important;
+}
+
+#page-infraestrutura .infra-distribution-card .infra-index-reference .donut-item i{
+  width:8px !important;
+  height:8px !important;
+}
+
+#page-infraestrutura .infra-distribution-card .infra-index-reference .donut-item span,
+#page-infraestrutura .infra-distribution-card .infra-index-reference .donut-item b{
+  font-size:9px !important;
+  line-height:1.1 !important;
+}
+
+#page-infraestrutura .infra-distribution-card .infra-index-reference .donut-item small{
+  margin-top:2px !important;
+  font-size:7.5px !important;
+  line-height:1.1 !important;
+}
+
+#page-infraestrutura .infra-index-summary{
+  min-height:70px !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:6px !important;
+}
+
+#page-infraestrutura .infra-index-summary .ref-summary-box{
+  min-height:70px !important;
+  grid-template-columns:25px minmax(0,1fr) !important;
+  gap:6px !important;
+  padding:7px 6px 7px 9px !important;
+  border-radius:10px !important;
+}
+
+#page-infraestrutura .infra-index-summary .ref-summary-icon{
+  width:24px !important;
+  height:24px !important;
+}
+
+#page-infraestrutura .infra-index-summary .ref-summary-icon svg{
+  width:14px !important;
+  height:14px !important;
+}
+
+#page-infraestrutura .infra-index-summary .ref-summary-box small{
+  margin:0 0 3px !important;
+  font-size:5.8px !important;
+  line-height:1.12 !important;
+}
+
+#page-infraestrutura .infra-index-summary .ref-summary-box strong{
+  font-size:10px !important;
+  line-height:1.05 !important;
+}
+
+#page-infraestrutura .infra-index-summary .ref-summary-box em{
+  margin-top:2px !important;
+  font-size:6.8px !important;
+}
+
+@media (max-width:1280px){
+  #page-inicio .home-exact-modality .ref-modality-content.with-summary,
+  #page-fcus .fcu-exact-modality-card .ref-modality-content.with-summary{
+    grid-template-rows:auto auto !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference{
+    grid-template-rows:auto auto !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference > .donut-wrap{
+    min-height:220px !important;
+    grid-template-columns:180px minmax(0,1fr) !important;
+  }
+
+  #page-infraestrutura .infra-distribution-card .infra-index-reference .donut{
+    width:168px !important;
+    height:168px !important;
+  }
+
+  #page-infraestrutura .infra-index-summary .ref-summary-box{
+    min-height:78px !important;
+  }
+}
+
+@media (max-width:760px){
+  #page-inicio .home-exact-modality .ref-modality-content.with-summary .ref-modality-panel,
+  #page-fcus .fcu-exact-modality-card .ref-modality-content.with-summary .ref-modality-panel,
+  #page-infraestrutura .infra-distribution-card .infra-index-reference > .donut-wrap{
+    grid-template-columns:1fr !important;
+    justify-items:center !important;
+  }
+
+  #page-inicio .home-exact-modality .ref-modality-content.with-summary .ref-modality-summary,
+  #page-fcus .fcu-exact-modality-card .ref-modality-content.with-summary .ref-modality-summary,
+  #page-infraestrutura .infra-index-summary{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  #page-infraestrutura .infra-index-summary .ref-summary-box{
+    min-height:76px !important;
+  }
+}
+
+body.dark #page-inicio .home-exact-modality .ref-summary-box,
+body.dark #page-fcus .fcu-exact-modality-card .ref-summary-box,
+body.dark #page-infraestrutura .infra-index-summary .ref-summary-box{
+  color:#f6f5f1 !important;
+  background:#1d211c !important;
+  border-color:#414a3e !important;
+}
+
+body.dark #page-inicio .home-exact-modality .ref-summary-box small,
+body.dark #page-fcus .fcu-exact-modality-card .ref-summary-box small,
+body.dark #page-infraestrutura .infra-index-summary .ref-summary-box small,
+body.dark #page-inicio .home-exact-modality .ref-summary-box em,
+body.dark #page-fcus .fcu-exact-modality-card .ref-summary-box em,
+body.dark #page-infraestrutura .infra-index-summary .ref-summary-box em{
+  color:#c8c4bd !important;
+}
+
+body.dark #page-inicio .home-exact-modality .ref-summary-box strong,
+body.dark #page-fcus .fcu-exact-modality-card .ref-summary-box strong,
+body.dark #page-infraestrutura .infra-index-summary .ref-summary-box strong{
+  color:#d7efcf !important;
+}
