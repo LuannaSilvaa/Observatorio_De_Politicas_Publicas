@@ -241,6 +241,21 @@ function miniReading(iconName,label,value,note=''){
   const fitClass=valueText.length>=11?'reading-value-long':valueText.length>=9?'reading-value-medium':'';
   return `<div class="reading-item"><div class="mini-icon">${icon(iconName)}</div><small>${label}</small><strong class="${fitClass}" title="${esc(valueText)}">${value}</strong>${note?`<span class="reading-note">${note}</span>`:''}</div>`
 }
+function summaryListCard(title,titleIcon,items,extraClass=''){
+  return `<article class="card metric-card summary-list-card ${extraClass}">
+    <h3><span class="summary-title-icon">${icon(titleIcon)}</span><span>${title}</span></h3>
+    <div class="summary-list-grid">${items.map(item=>miniReading(item[0],item[1],item[2],item[3]||'')).join('')}</div>
+  </article>`
+}
+function summaryMapCard(title,titleIcon,items,mapId,extraClass=''){
+  return `<article class="card metric-card summary-list-card summary-map-card ${extraClass}">
+    <h3><span class="summary-title-icon">${icon(titleIcon)}</span><span>${title}</span></h3>
+    <div class="summary-map-layout">
+      <div class="summary-map-metrics">${items.map(item=>miniReading(item[0],item[1],item[2],item[3]||'')).join('')}</div>
+      <div class="summary-mini-map" id="${mapId}"><div class="summary-mini-map-loading">Carregando recorte…</div></div>
+    </div>
+  </article>`
+}
 function regionGroupedMetrics(rows){const fields=[['pct_via_pavimentada','Pavimentação'],['pct_iluminacao_publica','Iluminação'],['pct_calcada','Calçadas'],['pct_arborizacao','Arborização'],['pct_rampa_cadeirante','Acessibilidade']];return {fields,series:regions.filter(reg=>rows.some(r=>r.regiao===reg)).map(reg=>({reg,vals:fields.map(([f])=>weighted(rows.filter(r=>r.regiao===reg),f)||0)}))}}
 
 const indicatorsCompareState={type:'columns',showValues:true};
@@ -297,6 +312,48 @@ function mapColor(value,max,kind){const t=max?value/max:0;if(kind==='fcu')return
 function mapSummaryValue(value,label,kind){if(/pib/i.test(label))return currency.format(value);if(/área/i.test(label))return `${two.format(value)} km²`;if(kind==='reach'||kind==='infra'||/alcance|cobertura|índice|pavimenta|ilumina|calçada|arboriza|acessibilidade/i.test(label))return pct(value);if(/pessoas|população|benefici/i.test(label))return compact.format(value);return fmt.format(Math.round(value))}
 function geomPoints(geom){const out=[];const walk=x=>{if(!Array.isArray(x))return;if(typeof x[0]==='number'&&typeof x[1]==='number'){out.push(x);return}x.forEach(walk)};walk(geom?.coordinates);return out}
 function pathForGeometry(geom,project){if(!geom)return'';const poly=rings=>rings.map(r=>r.length?`M${r.map(c=>project(c).join(',')).join('L')}Z`:'').join('');if(geom.type==='Polygon')return poly(geom.coordinates);if(geom.type==='MultiPolygon')return geom.coordinates.map(poly).join('');return''}
+async function drawSummaryMiniMap(id,rows,{kind='fcu',value=r=>r._fcu,aggregate='sum',label='Recorte territorial'}={}){
+  const el=document.getElementById(id);if(!el)return;
+  try{
+    const national=state.uf.length!==1;
+    let geo=national?(window.OBSERVATORIO_GEO_ESTADOS||null):await loadUfGeo(state.uf[0]);
+    if(!geo?.features?.length)geo=await loadAllGeo();
+    if(!geo?.features?.length)throw new Error('Geometria indisponível');
+    const allpts=[];geo.features.forEach(f=>allpts.push(...geomPoints(f.geometry)));
+    if(!allpts.length)throw new Error('Geometria vazia');
+    let minLon=Infinity,maxLon=-Infinity,minLat=Infinity,maxLat=-Infinity;
+    allpts.forEach(([lon,lat])=>{minLon=Math.min(minLon,lon);maxLon=Math.max(maxLon,lon);minLat=Math.min(minLat,lat);maxLat=Math.max(maxLat,lat)});
+    const W=360,H=210,pad=9,sx=(W-pad*2)/(maxLon-minLon||1),sy=(H-pad*2)/(maxLat-minLat||1),scale=Math.min(sx,sy),drawW=(maxLon-minLon)*scale,drawH=(maxLat-minLat)*scale,ox=(W-drawW)/2,oy=(H-drawH)/2;
+    const project=([lon,lat])=>[+(ox+(lon-minLon)*scale).toFixed(1),+(oy+(maxLat-lat)*scale).toFixed(1)];
+    let paths='';
+    if(national&&window.OBSERVATORIO_GEO_ESTADOS){
+      const grouped=new Map();
+      rows.forEach(r=>{if(!grouped.has(r.uf))grouped.set(r.uf,[]);grouped.get(r.uf).push(r)});
+      const featureValues=geo.features.map(f=>{
+        const list=grouped.get(f.properties.UF)||[];
+        const vals=list.map(value).map(Number).filter(Number.isFinite);
+        if(!vals.length)return 0;
+        return aggregate==='avg'?vals.reduce((a,b)=>a+b,0)/vals.length:vals.reduce((a,b)=>a+b,0)
+      });
+      const max=Math.max(1,...featureValues);
+      geo.features.forEach((f,i)=>{
+        const v=featureValues[i]||0,has=(grouped.get(f.properties.UF)||[]).length>0;
+        paths+=`<path d="${pathForGeometry(f.geometry,project)}" fill="${has?mapColor(v,max,kind):'#edf0ea'}" stroke="#ffffff" stroke-width="1.2"><title>${esc(fullUf(f.properties.UF))}: ${mapSummaryValue(v,label,kind)}</title></path>`
+      })
+    }else{
+      const rowMap=new Map(rows.map(r=>[String(r.cod_ibge),r]));
+      const vals=rows.map(r=>Number(value(r))||0),max=Math.max(1,...vals);
+      geo.features.forEach(f=>{
+        const r=rowMap.get(String(f.properties.CD_MUN)),v=r?Number(value(r))||0:0;
+        paths+=`<path d="${pathForGeometry(f.geometry,project)}" fill="${r?mapColor(v,max,kind):'#edf0ea'}" stroke="#ffffff" stroke-width=".65"><title>${esc(r?r.municipio:(f.properties.NM_MUN||''))}: ${mapSummaryValue(v,label,kind)}</title></path>`
+      })
+    }
+    el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" aria-label="${esc(label)}">${paths}</svg><span class="summary-mini-map-label">${national?'Brasil':esc(fullUf(state.uf[0]))}</span>`
+  }catch(err){
+    console.warn('Mini mapa indisponível',id,err);
+    el.innerHTML=`<div class="summary-mini-map-fallback">${icon('map')}<span>Recorte atual</span></div>`
+  }
+}
 async function drawMap(id,rows,{kind='fcu',value=r=>r._fcu,markers=true,aggregate:aggregation='sum',label='Indicador selecionado'}={}){
   const el=document.getElementById(id);if(!el)return;
   const token=(mapRenderTokens.get(id)||0)+1;mapRenderTokens.set(id,token);
@@ -789,36 +846,28 @@ function renderHome(rows,tot){
       <article class="card home-modality-card ref-modality-card home-exact-modality">${cardHead('Distribuição por modalidade MCMV')}${referenceModalityPanel(mods,modsTotal,{summary:true,municipios:tot.present})}</article>
     </div>
   </div>
-  <div class="bottom-cards home-summary-bottom">
-    <article class="card metric-card home-presence-card">
-      <h3>Municípios com presença do MCMV</h3>
-      <div class="home-summary-split">
-        ${ring(mcmvShare,fmt.format(tot.present||0),'municípios')}
-        <div class="home-summary-copy">
-          <span class="muted">de um total de ${fmt.format(rows.length)} municípios no recorte</span>
-          <strong>${pct(mcmvShare)}</strong>
-          <small>com pelo menos uma UH contratada</small>
-        </div>
-      </div>
-    </article>
-    <article class="card metric-card home-coverage-summary-card">
-      <h3>Cobertura útil do entorno nas FCUs</h3>
-      <div class="home-summary-split">
-        ${ring(tot.coverage||0,pct(tot.coverage),'cobertura')}
-        <div class="home-summary-copy">
-          <span class="muted">Área mapeada</span>
-          <strong>${two.format(tot.fcuArea)} km²</strong>
-          <small>${fmt.format(tot.missing||0)} setor(es) sem dado útil</small>
-        </div>
-      </div>
-    </article>
-    <article class="card metric-card home-reading-summary-card">
-      <h3>Leitura do recorte</h3>
-      <div class="reading-grid home-reading-grid">${miniReading('people','População (2022)',compact.format(tot.pop))}${miniReading('home','UH MCMV',compact.format(tot.uh))}${miniReading('building','FCUs',fmt.format(tot.fcus))}${miniReading('road','Vias pavimentadas',pct(pavedAvg))}</div>
-    </article>
+  <div class="bottom-cards home-summary-bottom summary-unified">
+    ${summaryListCard('Presença do MCMV','home',[
+      ['building','Municípios com MCMV',fmt.format(tot.present||0)],
+      ['percent','Presença no recorte',pct(mcmvShare)],
+      ['home','UH contratadas',compact.format(tot.uh)],
+      ['people','Pessoas potenciais',compact.format(tot.benef)]
+    ],'home-presence-card')}
+    ${summaryListCard('Cobertura útil do entorno nas FCUs','database',[
+      ['database','Setores com dado útil',fmt.format(tot.used||0)],
+      ['shield','Cobertura dos setores',pct(tot.coverage)],
+      ['globe','Área mapeada',`${two.format(tot.fcuArea)} km²`],
+      ['info','Setores sem dado útil',fmt.format(tot.missing||0)]
+    ],'home-coverage-summary-card')}
+    ${summaryMapCard('Leitura territorial do recorte','pin',[
+      ['people','População',compact.format(tot.pop)],
+      ['building','Domicílios pesquisados',compact.format(tot.dom)],
+      ['pin','UFs',fmt.format(uniq(rows.map(r=>r.uf)).length)],
+      ['globe','Regiões',fmt.format(uniq(rows.map(r=>r.regiao)).length)]
+    ],'homeSummaryMiniMap','home-reading-summary-card')}
   </div>
 `;
-  hydrateIcons($('#page-inicio'));bindPageLinks();
+  hydrateIcons($('#page-inicio'));bindPageLinks();drawSummaryMiniMap('homeSummaryMiniMap',rows,{kind:'fcu',value:r=>r._fcu,label:'FCUs identificadas'});
 }
 
 function equalizeMapAndGraphColumns(){}
@@ -880,34 +929,28 @@ function renderTerritory(rows,tot){
         </article>
       </div>
     </div>
-    <div class="bottom-cards housing-bottom territory-summary-strip">
-      <article class="card metric-card housing-summary-card territory-summary-card">
-        <h3>Síntese territorial</h3>
-        <div class="reading-grid housing-reading-grid">
-          ${miniReading('building','Municípios',fmt.format(rows.length))}
-          ${miniReading('pin','UFs',fmt.format(ufCount))}
-          ${miniReading('globe','Regiões',fmt.format(regionCount))}
-          ${miniReading('people','População',compact.format(tot.pop))}
-        </div>
-      </article>
-      <article class="card metric-card housing-intensity-card territory-intensity-card">
-        <h3>Presença das FCUs</h3>
-        <div class="reading-grid reading-grid-two">
-          ${miniReading('building','Municípios com FCU',fmt.format(tot.withFcu),`${pct(fcuShare)} dos municípios do recorte`)}
-          ${miniReading('shield','Cobertura dos dados nas FCUs',coverageLabel,'setores com informação de entorno utilizável')}
-        </div>
-      </article>
-      <article class="card metric-card housing-recorte-card territory-recorte-card">
-        <h3>Recorte integrado</h3>
-        <div class="reading-grid housing-reading-grid">
-          ${miniReading('people','FCUs identificadas',fmt.format(tot.fcus))}
-          ${miniReading('building','Domicílios pesquisados',compact.format(tot.dom))}
-          ${miniReading('home','UH MCMV',compact.format(tot.uh))}
-          ${miniReading('people','Pessoas potenciais',compact.format(tot.benef))}
-        </div>
-      </article>
+    <div class="bottom-cards housing-bottom territory-summary-strip summary-unified">
+      ${summaryListCard('Síntese territorial','map',[
+        ['building','Municípios',fmt.format(rows.length)],
+        ['pin','UFs',fmt.format(ufCount)],
+        ['globe','Regiões',fmt.format(regionCount)],
+        ['people','População',compact.format(tot.pop)]
+      ],'territory-summary-card')}
+      ${summaryListCard('Presença das FCUs','people',[
+        ['building','Municípios com FCU',fmt.format(tot.withFcu),`${pct(fcuShare)} do recorte`],
+        ['shield','Cobertura dos dados',coverageLabel],
+        ['people','FCUs identificadas',fmt.format(tot.fcus)],
+        ['globe','Área mapeada',`${two.format(tot.fcuArea)} km²`]
+      ],'territory-intensity-card')}
+      ${summaryMapCard('Recorte integrado','pin',[
+        ['building','Domicílios pesquisados',compact.format(tot.dom)],
+        ['home','UH MCMV',compact.format(tot.uh)],
+        ['people','Pessoas potenciais',compact.format(tot.benef)],
+        ['percent','Alcance potencial',pct(tot.reach)]
+      ],'territorySummaryMiniMap','territory-recorte-card')}
+    </div>
     </div>`;
-  hydrateIcons($('#page-territorio'));
+  hydrateIcons($('#page-territorio'));drawSummaryMiniMap('territorySummaryMiniMap',rows,{kind:'fcu',value:r=>r._fcu,label:'FCUs identificadas'});
   const rankingSelect=$('#page-territorio .territory-ranking-select');
   if(rankingSelect)rankingSelect.onchange=()=>{
     territoryRankingMetric=rankingSelect.value;
@@ -987,39 +1030,29 @@ function renderHousing(rows,tot){
       </div>
     </div>
 
-    <div class="bottom-cards housing-bottom">
-      <article class="card metric-card housing-summary-card">
-        <h3>Síntese habitacional</h3>
-        <div class="reading-grid housing-reading-grid">
-          ${miniReading('home','UH',compact.format(tot.uh))}
-          ${miniReading('people','Pessoas',compact.format(tot.benef))}
-          ${miniReading('percent','Alcance',pct(tot.reach))}
-          ${miniReading('building','Municípios',fmt.format(tot.present))}
-        </div>
-      </article>
-
-      <article class="card metric-card housing-intensity-card">
-        <h3>Intensidade econômica do MCMV</h3>
-        <div class="reading-grid housing-reading-grid">
-          ${miniReading('money','Valor médio por UH',currency.format(avgTicket),'ticket médio por unidade contratada')}
-          ${miniReading('home','UH por R$ 1 mi de PIB',two.format(tot.uhPib),'intensidade em relação à economia do recorte')}
-          ${miniReading('money','Valor total contratado',currency.format(tot.valor),'até 2022')}
-          ${miniReading('building','Operações',fmt.format(tot.ops),'contratações registradas')}
-        </div>
-      </article>
-
-      <article class="card metric-card housing-recorte-card">
-        <h3>Recorte habitacional</h3>
-        <div class="reading-grid housing-reading-grid">
-          ${miniReading('people','População',compact.format(tot.pop))}
-          ${miniReading('money','PIB',currency.format(tot.pib))}
-          ${miniReading('home','UH MCMV',compact.format(tot.uh))}
-          ${miniReading('people','Pessoas potenciais',compact.format(tot.benef))}
-        </div>
-      </article>
+    <div class="bottom-cards housing-bottom summary-unified">
+      ${summaryListCard('Síntese habitacional','home',[
+        ['home','UH',compact.format(tot.uh)],
+        ['people','Pessoas',compact.format(tot.benef)],
+        ['percent','Alcance',pct(tot.reach)],
+        ['building','Municípios',fmt.format(tot.present)]
+      ],'housing-summary-card')}
+      ${summaryListCard('Intensidade econômica do MCMV','money',[
+        ['money','Valor médio por UH',currency.format(avgTicket)],
+        ['home','UH por R$ 1 mi de PIB',two.format(tot.uhPib)],
+        ['money','Valor contratado',currency.format(tot.valor)],
+        ['building','Operações',fmt.format(tot.ops)]
+      ],'housing-intensity-card')}
+      ${summaryMapCard('Recorte habitacional','pin',[
+        ['people','População',compact.format(tot.pop)],
+        ['money','PIB',currency.format(tot.pib)],
+        ['home','UH MCMV',compact.format(tot.uh)],
+        ['people','Pessoas potenciais',compact.format(tot.benef)]
+      ],'housingSummaryMiniMap','housing-recorte-card')}
+    </div>
     </div>`;
 
-  hydrateIcons($('#page-habitacao'));
+  hydrateIcons($('#page-habitacao'));drawSummaryMiniMap('housingSummaryMiniMap',rows,{kind:'uh',value:r=>r._uh,label:'UH contratadas'});
 }
 
 /* FCUS */
@@ -1047,40 +1080,51 @@ function renderFcus(rows,tot){
         </div>
       </div>
     </div>
-    <div class="bottom-cards fcu-summary-strip">
-      <article class="card metric-card fcu-summary-card">
-        <h3>Síntese das FCUs</h3>
-        <div class="reading-grid fcu-summary-readings">
-          ${miniReading('people','FCUs identificadas',fmt.format(tot.fcus))}
-          ${miniReading('building','Municípios com FCU',fmt.format(tot.withFcu))}
-          ${miniReading('globe','Área mapeada',`${two.format(tot.fcuArea)} km²`)}
-          ${miniReading('percent','Presença municipal',pct(fcuShare))}
-        </div>
-      </article>
-      <article class="card metric-card fcu-coverage-summary-card">
-        <h3>Cobertura dos dados nas FCUs</h3>
-        <div class="reading-grid fcu-summary-readings fcu-coverage-readings">
-          ${miniReading('database','Setores com dado útil',fmt.format(tot.used))}
-          ${miniReading('shield','Cobertura dos setores',coverageLabel)}
-          ${miniReading('building','Setores das FCUs',fmt.format(tot.sectors))}
-          ${miniReading('info','Setores sem dado útil',fmt.format(tot.missing))}
-        </div>
-      </article>
-      <article class="card metric-card fcu-territorial-summary-card">
-        <h3>Recorte territorial das FCUs</h3>
-        <div class="reading-grid fcu-summary-readings">
-          ${miniReading('people','População',compact.format(fcuTot.pop))}
-          ${miniReading('building','Domicílios pesquisados',compact.format(fcuTot.dom))}
-          ${miniReading('pin','UFs com FCU',fmt.format(fcuUfCount))}
-          ${miniReading('globe','Regiões com FCU',fmt.format(fcuRegionCount))}
-        </div>
-      </article>
+    <div class="bottom-cards fcu-summary-strip summary-unified">
+      ${summaryListCard('Síntese das FCUs','bars',[
+        ['people','FCUs identificadas',fmt.format(tot.fcus)],
+        ['building','Municípios com FCU',fmt.format(tot.withFcu)],
+        ['globe','Área mapeada',`${two.format(tot.fcuArea)} km²`],
+        ['percent','Presença municipal',pct(fcuShare)]
+      ],'fcu-summary-card')}
+      ${summaryListCard('Cobertura dos dados nas FCUs','database',[
+        ['database','Setores com dado útil',fmt.format(tot.used)],
+        ['shield','Cobertura dos setores',coverageLabel],
+        ['building','Setores das FCUs',fmt.format(tot.sectors)],
+        ['info','Setores sem dado útil',fmt.format(tot.missing)]
+      ],'fcu-coverage-summary-card')}
+      ${summaryMapCard('Recorte territorial das FCUs','pin',[
+        ['people','População',compact.format(fcuTot.pop)],
+        ['building','Domicílios pesquisados',compact.format(fcuTot.dom)],
+        ['pin','UFs com FCU',fmt.format(fcuUfCount)],
+        ['globe','Regiões com FCU',fmt.format(fcuRegionCount)]
+      ],'fcuSummaryMiniMap','fcu-territorial-summary-card')}
+    </div>
     </div>`;
-  hydrateIcons($('#page-fcus'));bindPageLinks()
+  hydrateIcons($('#page-fcus'));bindPageLinks();drawSummaryMiniMap('fcuSummaryMiniMap',fcuRows,{kind:'fcu',value:r=>r._fcu,label:'FCUs identificadas'})
 }
 
 /* INFRASTRUCTURE */
-function renderInfrastructure(rows,tot){const metrics=[['road','Vias pavimentadas','pct_via_pavimentada'],['lamp','Iluminação pública','pct_iluminacao_publica'],['walk','Calçadas','pct_calcada'],['tree','Arborização urbana','pct_arborizacao'],['access','Rampas / acessibilidade','pct_rampa_cadeirante']];const rank=rows.map(r=>({key:placeLabel(r),value:infraIndex(r)})).sort((a,b)=>b.value-a.value);const cats=[{key:'Muito alto (≥80)',value:rows.filter(r=>infraIndex(r)>=80).length},{key:'Alto (60–79)',value:rows.filter(r=>infraIndex(r)>=60&&infraIndex(r)<80).length},{key:'Médio (40–59)',value:rows.filter(r=>infraIndex(r)>=40&&infraIndex(r)<60).length},{key:'Baixo (20–39)',value:rows.filter(r=>infraIndex(r)>=20&&infraIndex(r)<40).length},{key:'Muito baixo (<20)',value:rows.filter(r=>infraIndex(r)<20).length}].filter(x=>x.value);const avg=rows.length?rows.reduce((a,r)=>a+infraIndex(r),0)/rows.length:0;const catsTotal=cats.reduce((a,b)=>a+b.value,0);$('#page-infraestrutura').innerHTML=`<div class="kpi-grid five">${metrics.map((m,i)=>kpi(m[0],m[1],pct(weighted(rows,m[2])),'média do recorte',i===0||i===4)).join('')}</div><div class="split-main infra-split"><article class="card infra-map-card">${cardHead('Mapa de infraestrutura urbana')}<div class="map-frame" id="infraMap"><div class="map-loading">Carregando mapa de infraestrutura…</div>${mapLegend('infra')}</div></article><div class="stack-right infra-side"><article class="card rank-card">${cardHead('Ranking — municípios por índice de infraestrutura')}${rankList(rank,v=>pct(v),x=>x.key,6)}</article><article class="card infra-distribution-card">${cardHead('Distribuição dos municípios por índice')}${infrastructureIndexPanel(cats,catsTotal,avg)}</article></div></div><div class="bottom-cards infra-bottom"><article class="card metric-card infra-summary-card"><h3>Síntese de infraestrutura</h3><div class="gauge-layout">${infraRing(avg,fmt.format(rows.filter(r=>infraIndex(r)>=60).length),'municípios',`${pct(avg)} · índice sintético`)}<div class="summary-lines"><span>Média dos cinco indicadores urbanos</span><span>com índice alto ou muito alto</span></div></div></article><article class="card metric-card infra-coverage-card"><h3>Cobertura do recorte</h3><div class="gauge-layout">${infraRing(rows.length?rows.filter(r=>urbanFields.every(f=>hasNumber(r[f]))).length/rows.length*100:0,fmt.format(rows.filter(r=>urbanFields.every(f=>hasNumber(r[f]))).length),'municípios com dados',pct(rows.length?rows.filter(r=>urbanFields.every(f=>hasNumber(r[f]))).length/rows.length*100:null)+' · cobertura municipal')}<div class="summary-lines"><span>Base de Entorno do Censo 2022</span><span>municípios do recorte com os cinco indicadores disponíveis</span></div></div></article><article class="card metric-card infra-reading-card"><h3>Leitura territorial</h3><p style="font-size:10px;line-height:1.55;color:#635c56">A infraestrutura urbana é analisada junto à presença de FCUs e ao MCMV. O objetivo é observar desigualdades territoriais em pavimentação, iluminação, calçadas, arborização e acessibilidade, sem reduzir o Observatório a um único programa habitacional.</p><div class="reading-grid">${miniReading('tree','Arborização',pct(weighted(rows,'pct_arborizacao')))}${miniReading('walk','Calçadas',pct(weighted(rows,'pct_calcada')))}${miniReading('lamp','Iluminação',pct(weighted(rows,'pct_iluminacao_publica')))}${miniReading('access','Acessibilidade',pct(weighted(rows,'pct_rampa_cadeirante')))}</div></article></div>`;hydrateIcons($('#page-infraestrutura'))}
+function renderInfrastructure(rows,tot){const metrics=[['road','Vias pavimentadas','pct_via_pavimentada'],['lamp','Iluminação pública','pct_iluminacao_publica'],['walk','Calçadas','pct_calcada'],['tree','Arborização urbana','pct_arborizacao'],['access','Rampas / acessibilidade','pct_rampa_cadeirante']];const rank=rows.map(r=>({key:placeLabel(r),value:infraIndex(r)})).sort((a,b)=>b.value-a.value);const cats=[{key:'Muito alto (≥80)',value:rows.filter(r=>infraIndex(r)>=80).length},{key:'Alto (60–79)',value:rows.filter(r=>infraIndex(r)>=60&&infraIndex(r)<80).length},{key:'Médio (40–59)',value:rows.filter(r=>infraIndex(r)>=40&&infraIndex(r)<60).length},{key:'Baixo (20–39)',value:rows.filter(r=>infraIndex(r)>=20&&infraIndex(r)<40).length},{key:'Muito baixo (<20)',value:rows.filter(r=>infraIndex(r)<20).length}].filter(x=>x.value);const avg=rows.length?rows.reduce((a,r)=>a+infraIndex(r),0)/rows.length:0;const catsTotal=cats.reduce((a,b)=>a+b.value,0);$('#page-infraestrutura').innerHTML=`<div class="kpi-grid five">${metrics.map((m,i)=>kpi(m[0],m[1],pct(weighted(rows,m[2])),'média do recorte',i===0||i===4)).join('')}</div><div class="split-main infra-split"><article class="card infra-map-card">${cardHead('Mapa de infraestrutura urbana')}<div class="map-frame" id="infraMap"><div class="map-loading">Carregando mapa de infraestrutura…</div>${mapLegend('infra')}</div></article><div class="stack-right infra-side"><article class="card rank-card">${cardHead('Ranking — municípios por índice de infraestrutura')}${rankList(rank,v=>pct(v),x=>x.key,6)}</article><article class="card infra-distribution-card">${cardHead('Distribuição dos municípios por índice')}${infrastructureIndexPanel(cats,catsTotal,avg)}</article></div></div><div class="bottom-cards infra-bottom summary-unified">
+    ${summaryListCard('Síntese de infraestrutura','road',[
+      ['target','Índice sintético',pct(avg)],
+      ['building','Índice alto ou muito alto',fmt.format(rows.filter(r=>infraIndex(r)>=60).length)],
+      ['road','Pavimentação',pct(weighted(rows,'pct_via_pavimentada'))],
+      ['lamp','Iluminação',pct(weighted(rows,'pct_iluminacao_publica'))]
+    ],'infra-summary-card')}
+    ${summaryListCard('Cobertura do recorte','database',[
+      ['database','Municípios com dados',fmt.format(rows.filter(r=>urbanFields.every(f=>hasNumber(r[f]))).length)],
+      ['shield','Cobertura municipal',pct(rows.length?rows.filter(r=>urbanFields.every(f=>hasNumber(r[f]))).length/rows.length*100:null)],
+      ['info','Sem conjunto completo',fmt.format(rows.filter(r=>!urbanFields.every(f=>hasNumber(r[f]))).length)],
+      ['building','Municípios no recorte',fmt.format(rows.length)]
+    ],'infra-coverage-card')}
+    ${summaryMapCard('Leitura territorial','pin',[
+      ['tree','Arborização',pct(weighted(rows,'pct_arborizacao'))],
+      ['walk','Calçadas',pct(weighted(rows,'pct_calcada'))],
+      ['lamp','Iluminação',pct(weighted(rows,'pct_iluminacao_publica'))],
+      ['access','Acessibilidade',pct(weighted(rows,'pct_rampa_cadeirante'))]
+    ],'infraSummaryMiniMap','infra-reading-card')}
+  </div>`;hydrateIcons($('#page-infraestrutura'));drawSummaryMiniMap('infraSummaryMiniMap',rows,{kind:'infra',value:infraIndex,aggregate:'avg',label:'Índice de infraestrutura'})}
 
 /* REPORTS */
 
