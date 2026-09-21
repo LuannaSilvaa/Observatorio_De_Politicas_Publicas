@@ -1680,7 +1680,27 @@ function setupVisualSwitches(rows){
   })
 }
 
-document.addEventListener('click',e=>{const btn=e.target.closest('[data-rank-toggle]');if(!btn)return;const card=btn.closest('.rank-card');if(!card)return;const open=card.classList.toggle('rank-expanded');btn.innerHTML=open?'Mostrar menos <span>↑</span>':'Ver ranking completo <span>→</span>';});
+document.addEventListener('click',e=>{
+  const btn=e.target.closest('[data-rank-toggle]');
+  if(!btn)return;
+  const card=btn.closest('.rank-card');
+  if(!card)return;
+
+  const open=card.classList.toggle('rank-expanded');
+  const label=open?'Mostrar menos <span>↑</span>':'Ver ranking completo <span>→</span>';
+
+  /* Mantém todos os controles do mesmo ranking sincronizados. */
+  card.querySelectorAll('[data-rank-toggle]').forEach(control=>control.innerHTML=label);
+
+  /* Na Habitação, o ranking expandido precisa aumentar a altura de toda
+     a composição principal para empurrar o gráfico e os cartões inferiores. */
+  if(card.classList.contains('housing-rank-card')){
+    const split=card.closest('.housing-split');
+    const side=card.closest('.housing-side');
+    split?.classList.toggle('housing-ranking-expanded',open);
+    side?.classList.toggle('housing-ranking-expanded',open);
+  }
+});
 
 /* Referência visual v73: comparação, entrada por eixos e compartilhamento do recorte. */
 const comparisonState={scale:'municipios',ids:[],relation:'fcu',selectionScale:'municipios'};
