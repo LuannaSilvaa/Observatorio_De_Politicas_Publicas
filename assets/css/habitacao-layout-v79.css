@@ -1,0 +1,192 @@
+/* v79 — correção de prioridade/especificidade da linha inferior da Habitação
+   Vence as regras responsivas genéricas antigas de .bottom-cards. */
+
+@media (min-width:1100px){
+
+  /* três colunas realmente iguais, mesmo em larguras <=1600px */
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    grid-template-rows:auto !important;
+    grid-auto-rows:minmax(340px,auto) !important;
+    grid-auto-flow:row !important;
+    gap:16px !important;
+    align-items:stretch !important;
+    margin-top:0 !important;
+  }
+
+  /* posição explícita: impede a regra antiga de jogar o 3º cartão para outra linha */
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > article:nth-child(1){
+    grid-column:1 !important;
+    grid-row:1 !important;
+    order:1 !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > article:nth-child(2){
+    grid-column:2 !important;
+    grid-row:1 !important;
+    order:2 !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > article:nth-child(3),
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > article:last-child:nth-child(3){
+    grid-column:3 !important;
+    grid-row:1 !important;
+    order:3 !important;
+  }
+
+  /* todos os três com a mesma altura, mas sem cortar conteúdo */
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > .metric-card{
+    box-sizing:border-box !important;
+    width:100% !important;
+    min-width:0 !important;
+    height:100% !important;
+    min-height:340px !important;
+    max-height:none !important;
+    align-self:stretch !important;
+    display:flex !important;
+    flex-direction:column !important;
+    padding:20px 18px !important;
+    overflow:visible !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > .metric-card > h3{
+    flex:0 0 auto !important;
+    min-height:38px !important;
+    margin:0 0 14px !important;
+    padding:0 30px 0 0 !important;
+    font-size:16px !important;
+    line-height:1.25 !important;
+    display:flex !important;
+    align-items:flex-start !important;
+  }
+
+  /* mesma matriz interna 2 x 2 em todos */
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards .reading-grid,
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards .housing-reading-grid,
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards .reading-grid-two,
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > article:last-child:nth-child(3) .reading-grid{
+    flex:1 1 auto !important;
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-rows:repeat(2,minmax(112px,1fr)) !important;
+    gap:14px 12px !important;
+    align-items:stretch !important;
+    align-content:stretch !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    height:auto !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards .reading-item{
+    box-sizing:border-box !important;
+    min-width:0 !important;
+    min-height:112px !important;
+    height:auto !important;
+    padding:4px 8px !important;
+    margin:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    text-align:center !important;
+    overflow:visible !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards .reading-item .mini-icon{
+    flex:0 0 auto !important;
+    width:34px !important;
+    height:34px !important;
+    margin:0 auto 7px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards .reading-item small{
+    flex:0 0 auto !important;
+    min-height:28px !important;
+    margin:0 !important;
+    font-size:10.5px !important;
+    line-height:1.25 !important;
+    font-weight:650 !important;
+    text-align:center !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards .reading-item strong{
+    flex:0 0 auto !important;
+    margin:5px 0 0 !important;
+    font-size:18px !important;
+    line-height:1.15 !important;
+    white-space:nowrap !important;
+    text-align:center !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards .reading-item .reading-note{
+    flex:0 0 auto !important;
+    display:block !important;
+    max-width:190px !important;
+    min-height:0 !important;
+    margin:7px auto 0 !important;
+    padding:0 !important;
+    font-size:10px !important;
+    line-height:1.3 !important;
+    text-align:center !important;
+    color:#7a736d !important;
+    overflow-wrap:normal !important;
+    word-break:normal !important;
+  }
+}
+
+/* entre 800 e 1099px: duas colunas, terceiro cartão abaixo */
+@media (min-width:800px) and (max-width:1099px){
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-rows:auto auto !important;
+    gap:16px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > article:nth-child(1){
+    grid-column:1 !important;
+    grid-row:1 !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > article:nth-child(2){
+    grid-column:2 !important;
+    grid-row:1 !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > article:nth-child(3){
+    grid-column:1 / -1 !important;
+    grid-row:2 !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > .metric-card{
+    height:auto !important;
+    min-height:330px !important;
+    max-height:none !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > article:nth-child(3) .reading-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    grid-template-rows:1fr !important;
+  }
+}
+
+/* celular: uma coluna, sem qualquer sobreposição */
+@media (max-width:799px){
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:none !important;
+    gap:16px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > article:nth-child(1),
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > article:nth-child(2),
+  #observatorio-app #pages #page-habitacao .housing-bottom.bottom-cards > article:nth-child(3){
+    grid-column:1 !important;
+    grid-row:auto !important;
+    height:auto !important;
+    min-height:300px !important;
+    max-height:none !important;
+  }
+}
