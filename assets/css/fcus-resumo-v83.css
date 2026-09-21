@@ -1,0 +1,212 @@
+/* v83 — FCUs: três cartões-resumo na mesma linha e com o mesmo padrão visual */
+
+@media (min-width:1100px){
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    grid-template-rows:minmax(330px,auto) !important;
+    grid-auto-flow:row !important;
+    gap:16px !important;
+    align-items:stretch !important;
+    margin:18px 0 0 !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > article:nth-child(1){
+    grid-column:1 !important;
+    grid-row:1 !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > article:nth-child(2){
+    grid-column:2 !important;
+    grid-row:1 !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > article:nth-child(3),
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > article:last-child:nth-child(3){
+    grid-column:3 !important;
+    grid-row:1 !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > .metric-card{
+    box-sizing:border-box !important;
+    width:100% !important;
+    min-width:0 !important;
+    height:100% !important;
+    min-height:330px !important;
+    max-height:none !important;
+    padding:20px 18px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-self:stretch !important;
+    overflow:hidden !important;
+    background:#fff !important;
+    border:1px solid var(--line) !important;
+    border-radius:13px !important;
+    box-shadow:var(--shadow) !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > .metric-card > h3{
+    flex:0 0 auto !important;
+    min-height:40px !important;
+    margin:0 0 14px !important;
+    padding:0 30px 0 0 !important;
+    font-size:16px !important;
+    line-height:1.25 !important;
+    font-weight:700 !important;
+    text-transform:none !important;
+    letter-spacing:0 !important;
+    display:flex !important;
+    align-items:flex-start !important;
+  }
+
+  /* mesma matriz 2x2 nos três cartões */
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards .fcu-summary-readings,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards .reading-grid,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > article:last-child:nth-child(3) .reading-grid{
+    flex:1 1 auto !important;
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-rows:repeat(2,minmax(110px,1fr)) !important;
+    gap:12px 12px !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    align-items:stretch !important;
+    align-content:stretch !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards .reading-item{
+    box-sizing:border-box !important;
+    min-width:0 !important;
+    min-height:110px !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:5px 8px !important;
+    border:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    text-align:center !important;
+    overflow:visible !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards .reading-item .mini-icon{
+    flex:0 0 auto !important;
+    width:34px !important;
+    height:34px !important;
+    margin:0 auto 7px !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards .reading-item small{
+    flex:0 0 auto !important;
+    min-height:28px !important;
+    margin:0 !important;
+    font-size:10.5px !important;
+    line-height:1.25 !important;
+    font-weight:650 !important;
+    text-align:center !important;
+    text-transform:none !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards .reading-item strong{
+    flex:0 0 auto !important;
+    width:auto !important;
+    max-width:100% !important;
+    margin:5px 0 0 !important;
+    font-size:18px !important;
+    line-height:1.15 !important;
+    font-weight:750 !important;
+    white-space:nowrap !important;
+    text-align:center !important;
+    letter-spacing:-.015em !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards .reading-item .reading-note{
+    flex:0 0 auto !important;
+    display:block !important;
+    max-width:190px !important;
+    min-height:0 !important;
+    margin:6px auto 0 !important;
+    padding:0 !important;
+    font-size:9.5px !important;
+    line-height:1.28 !important;
+    color:#7a736d !important;
+    text-align:center !important;
+    text-transform:none !important;
+  }
+
+  /* remove o tratamento visual especial antigo do cartão de cobertura */
+  #observatorio-app #pages #page-fcus .fcu-coverage-summary-card{
+    background:#fff !important;
+    border-color:var(--line) !important;
+  }
+}
+
+@media (min-width:800px) and (max-width:1099px){
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:16px !important;
+    margin-top:18px !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > article:nth-child(1){
+    grid-column:1 !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > article:nth-child(2){
+    grid-column:2 !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > article:nth-child(3){
+    grid-column:1 / -1 !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > .metric-card{
+    height:auto !important;
+    min-height:320px !important;
+    max-height:none !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards .fcu-summary-readings{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    height:auto !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > article:nth-child(3) .reading-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  }
+}
+
+@media (max-width:799px){
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+    margin-top:18px !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > article{
+    grid-column:1 !important;
+    height:auto !important;
+    min-height:300px !important;
+    max-height:none !important;
+  }
+
+  #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards .fcu-summary-readings{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    height:auto !important;
+  }
+}
+
+body.dark #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > .metric-card{
+  background:#222720 !important;
+  border-color:#384035 !important;
+}
+
+body.high-contrast #observatorio-app #pages #page-fcus .fcu-summary-strip.bottom-cards > .metric-card{
+  background:#000 !important;
+  color:#fff !important;
+  border:2px solid #fff !important;
+}
