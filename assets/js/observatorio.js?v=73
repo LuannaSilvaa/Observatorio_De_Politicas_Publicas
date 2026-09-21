@@ -1053,34 +1053,17 @@ function renderFcus(rows,tot){
         <div class="reading-grid fcu-summary-readings">
           ${miniReading('people','FCUs identificadas',fmt.format(tot.fcus))}
           ${miniReading('building','Municípios com FCU',fmt.format(tot.withFcu))}
-          <div class="reading-item fcu-area-reading"><div class="mini-icon">${icon('globe')}</div><small>Área mapeada</small><strong class="fcu-area-value" title="${esc(`${two.format(tot.fcuArea)} km²`)}"><span>${two.format(tot.fcuArea)}</span><span>km²</span></strong></div>
+          ${miniReading('globe','Área mapeada',`${two.format(tot.fcuArea)} km²`)}
           ${miniReading('percent','Presença municipal',pct(fcuShare))}
         </div>
       </article>
       <article class="card metric-card fcu-coverage-summary-card">
-        <div class="fcu-coverage-heading">
-          <span class="fcu-coverage-heading-icon">${icon('database')}</span>
-          <h3>Cobertura dos dados nas FCUs</h3>
-        </div>
-        <div class="fcu-summary-pairs">
-          <div class="fcu-summary-pair fcu-summary-pair-used">
-            <div class="fcu-summary-pair-head">
-              <span class="fcu-summary-pair-icon">${icon('database')}</span>
-              <span class="muted">Setores com dado útil</span>
-            </div>
-            <div class="metric-big">${fmt.format(tot.used)}</div>
-            <div class="fcu-summary-progress" role="progressbar" aria-label="Proporção de setores das FCUs com dado útil" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${coverageValue.toFixed(2)}"><i style="width:${coverageValue}%"></i></div>
-            <small>de <strong>${fmt.format(tot.sectors)}</strong> setores das FCUs no recorte</small>
-          </div>
-          <div class="fcu-summary-pair fcu-summary-pair-coverage">
-            <div class="fcu-summary-pair-head">
-              <span class="fcu-summary-pair-icon">${icon('shield')}</span>
-              <span class="muted">Cobertura dos setores</span>
-            </div>
-            <div class="metric-big">${coverageLabel}</div>
-            <div class="fcu-summary-progress" role="progressbar" aria-label="Cobertura dos setores das FCUs" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${coverageValue.toFixed(2)}"><i style="width:${coverageValue}%"></i></div>
-            <small><strong>${fmt.format(tot.missing)}</strong> setores sem dado útil</small>
-          </div>
+        <h3>Cobertura dos dados nas FCUs</h3>
+        <div class="reading-grid fcu-summary-readings fcu-coverage-readings">
+          ${miniReading('database','Setores com dado útil',fmt.format(tot.used),`de ${fmt.format(tot.sectors)} setores das FCUs`)}
+          ${miniReading('shield','Cobertura dos setores',coverageLabel,'proporção com informação utilizável')}
+          ${miniReading('building','Setores das FCUs',fmt.format(tot.sectors),'total de setores no recorte')}
+          ${miniReading('info','Setores sem dado útil',fmt.format(tot.missing),'sem informação de entorno utilizável')}
         </div>
       </article>
       <article class="card metric-card fcu-territorial-summary-card">
