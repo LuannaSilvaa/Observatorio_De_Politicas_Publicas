@@ -1,0 +1,79 @@
+/* v80 — expansão segura do ranking da página Habitação
+   Quando "Ver ranking completo" é acionado, o bloco principal cresce no fluxo
+   normal da página e empurra o gráfico e os cartões seguintes para baixo. */
+
+@media (min-width:1051px){
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded{
+    height:auto !important;
+    min-height:700px !important;
+    align-items:start !important;
+    overflow:visible !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded .housing-map-card{
+    height:700px !important;
+    min-height:700px !important;
+    align-self:start !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded .housing-side{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto 362px !important;
+    height:auto !important;
+    min-height:700px !important;
+    align-content:start !important;
+    align-self:start !important;
+    overflow:visible !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded .housing-rank-card{
+    height:auto !important;
+    min-height:322px !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded .housing-rank-card .ranking-list{
+    height:auto !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded .housing-rank-card .target-rank-extra{
+    display:grid !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded .housing-donut-card{
+    height:362px !important;
+    min-height:362px !important;
+    max-height:362px !important;
+    position:relative !important;
+    z-index:1 !important;
+  }
+
+  /* A linha inferior nunca deve subir por baixo da coluna direita expandida. */
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded + .housing-bottom{
+    clear:both !important;
+    margin-top:18px !important;
+    position:relative !important;
+    z-index:0 !important;
+  }
+}
+
+/* Em telas menores, a expansão segue naturalmente a pilha vertical. */
+@media (max-width:1050px){
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded,
+  #observatorio-app #pages #page-habitacao .housing-side.housing-ranking-expanded{
+    height:auto !important;
+    min-height:0 !important;
+    overflow:visible !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded .housing-rank-card,
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded .housing-donut-card{
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+  }
+}
