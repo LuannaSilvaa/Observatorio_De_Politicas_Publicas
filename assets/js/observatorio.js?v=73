@@ -1060,10 +1060,10 @@ function renderFcus(rows,tot){
       <article class="card metric-card fcu-coverage-summary-card">
         <h3>Cobertura dos dados nas FCUs</h3>
         <div class="reading-grid fcu-summary-readings fcu-coverage-readings">
-          ${miniReading('database','Setores com dado útil',fmt.format(tot.used),`de ${fmt.format(tot.sectors)} setores das FCUs`)}
-          ${miniReading('shield','Cobertura dos setores',coverageLabel,'proporção com informação utilizável')}
-          ${miniReading('building','Setores das FCUs',fmt.format(tot.sectors),'total de setores no recorte')}
-          ${miniReading('info','Setores sem dado útil',fmt.format(tot.missing),'sem informação de entorno utilizável')}
+          ${miniReading('database','Setores com dado útil',fmt.format(tot.used))}
+          ${miniReading('shield','Cobertura dos setores',coverageLabel)}
+          ${miniReading('building','Setores das FCUs',fmt.format(tot.sectors))}
+          ${miniReading('info','Setores sem dado útil',fmt.format(tot.missing))}
         </div>
       </article>
       <article class="card metric-card fcu-territorial-summary-card">
