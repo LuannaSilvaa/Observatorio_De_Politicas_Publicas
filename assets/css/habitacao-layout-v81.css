@@ -1,0 +1,92 @@
+/* v81 — reserva real de espaço para o ranking expandido na Habitação.
+   Impede definitivamente que a coluna direita invada os cartões inferiores. */
+
+@media (min-width:1051px){
+
+  /* Estado normal: composição compacta. */
+  #observatorio-app #pages #page-habitacao .housing-split{
+    position:relative !important;
+  }
+
+  /* Estado expandido: ranking completo + gráfico ficam inteiramente dentro
+     da área principal antes da linha dos resumos. */
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded{
+    display:grid !important;
+    grid-template-columns:minmax(0,1.22fr) minmax(400px,.92fr) !important;
+    gap:16px !important;
+    height:980px !important;
+    min-height:980px !important;
+    max-height:none !important;
+    align-items:start !important;
+    overflow:visible !important;
+    margin-bottom:18px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded .housing-map-card{
+    height:700px !important;
+    min-height:700px !important;
+    max-height:700px !important;
+    align-self:start !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded .housing-side{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto 362px !important;
+    gap:16px !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    align-self:start !important;
+    align-content:start !important;
+    overflow:visible !important;
+    position:relative !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded .housing-rank-card{
+    position:relative !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    overflow:visible !important;
+    z-index:1 !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded .housing-rank-card .ranking-list{
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded .housing-donut-card{
+    position:relative !important;
+    inset:auto !important;
+    transform:none !important;
+    margin:0 !important;
+    width:auto !important;
+    height:362px !important;
+    min-height:362px !important;
+    max-height:362px !important;
+    align-self:start !important;
+    overflow:hidden !important;
+    z-index:0 !important;
+  }
+
+  /* A linha inferior só pode começar depois dos 980 px reservados acima. */
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded + .housing-bottom.bottom-cards{
+    position:relative !important;
+    z-index:2 !important;
+    margin-top:0 !important;
+    clear:both !important;
+  }
+}
+
+/* Em telas menores, tudo segue empilhado naturalmente. */
+@media (max-width:1050px){
+  #observatorio-app #pages #page-habitacao .housing-split.housing-ranking-expanded{
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+  }
+}
