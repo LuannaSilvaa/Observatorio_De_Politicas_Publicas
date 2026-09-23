@@ -1,0 +1,65 @@
+/* v105 — padronização tipográfica dos números nos cards da página Início */
+
+@media (min-width:760px){
+
+  /* Todos os valores dos cards 1 e 2 usam exatamente a mesma tipografia */
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .reading-item strong,
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .reading-item strong.reading-value-medium,
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .reading-item strong.reading-value-long{
+    box-sizing:border-box !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    font-family:inherit !important;
+    font-size:18px !important;
+    line-height:1 !important;
+    font-weight:800 !important;
+    letter-spacing:-.02em !important;
+    font-variant-numeric:tabular-nums lining-nums !important;
+    font-feature-settings:"tnum" 1,"lnum" 1 !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+    text-align:center !important;
+  }
+
+  /* Evita que uma regra antiga reduza especificamente o valor da área mapeada */
+  #observatorio-app #pages #page-inicio .home-coverage-summary-card
+  .summary-list-grid .reading-item:nth-child(3) strong{
+    font-size:18px !important;
+    letter-spacing:-.02em !important;
+  }
+
+  /* Valores do terceiro card também ficam uniformes entre si */
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item strong,
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item strong.reading-value-medium,
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item strong.reading-value-long{
+    font-family:inherit !important;
+    font-size:16px !important;
+    line-height:1 !important;
+    font-weight:800 !important;
+    letter-spacing:-.015em !important;
+    font-variant-numeric:tabular-nums lining-nums !important;
+    font-feature-settings:"tnum" 1,"lnum" 1 !important;
+    white-space:nowrap !important;
+    text-align:right !important;
+  }
+}
+
+/* Tablet: mantém todos iguais entre si, apenas reduz a escala do conjunto */
+@media (min-width:760px) and (max-width:1100px){
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .reading-item strong,
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .reading-item strong.reading-value-medium,
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .reading-item strong.reading-value-long,
+  #observatorio-app #pages #page-inicio .home-coverage-summary-card
+  .summary-list-grid .reading-item:nth-child(3) strong{
+    font-size:14.5px !important;
+    letter-spacing:-.025em !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item strong,
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item strong.reading-value-medium,
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item strong.reading-value-long{
+    font-size:12px !important;
+  }
+}
