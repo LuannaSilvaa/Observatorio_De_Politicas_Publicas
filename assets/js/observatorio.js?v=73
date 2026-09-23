@@ -1040,27 +1040,40 @@ function renderHousing(rows,tot){
       </div>
     </div>
 
-    <div class="bottom-cards housing-bottom summary-unified">
-      ${summaryListCard('Síntese habitacional','home',[
-        ['home','UH',compact.format(tot.uh)],
-        ['people','Pessoas',compact.format(tot.benef)],
-        ['percent','Alcance',pct(tot.reach)],
-        ['building','Municípios',fmt.format(tot.present)]
-      ],'housing-summary-card')}
-      ${summaryListCard('Intensidade econômica do MCMV','money',[
-        ['money','Valor médio por UH',currency.format(avgTicket)],
-        ['home','UH por R$ 1 mi de PIB',two.format(tot.uhPib)],
-        ['money','Valor contratado',currency.format(tot.valor)],
-        ['building','Operações',fmt.format(tot.ops)]
-      ],'housing-intensity-card')}
-      ${summaryMapCard('Recorte habitacional','pin',[
-        ['people','População',compact.format(tot.pop)],
-        ['money','PIB',currency.format(tot.pib)],
-        ['home','UH MCMV',compact.format(tot.uh)],
-        ['people','Pessoas potenciais',compact.format(tot.benef)]
-      ],'housingSummaryMiniMap','housing-recorte-card')}
-    </div>
-    </div>`;
+    <div class="housing-reference-strip">
+      <article class="card housing-reference-card">
+        <h3><span class="housing-reference-title-icon housing-reference-green">${summaryTitleIcon('home')}</span><span>Síntese habitacional</span></h3>
+        <div class="housing-reference-metrics">
+          <div class="housing-reference-metric"><span class="housing-reference-icon green">${icon('home')}</span><small>UH</small><strong>${compact.format(tot.uh)}</strong></div>
+          <div class="housing-reference-metric"><span class="housing-reference-icon orange">${icon('people')}</span><small>Pessoas</small><strong>${compact.format(tot.benef)}</strong></div>
+          <div class="housing-reference-metric"><span class="housing-reference-icon blue">${icon('percent')}</span><small>Alcance</small><strong>${pct(tot.reach)}</strong></div>
+          <div class="housing-reference-metric"><span class="housing-reference-icon purple">${icon('building')}</span><small>Municípios</small><strong>${fmt.format(tot.present)}</strong></div>
+        </div>
+      </article>
+
+      <article class="card housing-reference-card">
+        <h3><span class="housing-reference-title-icon housing-reference-blue">${summaryTitleIcon('database')}</span><span>Intensidade econômica do MCMV</span></h3>
+        <div class="housing-reference-metrics">
+          <div class="housing-reference-metric"><span class="housing-reference-icon green">${icon('money')}</span><small>Valor médio por UH</small><strong>${currency.format(avgTicket)}</strong></div>
+          <div class="housing-reference-metric"><span class="housing-reference-icon orange">${icon('home')}</span><small>UH por R$ 1 mi de PIB</small><strong>${two.format(tot.uhPib)}</strong></div>
+          <div class="housing-reference-metric"><span class="housing-reference-icon blue">${icon('money')}</span><small>Valor contratado</small><strong>${currency.format(tot.valor)}</strong></div>
+          <div class="housing-reference-metric"><span class="housing-reference-icon purple">${icon('building')}</span><small>Operações</small><strong>${fmt.format(tot.ops)}</strong></div>
+        </div>
+      </article>
+
+      <article class="card housing-reference-card housing-reference-map-card">
+        <h3><span class="housing-reference-title-icon housing-reference-orange">${summaryTitleIcon('pin')}</span><span>Recorte habitacional</span></h3>
+        <div class="housing-reference-map-body">
+          <div class="housing-reference-map-list">
+            <div class="housing-reference-row"><span class="housing-reference-icon green">${icon('people')}</span><small>População</small><strong>${compact.format(tot.pop)}</strong></div>
+            <div class="housing-reference-row"><span class="housing-reference-icon orange">${icon('money')}</span><small>PIB</small><strong>${currency.format(tot.pib)}</strong></div>
+            <div class="housing-reference-row"><span class="housing-reference-icon blue">${icon('home')}</span><small>UH MCMV</small><strong>${compact.format(tot.uh)}</strong></div>
+            <div class="housing-reference-row"><span class="housing-reference-icon purple">${icon('people')}</span><small>Pessoas potenciais</small><strong>${compact.format(tot.benef)}</strong></div>
+          </div>
+          <div class="housing-reference-map" id="housingSummaryMiniMap"><div class="summary-mini-map-loading">Carregando recorte…</div></div>
+        </div>
+      </article>
+    </div>    </div>`;
 
   hydrateIcons($('#page-habitacao'));drawSummaryMiniMap('housingSummaryMiniMap',rows,{kind:'uh',value:r=>r._uh,label:'UH contratadas'});
 }
