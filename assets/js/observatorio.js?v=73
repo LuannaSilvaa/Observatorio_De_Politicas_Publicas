@@ -866,7 +866,7 @@ function renderHome(rows,tot){
     ${summaryListCard('Cobertura útil do entorno nas FCUs','database',[
       ['database','Setores com dado útil',fmt.format(tot.used||0)],
       ['shield','Cobertura dos setores',pct(tot.coverage)],
-      ['globe','Área mapeada',`${two.format(tot.fcuArea)} km²`],
+      ['globe','Área mapeada',two.format(tot.fcuArea)],
       ['info','Setores sem dado útil',fmt.format(tot.missing||0)]
     ],'home-coverage-summary-card')}
     ${summaryMapCard('Leitura territorial do recorte','pin',[
