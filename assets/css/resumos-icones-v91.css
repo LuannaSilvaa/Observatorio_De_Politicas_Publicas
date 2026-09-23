@@ -1,0 +1,133 @@
+/* v91 — refinamento dos ícones ao lado dos títulos dos cards-resumo */
+
+#observatorio-app #pages .summary-unified .summary-list-card > h3{
+  gap:10px !important;
+}
+
+/* Base comum: badge discreto, moderno e institucional */
+#observatorio-app #pages .summary-unified .summary-title-icon{
+  box-sizing:border-box !important;
+  width:30px !important;
+  height:30px !important;
+  min-width:30px !important;
+  flex:0 0 30px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:9px !important;
+  border:1px solid rgba(23,109,57,.12) !important;
+  background:linear-gradient(180deg,#f4fbf5 0%,#eaf5ec 100%) !important;
+  color:#176d39 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.8),
+    0 2px 5px rgba(35,71,43,.06) !important;
+}
+
+#observatorio-app #pages .summary-unified .summary-title-icon svg{
+  width:18px !important;
+  height:18px !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.8 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+/* 1º card — verde institucional */
+#observatorio-app #pages .summary-unified > article:nth-child(1) .summary-title-icon{
+  background:linear-gradient(180deg,#f3faf4 0%,#e8f4ea 100%) !important;
+  color:#176d39 !important;
+  border-color:#d7e9da !important;
+}
+
+/* 2º card — azul petróleo para diferenciar cobertura/dados */
+#observatorio-app #pages .summary-unified > article:nth-child(2) .summary-title-icon{
+  background:linear-gradient(180deg,#f1f8fb 0%,#e7f2f7 100%) !important;
+  color:#176c89 !important;
+  border-color:#d5e7ef !important;
+}
+
+/* 3º card — terracota suave para o recorte territorial/mapa */
+#observatorio-app #pages .summary-unified > article:nth-child(3) .summary-title-icon{
+  background:linear-gradient(180deg,#fff7f0 0%,#faecdf 100%) !important;
+  color:#b55221 !important;
+  border-color:#f0dccb !important;
+}
+
+/* O título ganha alinhamento mais refinado com o ícone */
+#observatorio-app #pages .summary-unified .summary-list-card > h3 > span:last-child{
+  display:block;
+  min-width:0;
+  color:#182019 !important;
+  font-weight:800 !important;
+  letter-spacing:-.018em !important;
+}
+
+/* Pequeno efeito ao passar o mouse, sem exagero */
+@media (hover:hover){
+  #observatorio-app #pages .summary-unified .summary-list-card:hover .summary-title-icon{
+    transform:translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.9),
+      0 4px 9px rgba(35,71,43,.09) !important;
+    transition:transform .16s ease, box-shadow .16s ease;
+  }
+}
+
+/* Tablet: mantém presença visual sem roubar espaço do título */
+@media (min-width:900px) and (max-width:1250px){
+  #observatorio-app #pages .summary-unified .summary-title-icon{
+    width:28px !important;
+    height:28px !important;
+    min-width:28px !important;
+    flex-basis:28px !important;
+    border-radius:8px !important;
+  }
+
+  #observatorio-app #pages .summary-unified .summary-title-icon svg{
+    width:17px !important;
+    height:17px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width:899px){
+  #observatorio-app #pages .summary-unified .summary-title-icon{
+    width:29px !important;
+    height:29px !important;
+    min-width:29px !important;
+  }
+}
+
+/* Dark mode */
+body.dark #observatorio-app #pages .summary-unified .summary-title-icon{
+  box-shadow:none !important;
+}
+
+body.dark #observatorio-app #pages .summary-unified > article:nth-child(1) .summary-title-icon{
+  background:#21362a !important;
+  color:#8fd19d !important;
+  border-color:#35533f !important;
+}
+
+body.dark #observatorio-app #pages .summary-unified > article:nth-child(2) .summary-title-icon{
+  background:#20343d !important;
+  color:#8cc8df !important;
+  border-color:#36515d !important;
+}
+
+body.dark #observatorio-app #pages .summary-unified > article:nth-child(3) .summary-title-icon{
+  background:#3a2c23 !important;
+  color:#e9a06f !important;
+  border-color:#584132 !important;
+}
+
+body.dark #observatorio-app #pages .summary-unified .summary-list-card > h3 > span:last-child{
+  color:#f2f5f2 !important;
+}
+
+/* Alto contraste */
+body.high-contrast #observatorio-app #pages .summary-unified .summary-title-icon{
+  background:#000 !important;
+  color:#fff !important;
+  border:2px solid #fff !important;
+}
