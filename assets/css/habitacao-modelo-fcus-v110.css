@@ -1,0 +1,423 @@
+/* v110 — Habitação no mesmo padrão visual dos cards-modelo de FCUs */
+
+.housing-reference-strip{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  margin-top:16px;
+  width:100%;
+  min-width:0;
+}
+
+.housing-reference-card{
+  min-width:0;
+  height:300px;
+  padding:0 !important;
+  overflow:hidden;
+  display:grid;
+  grid-template-rows:60px minmax(0,1fr);
+  border:1px solid rgba(38,66,45,.12);
+  border-radius:18px !important;
+  background:linear-gradient(180deg,#fff 0%,#fffdfa 100%);
+  box-shadow:0 8px 24px rgba(35,46,37,.055);
+}
+
+.housing-reference-card>h3{
+  box-sizing:border-box;
+  height:60px;
+  margin:0 !important;
+  padding:0 42px 0 18px !important;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border-bottom:1px solid #eee9e2;
+  color:#171b18;
+  font-size:14px !important;
+  line-height:1.15 !important;
+  font-weight:800 !important;
+  letter-spacing:-.015em;
+  white-space:nowrap;
+  overflow:hidden;
+}
+
+.housing-reference-card>h3>span:last-child{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.housing-reference-title-icon{
+  width:34px;
+  height:34px;
+  min-width:34px;
+  flex:0 0 34px;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  border:1px solid #d7e9da;
+  background:linear-gradient(180deg,#f3faf4 0%,#e8f4ea 100%);
+  color:#176d39;
+}
+
+.housing-reference-title-icon.housing-reference-blue{
+  background:linear-gradient(180deg,#f1f8fb 0%,#e7f2f7 100%);
+  color:#176c89;
+  border-color:#d5e7ef;
+}
+
+.housing-reference-title-icon.housing-reference-orange{
+  background:linear-gradient(180deg,#fff7f0 0%,#faecdf 100%);
+  color:#b55221;
+  border-color:#f0dccb;
+}
+
+.housing-reference-title-icon svg{
+  width:19px !important;
+  height:19px !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.65 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+/* Cards 1 e 2 */
+.housing-reference-metrics{
+  box-sizing:border-box;
+  min-width:0;
+  height:240px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  padding:16px 9px 18px;
+  align-items:stretch;
+}
+
+.housing-reference-metric{
+  position:relative;
+  min-width:0;
+  padding:8px 8px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  gap:8px;
+}
+
+.housing-reference-metric:not(:first-child)::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:12px;
+  bottom:12px;
+  width:1px;
+  background:#ebe6df;
+}
+
+.housing-reference-icon{
+  width:42px;
+  height:42px;
+  min-width:42px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  border:1px solid #dcebdd;
+  background:#edf7ef;
+  color:#15703b;
+}
+
+.housing-reference-icon.orange{
+  background:#fff5eb;
+  color:#ed6a19;
+  border-color:#f4e1cf;
+}
+
+.housing-reference-icon.blue{
+  background:#edf6ff;
+  color:#2477c9;
+  border-color:#d9e9f8;
+}
+
+.housing-reference-icon.purple{
+  background:#f4efff;
+  color:#6c43bc;
+  border-color:#e6dcf8;
+}
+
+.housing-reference-icon svg{
+  width:20px !important;
+  height:20px !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.7 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+.housing-reference-metric small{
+  box-sizing:border-box;
+  width:100%;
+  min-height:40px;
+  padding:0 3px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#68655f;
+  font-size:9.3px;
+  line-height:1.2;
+  font-weight:650;
+  text-align:center;
+}
+
+.housing-reference-metric strong{
+  box-sizing:border-box;
+  width:100%;
+  margin:2px 0 0;
+  color:#131713;
+  font-family:inherit;
+  font-size:16px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums lining-nums;
+  font-feature-settings:"tnum" 1,"lnum" 1;
+  white-space:nowrap;
+  text-align:center;
+}
+
+/* Card 3 */
+.housing-reference-map-body{
+  min-width:0;
+  height:240px;
+  display:grid;
+  grid-template-columns:minmax(0,60%) minmax(0,40%);
+  overflow:hidden;
+}
+
+.housing-reference-map-list{
+  min-width:0;
+  height:100%;
+  padding:8px 11px;
+  display:grid;
+  grid-template-rows:repeat(4,minmax(0,1fr));
+  box-sizing:border-box;
+}
+
+.housing-reference-row{
+  box-sizing:border-box;
+  min-width:0;
+  padding:4px 2px;
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr) 90px;
+  column-gap:9px;
+  align-items:center;
+}
+
+.housing-reference-row:not(:first-child){
+  border-top:1px solid #eee9e3;
+}
+
+.housing-reference-row .housing-reference-icon{
+  width:34px;
+  height:34px;
+  min-width:34px;
+}
+
+.housing-reference-row .housing-reference-icon svg{
+  width:17px !important;
+  height:17px !important;
+}
+
+.housing-reference-row small{
+  min-width:0;
+  color:#68655f;
+  font-size:9px;
+  line-height:1.15;
+  font-weight:650;
+  text-align:left;
+  white-space:normal;
+}
+
+.housing-reference-row strong{
+  width:90px;
+  min-width:90px;
+  color:#131713;
+  font-family:inherit;
+  font-size:16px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:-.015em;
+  font-variant-numeric:tabular-nums lining-nums;
+  font-feature-settings:"tnum" 1,"lnum" 1;
+  white-space:nowrap;
+  text-align:right;
+}
+
+.housing-reference-map{
+  min-width:0;
+  height:100%;
+  position:relative;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border-left:1px solid #eee9e2;
+  background:
+    radial-gradient(circle at 50% 42%,rgba(82,145,91,.08),transparent 58%),
+    linear-gradient(180deg,#fbfdf9 0%,#f5f9f3 100%);
+}
+
+.housing-reference-map svg{
+  width:98% !important;
+  height:92% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  display:block;
+}
+
+.housing-reference-map .summary-mini-map-label{
+  right:8px;
+  bottom:7px;
+}
+
+/* Ajuda contextual gerada pelo site */
+.housing-reference-card>.context-help{
+  top:13px !important;
+  right:13px !important;
+}
+
+/* Tablet: mantém os 3 na mesma linha, só reduz a escala interna */
+@media (min-width:760px) and (max-width:1100px){
+  .housing-reference-strip{
+    gap:9px;
+  }
+
+  .housing-reference-card{
+    height:278px;
+    grid-template-rows:56px minmax(0,1fr);
+  }
+
+  .housing-reference-card>h3{
+    height:56px;
+    padding-left:11px !important;
+    padding-right:31px !important;
+    gap:7px;
+    font-size:11.8px !important;
+  }
+
+  .housing-reference-title-icon{
+    width:29px;
+    height:29px;
+    min-width:29px;
+    flex-basis:29px;
+  }
+
+  .housing-reference-metrics{
+    height:222px;
+    padding:13px 4px 15px;
+  }
+
+  .housing-reference-metric{
+    padding-left:4px;
+    padding-right:4px;
+    gap:6px;
+  }
+
+  .housing-reference-icon{
+    width:38px;
+    height:38px;
+    min-width:38px;
+  }
+
+  .housing-reference-metric small{
+    min-height:38px;
+    padding-left:1px;
+    padding-right:1px;
+    font-size:7.9px;
+  }
+
+  .housing-reference-metric strong{
+    font-size:13.5px;
+    letter-spacing:-.025em;
+  }
+
+  .housing-reference-map-body{
+    height:222px;
+    grid-template-columns:minmax(0,62%) minmax(0,38%);
+  }
+
+  .housing-reference-map-list{
+    padding-left:7px;
+    padding-right:7px;
+  }
+
+  .housing-reference-row{
+    grid-template-columns:28px minmax(0,1fr) 62px;
+    column-gap:5px;
+  }
+
+  .housing-reference-row .housing-reference-icon{
+    width:28px;
+    height:28px;
+    min-width:28px;
+  }
+
+  .housing-reference-row small{
+    font-size:7.8px;
+  }
+
+  .housing-reference-row strong{
+    width:62px;
+    min-width:62px;
+    font-size:12px;
+  }
+}
+
+/* Celular estreito: empilha os cards, preservando o conteúdo */
+@media (max-width:759px){
+  .housing-reference-strip{
+    grid-template-columns:1fr;
+  }
+
+  .housing-reference-card{
+    height:auto;
+    min-height:280px;
+  }
+
+  .housing-reference-map-body{
+    grid-template-columns:1fr;
+    grid-template-rows:auto 180px;
+    height:auto;
+  }
+
+  .housing-reference-map{
+    min-height:180px;
+    border-left:0;
+    border-top:1px solid #eee9e2;
+  }
+}
+
+body.dark .housing-reference-card{
+  background:linear-gradient(180deg,#18231d 0%,#141d18 100%);
+  border-color:rgba(224,239,227,.12);
+}
+
+body.dark .housing-reference-card>h3,
+body.dark .housing-reference-metric strong,
+body.dark .housing-reference-row strong{
+  color:#fff !important;
+}
+
+body.dark .housing-reference-metric small,
+body.dark .housing-reference-row small{
+  color:#bfc9c0 !important;
+}
+
+body.dark .housing-reference-map{
+  background:linear-gradient(180deg,#17221c 0%,#111a15 100%);
+  border-left-color:rgba(255,255,255,.09);
+}
+
+body.high-contrast .housing-reference-card{
+  border:2px solid #fff !important;
+}
