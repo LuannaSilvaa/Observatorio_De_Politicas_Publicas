@@ -1,0 +1,173 @@
+/* v94 — força Território, Habitação e Infraestrutura em três cards na mesma linha, como FCUs */
+
+/* Desktop e tablet em modo paisagem */
+@media (min-width:760px){
+
+  #observatorio-app #pages #page-territorio .bottom-cards.territory-summary-strip.summary-unified,
+  #observatorio-app #pages #page-habitacao .bottom-cards.housing-bottom.summary-unified,
+  #observatorio-app #pages #page-infraestrutura .bottom-cards.infra-bottom.summary-unified{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    grid-template-rows:246px !important;
+    grid-auto-flow:row !important;
+    grid-auto-rows:246px !important;
+    gap:14px !important;
+    align-items:stretch !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+  }
+
+  #observatorio-app #pages #page-territorio .bottom-cards.territory-summary-strip.summary-unified > article,
+  #observatorio-app #pages #page-habitacao .bottom-cards.housing-bottom.summary-unified > article,
+  #observatorio-app #pages #page-infraestrutura .bottom-cards.infra-bottom.summary-unified > article{
+    grid-column:auto !important;
+    grid-row:1 !important;
+    width:auto !important;
+    max-width:none !important;
+    min-width:0 !important;
+    height:246px !important;
+    min-height:246px !important;
+    max-height:246px !important;
+    align-self:stretch !important;
+  }
+
+  /* remove qualquer regra antiga que fazia o terceiro card ocupar a linha inteira */
+  #observatorio-app #pages #page-territorio .bottom-cards.territory-summary-strip.summary-unified > article:nth-child(1){
+    grid-column:1 !important;
+  }
+  #observatorio-app #pages #page-territorio .bottom-cards.territory-summary-strip.summary-unified > article:nth-child(2){
+    grid-column:2 !important;
+  }
+  #observatorio-app #pages #page-territorio .bottom-cards.territory-summary-strip.summary-unified > article:nth-child(3){
+    grid-column:3 !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .bottom-cards.housing-bottom.summary-unified > article:nth-child(1){
+    grid-column:1 !important;
+  }
+  #observatorio-app #pages #page-habitacao .bottom-cards.housing-bottom.summary-unified > article:nth-child(2){
+    grid-column:2 !important;
+  }
+  #observatorio-app #pages #page-habitacao .bottom-cards.housing-bottom.summary-unified > article:nth-child(3){
+    grid-column:3 !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .bottom-cards.infra-bottom.summary-unified > article:nth-child(1){
+    grid-column:1 !important;
+  }
+  #observatorio-app #pages #page-infraestrutura .bottom-cards.infra-bottom.summary-unified > article:nth-child(2){
+    grid-column:2 !important;
+  }
+  #observatorio-app #pages #page-infraestrutura .bottom-cards.infra-bottom.summary-unified > article:nth-child(3){
+    grid-column:3 !important;
+  }
+
+  /* impede regras globais antigas de colocarem o último card em 1 / -1 */
+  #observatorio-app #pages #page-territorio .territory-recorte-card,
+  #observatorio-app #pages #page-habitacao .housing-recorte-card,
+  #observatorio-app #pages #page-infraestrutura .infra-reading-card,
+  #observatorio-app #pages #page-territorio .metric-card:last-child,
+  #observatorio-app #pages #page-habitacao .metric-card:last-child,
+  #observatorio-app #pages #page-infraestrutura .metric-card:last-child{
+    grid-column:3 !important;
+    grid-row:1 !important;
+  }
+}
+
+/* Em tablet mais estreito, reduz espaços/fontes em vez de quebrar a linha */
+@media (min-width:760px) and (max-width:1050px){
+  #observatorio-app #pages #page-territorio .bottom-cards.territory-summary-strip.summary-unified,
+  #observatorio-app #pages #page-habitacao .bottom-cards.housing-bottom.summary-unified,
+  #observatorio-app #pages #page-infraestrutura .bottom-cards.infra-bottom.summary-unified{
+    gap:9px !important;
+  }
+
+  #observatorio-app #pages :is(#page-territorio,#page-habitacao,#page-infraestrutura)
+  .summary-unified .summary-list-card > h3{
+    padding-left:11px !important;
+    padding-right:30px !important;
+    gap:7px !important;
+    font-size:12.5px !important;
+  }
+
+  #observatorio-app #pages :is(#page-territorio,#page-habitacao,#page-infraestrutura)
+  .summary-unified .summary-title-icon{
+    width:26px !important;
+    height:26px !important;
+    min-width:26px !important;
+    flex-basis:26px !important;
+  }
+
+  #observatorio-app #pages :is(#page-territorio,#page-habitacao,#page-infraestrutura)
+  .summary-unified .summary-list-grid .reading-item{
+    padding-left:3px !important;
+    padding-right:3px !important;
+  }
+
+  #observatorio-app #pages :is(#page-territorio,#page-habitacao,#page-infraestrutura)
+  .summary-unified .summary-list-grid .reading-item small{
+    font-size:8px !important;
+  }
+
+  #observatorio-app #pages :is(#page-territorio,#page-habitacao,#page-infraestrutura)
+  .summary-unified .summary-list-grid .reading-item strong{
+    font-size:13px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao
+  .housing-intensity-card .summary-list-grid .reading-item strong{
+    font-size:10.8px !important;
+  }
+
+  #observatorio-app #pages :is(#page-territorio,#page-habitacao,#page-infraestrutura)
+  .summary-unified .summary-map-card .summary-map-layout{
+    grid-template-columns:minmax(0,1.35fr) minmax(90px,.65fr) !important;
+  }
+
+  #observatorio-app #pages :is(#page-territorio,#page-habitacao,#page-infraestrutura)
+  .summary-unified .summary-mini-map{
+    min-width:90px !important;
+  }
+
+  #observatorio-app #pages :is(#page-territorio,#page-habitacao,#page-infraestrutura)
+  .summary-unified .summary-map-metrics .reading-item{
+    grid-template-columns:25px minmax(0,1fr) auto !important;
+    column-gap:4px !important;
+  }
+
+  #observatorio-app #pages :is(#page-territorio,#page-habitacao,#page-infraestrutura)
+  .summary-unified .summary-map-metrics .mini-icon{
+    width:25px !important;
+    height:25px !important;
+    min-width:25px !important;
+  }
+
+  #observatorio-app #pages :is(#page-territorio,#page-habitacao,#page-infraestrutura)
+  .summary-unified .summary-map-metrics .reading-item small{
+    font-size:7.8px !important;
+  }
+
+  #observatorio-app #pages :is(#page-territorio,#page-habitacao,#page-infraestrutura)
+  .summary-unified .summary-map-metrics .reading-item strong{
+    font-size:12px !important;
+    max-width:70px !important;
+  }
+}
+
+/* Apenas celular estreito empilha */
+@media (max-width:759px){
+  #observatorio-app #pages #page-territorio .bottom-cards.territory-summary-strip.summary-unified,
+  #observatorio-app #pages #page-habitacao .bottom-cards.housing-bottom.summary-unified,
+  #observatorio-app #pages #page-infraestrutura .bottom-cards.infra-bottom.summary-unified{
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto !important;
+  }
+
+  #observatorio-app #pages #page-territorio .bottom-cards.territory-summary-strip.summary-unified > article,
+  #observatorio-app #pages #page-habitacao .bottom-cards.housing-bottom.summary-unified > article,
+  #observatorio-app #pages #page-infraestrutura .bottom-cards.infra-bottom.summary-unified > article{
+    grid-column:1 !important;
+    grid-row:auto !important;
+  }
+}
