@@ -1,0 +1,294 @@
+/* v108 — correção simples e estável dos cards de Habitação */
+
+@media (min-width:760px){
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.summary-unified{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    grid-template-rows:260px !important;
+    gap:14px !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    align-items:stretch !important;
+    overflow:hidden !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.summary-unified > article{
+    box-sizing:border-box !important;
+    grid-row:1 !important;
+    width:100% !important;
+    min-width:0 !important;
+    height:260px !important;
+    min-height:260px !important;
+    max-height:260px !important;
+    overflow:hidden !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .housing-bottom.summary-unified > article:nth-child(1){grid-column:1 !important;}
+  #observatorio-app #pages #page-habitacao .housing-bottom.summary-unified > article:nth-child(2){grid-column:2 !important;}
+  #observatorio-app #pages #page-habitacao .housing-bottom.summary-unified > article:nth-child(3){grid-column:3 !important;}
+
+  /* Cabeçalhos */
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-card > h3{
+    box-sizing:border-box !important;
+    height:54px !important;
+    min-height:54px !important;
+    max-height:54px !important;
+    margin:0 !important;
+    padding:0 40px 0 15px !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:9px !important;
+    border-bottom:1px solid #ebe7e1 !important;
+    font-size:13px !important;
+    line-height:1.1 !important;
+    font-weight:800 !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+  }
+
+  /* Cards 1 e 2: conteúdo sobe e ganha margem inferior real */
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid{
+    box-sizing:border-box !important;
+    height:206px !important;
+    min-height:206px !important;
+    padding:22px 8px 26px !important;
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    grid-template-rows:1fr !important;
+    gap:0 !important;
+    align-items:stretch !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid .reading-item{
+    box-sizing:border-box !important;
+    position:relative !important;
+    min-width:0 !important;
+    height:100% !important;
+    margin:0 !important;
+    padding:0 7px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    text-align:center !important;
+    overflow:visible !important;
+    border:0 !important;
+    background:transparent !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid .reading-item:not(:first-child)::before{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    top:0 !important;
+    bottom:0 !important;
+    width:1px !important;
+    background:#e9e4de !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid .mini-icon{
+    width:40px !important;
+    height:40px !important;
+    min-width:40px !important;
+    margin:0 0 11px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid .mini-icon svg{
+    width:20px !important;
+    height:20px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid .reading-item small{
+    box-sizing:border-box !important;
+    width:100% !important;
+    min-height:38px !important;
+    margin:0 !important;
+    padding:0 2px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    color:#68635e !important;
+    font-size:8.8px !important;
+    line-height:1.18 !important;
+    font-weight:650 !important;
+    white-space:normal !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid .reading-item strong,
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid .reading-item strong.reading-value-medium,
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid .reading-item strong.reading-value-long{
+    box-sizing:border-box !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin:11px 0 0 !important;
+    padding:0 !important;
+    font-family:inherit !important;
+    font-size:15.5px !important;
+    line-height:1 !important;
+    font-weight:800 !important;
+    letter-spacing:-.02em !important;
+    font-variant-numeric:tabular-nums lining-nums !important;
+    font-feature-settings:"tnum" 1,"lnum" 1 !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+    text-align:center !important;
+  }
+
+  /* Terceiro card: 4 linhas completas + mapa */
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-card .summary-map-layout{
+    box-sizing:border-box !important;
+    height:206px !important;
+    min-height:206px !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,60%) minmax(0,40%) !important;
+    overflow:hidden !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics{
+    box-sizing:border-box !important;
+    height:206px !important;
+    min-height:206px !important;
+    padding:5px 9px !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:repeat(4,minmax(0,1fr)) !important;
+    gap:0 !important;
+    overflow:hidden !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .reading-item{
+    box-sizing:border-box !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    height:100% !important;
+    padding:3px 2px !important;
+    display:grid !important;
+    grid-template-columns:30px minmax(0,1fr) 82px !important;
+    column-gap:7px !important;
+    align-items:center !important;
+    overflow:hidden !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .reading-item:not(:first-child){
+    border-top:1px solid #eee9e3 !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .reading-item::before,
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .reading-item::after{
+    display:none !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .mini-icon{
+    width:30px !important;
+    height:30px !important;
+    min-width:30px !important;
+    margin:0 !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .reading-item small{
+    min-width:0 !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    font-size:8.6px !important;
+    line-height:1.12 !important;
+    font-weight:650 !important;
+    text-align:left !important;
+    white-space:normal !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .reading-item strong,
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .reading-item strong.reading-value-medium,
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .reading-item strong.reading-value-long{
+    width:82px !important;
+    min-width:82px !important;
+    max-width:82px !important;
+    margin:0 !important;
+    padding:0 !important;
+    font-size:13.5px !important;
+    line-height:1 !important;
+    font-weight:800 !important;
+    font-variant-numeric:tabular-nums lining-nums !important;
+    white-space:nowrap !important;
+    text-align:right !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-mini-map{
+    box-sizing:border-box !important;
+    height:206px !important;
+    min-height:206px !important;
+    width:100% !important;
+    min-width:0 !important;
+    padding:2px !important;
+    overflow:hidden !important;
+    border-left:1px solid #eee9e2 !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-mini-map svg{
+    width:100% !important;
+    height:100% !important;
+    max-width:100% !important;
+    max-height:100% !important;
+    transform:none !important;
+  }
+}
+
+@media (min-width:760px) and (max-width:1100px){
+  #observatorio-app #pages #page-habitacao .housing-bottom.summary-unified{gap:9px !important;}
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-card > h3{
+    font-size:11px !important;
+    padding-left:10px !important;
+    padding-right:28px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid{
+    padding-left:3px !important;
+    padding-right:3px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid .reading-item{
+    padding-left:3px !important;
+    padding-right:3px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid .reading-item small{
+    font-size:7.5px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid .reading-item strong,
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid .reading-item strong.reading-value-medium,
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-list-grid .reading-item strong.reading-value-long{
+    font-size:12.4px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-card .summary-map-layout{
+    grid-template-columns:minmax(0,62%) minmax(0,38%) !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .reading-item{
+    grid-template-columns:25px minmax(0,1fr) 58px !important;
+    column-gap:4px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .mini-icon{
+    width:25px !important;
+    height:25px !important;
+    min-width:25px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .reading-item small{
+    font-size:7.3px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .reading-item strong,
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .reading-item strong.reading-value-medium,
+  #observatorio-app #pages #page-habitacao .summary-unified .summary-map-metrics .reading-item strong.reading-value-long{
+    width:58px !important;
+    min-width:58px !important;
+    max-width:58px !important;
+    font-size:10.8px !important;
+  }
+}
