@@ -1,0 +1,325 @@
+/* v95 — Início com os três cards de resumo na mesma linha, igual ao modelo FCUs */
+
+@media (min-width:760px){
+  #observatorio-app #pages #page-inicio .bottom-cards.home-summary-bottom.summary-unified{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    grid-template-rows:246px !important;
+    grid-auto-rows:246px !important;
+    gap:14px !important;
+    align-items:stretch !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    margin-top:16px !important;
+  }
+
+  #observatorio-app #pages #page-inicio .bottom-cards.home-summary-bottom.summary-unified > article{
+    box-sizing:border-box !important;
+    width:auto !important;
+    min-width:0 !important;
+    max-width:none !important;
+    height:246px !important;
+    min-height:246px !important;
+    max-height:246px !important;
+    grid-row:1 !important;
+    align-self:stretch !important;
+  }
+
+  #observatorio-app #pages #page-inicio .bottom-cards.home-summary-bottom.summary-unified > article:nth-child(1){
+    grid-column:1 !important;
+  }
+
+  #observatorio-app #pages #page-inicio .bottom-cards.home-summary-bottom.summary-unified > article:nth-child(2){
+    grid-column:2 !important;
+  }
+
+  #observatorio-app #pages #page-inicio .bottom-cards.home-summary-bottom.summary-unified > article:nth-child(3),
+  #observatorio-app #pages #page-inicio .home-reading-summary-card,
+  #observatorio-app #pages #page-inicio .metric-card:last-child{
+    grid-column:3 !important;
+    grid-row:1 !important;
+  }
+
+  /* Cabeçalhos iguais aos FCUs */
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-card > h3{
+    box-sizing:border-box !important;
+    flex:0 0 52px !important;
+    width:100% !important;
+    height:52px !important;
+    min-height:52px !important;
+    margin:0 !important;
+    padding:12px 38px 11px 15px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:9px !important;
+    border-bottom:1px solid #eee9e2 !important;
+    font-size:14px !important;
+    line-height:1.15 !important;
+    font-weight:800 !important;
+    text-transform:none !important;
+    letter-spacing:-.018em !important;
+  }
+
+  /* 1º e 2º cards com quatro indicadores horizontais */
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid{
+    box-sizing:border-box !important;
+    flex:1 1 auto !important;
+    width:100% !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    height:194px !important;
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    grid-template-rows:1fr !important;
+    gap:0 !important;
+    padding:10px 5px 11px !important;
+    align-items:stretch !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .reading-item{
+    box-sizing:border-box !important;
+    position:relative !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:7px 7px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+    gap:5px !important;
+    overflow:hidden !important;
+    border:0 !important;
+    background:transparent !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .reading-item:not(:first-child)::before{
+    content:"" !important;
+    display:block !important;
+    position:absolute !important;
+    left:0 !important;
+    top:13px !important;
+    bottom:13px !important;
+    width:1px !important;
+    background:#ebe6df !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .mini-icon{
+    flex:0 0 34px !important;
+    width:34px !important;
+    height:34px !important;
+    margin:0 0 5px !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .reading-item small{
+    box-sizing:border-box !important;
+    width:100% !important;
+    min-height:29px !important;
+    margin:0 !important;
+    display:flex !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+    font-size:9.2px !important;
+    line-height:1.18 !important;
+    font-weight:650 !important;
+    text-align:center !important;
+    white-space:normal !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .reading-item strong{
+    box-sizing:border-box !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin:5px 0 0 !important;
+    padding:0 1px !important;
+    font-size:16px !important;
+    line-height:1.05 !important;
+    font-weight:850 !important;
+    letter-spacing:-.025em !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+    text-align:center !important;
+  }
+
+  /* 3º card no mesmo padrão lista + mapa */
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-card .summary-map-layout{
+    box-sizing:border-box !important;
+    flex:1 1 auto !important;
+    width:100% !important;
+    height:194px !important;
+    min-height:0 !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,1.12fr) minmax(145px,.88fr) !important;
+    grid-template-rows:1fr !important;
+    overflow:hidden !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics{
+    box-sizing:border-box !important;
+    min-width:0 !important;
+    height:100% !important;
+    padding:7px 8px 7px 10px !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:repeat(4,minmax(0,1fr)) !important;
+    gap:0 !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item{
+    box-sizing:border-box !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    height:auto !important;
+    padding:5px 3px !important;
+    margin:0 !important;
+    display:grid !important;
+    grid-template-columns:30px minmax(0,1fr) auto !important;
+    grid-template-rows:1fr !important;
+    column-gap:7px !important;
+    align-items:center !important;
+    overflow:hidden !important;
+    border:0 !important;
+    background:transparent !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item:not(:first-child){
+    border-top:1px solid #eee9e3 !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item::before,
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item::after{
+    display:none !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .mini-icon{
+    grid-column:1 !important;
+    grid-row:1 !important;
+    width:30px !important;
+    height:30px !important;
+    min-width:30px !important;
+    margin:0 !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item small{
+    grid-column:2 !important;
+    grid-row:1 !important;
+    width:auto !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    font-size:9px !important;
+    line-height:1.15 !important;
+    font-weight:650 !important;
+    text-align:left !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item strong{
+    grid-column:3 !important;
+    grid-row:1 !important;
+    width:auto !important;
+    max-width:100px !important;
+    margin:0 !important;
+    padding:0 !important;
+    font-size:15px !important;
+    line-height:1 !important;
+    font-weight:850 !important;
+    letter-spacing:-.02em !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+    text-align:right !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-mini-map{
+    box-sizing:border-box !important;
+    min-width:145px !important;
+    width:100% !important;
+    height:100% !important;
+    min-height:0 !important;
+    border-left:1px solid #eee9e2 !important;
+    border-top:0 !important;
+    overflow:hidden !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-mini-map svg{
+    width:96% !important;
+    height:91% !important;
+    max-width:100% !important;
+    max-height:100% !important;
+    transform:none !important;
+  }
+}
+
+/* Tablet: mantém os 3 lado a lado, reduzindo só o conteúdo */
+@media (min-width:760px) and (max-width:1050px){
+  #observatorio-app #pages #page-inicio .bottom-cards.home-summary-bottom.summary-unified{
+    gap:9px !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-card > h3{
+    padding-left:11px !important;
+    padding-right:30px !important;
+    gap:7px !important;
+    font-size:12.5px !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .reading-item{
+    padding-left:3px !important;
+    padding-right:3px !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .reading-item small{
+    font-size:8px !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-list-grid .reading-item strong{
+    font-size:13px !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-card .summary-map-layout{
+    grid-template-columns:minmax(0,1.35fr) minmax(90px,.65fr) !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-mini-map{
+    min-width:90px !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item{
+    grid-template-columns:25px minmax(0,1fr) auto !important;
+    column-gap:4px !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .mini-icon{
+    width:25px !important;
+    height:25px !important;
+    min-width:25px !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item small{
+    font-size:7.8px !important;
+  }
+
+  #observatorio-app #pages #page-inicio .summary-unified .summary-map-metrics .reading-item strong{
+    font-size:12px !important;
+    max-width:70px !important;
+  }
+}
+
+/* Só empilha no celular estreito */
+@media (max-width:759px){
+  #observatorio-app #pages #page-inicio .bottom-cards.home-summary-bottom.summary-unified{
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto !important;
+  }
+
+  #observatorio-app #pages #page-inicio .bottom-cards.home-summary-bottom.summary-unified > article{
+    grid-column:1 !important;
+    grid-row:auto !important;
+    height:auto !important;
+    min-height:220px !important;
+    max-height:none !important;
+  }
+}
