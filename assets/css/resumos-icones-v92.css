@@ -1,0 +1,35 @@
+/* v92 — acabamento dos novos ícones vetoriais dos títulos */
+
+#observatorio-app #pages .summary-unified .summary-title-icon{
+  display:grid !important;
+  place-items:center !important;
+}
+
+#observatorio-app #pages .summary-unified .summary-title-symbol{
+  width:19px !important;
+  height:19px !important;
+  display:block !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.65 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+  vector-effect:non-scaling-stroke;
+}
+
+/* Evita aparência pesada ou preenchida herdada de estilos genéricos */
+#observatorio-app #pages .summary-unified .summary-title-symbol path,
+#observatorio-app #pages .summary-unified .summary-title-symbol rect,
+#observatorio-app #pages .summary-unified .summary-title-symbol circle,
+#observatorio-app #pages .summary-unified .summary-title-symbol ellipse{
+  fill:none !important;
+  stroke:currentColor !important;
+}
+
+@media (min-width:900px) and (max-width:1250px){
+  #observatorio-app #pages .summary-unified .summary-title-symbol{
+    width:18px !important;
+    height:18px !important;
+    stroke-width:1.6 !important;
+  }
+}
