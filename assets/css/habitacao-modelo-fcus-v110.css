@@ -421,3 +421,136 @@ body.dark .housing-reference-map{
 body.high-contrast .housing-reference-card{
   border:2px solid #fff !important;
 }
+
+
+/* v111 — correção fina para tablet: quatro linhas completas e números uniformes */
+@media (min-width:760px) and (max-width:1100px){
+
+  .housing-reference-card{
+    height:292px !important;
+    grid-template-rows:56px 236px !important;
+  }
+
+  .housing-reference-metrics{
+    height:236px !important;
+    padding:15px 5px 17px !important;
+  }
+
+  .housing-reference-metric{
+    gap:7px !important;
+    padding:6px 4px !important;
+  }
+
+  .housing-reference-metric small{
+    min-height:40px !important;
+    height:40px !important;
+    font-size:8.1px !important;
+    line-height:1.16 !important;
+  }
+
+  /* Todos os números dos dois primeiros cards com a mesma escala */
+  .housing-reference-metric strong{
+    font-size:13.5px !important;
+    line-height:1 !important;
+    font-weight:800 !important;
+    letter-spacing:-.025em !important;
+    font-variant-numeric:tabular-nums lining-nums !important;
+    font-feature-settings:"tnum" 1,"lnum" 1 !important;
+  }
+
+  /* Mais largura para as informações do recorte e menos para o mapa */
+  .housing-reference-map-body{
+    height:236px !important;
+    grid-template-columns:minmax(0,68%) minmax(0,32%) !important;
+  }
+
+  .housing-reference-map-list{
+    box-sizing:border-box !important;
+    height:236px !important;
+    padding:4px 8px !important;
+    display:grid !important;
+    grid-template-rows:repeat(4,minmax(0,1fr)) !important;
+    overflow:hidden !important;
+  }
+
+  .housing-reference-row{
+    box-sizing:border-box !important;
+    min-height:0 !important;
+    height:auto !important;
+    padding:3px 2px !important;
+    display:grid !important;
+    grid-template-columns:28px minmax(0,1fr) 64px !important;
+    column-gap:6px !important;
+    align-items:center !important;
+    overflow:hidden !important;
+  }
+
+  .housing-reference-row .housing-reference-icon{
+    width:28px !important;
+    height:28px !important;
+    min-width:28px !important;
+  }
+
+  .housing-reference-row small{
+    min-width:0 !important;
+    width:100% !important;
+    font-size:8px !important;
+    line-height:1.12 !important;
+    white-space:normal !important;
+    overflow-wrap:normal !important;
+    word-break:normal !important;
+    hyphens:none !important;
+  }
+
+  .housing-reference-row strong{
+    width:64px !important;
+    min-width:64px !important;
+    max-width:64px !important;
+    font-size:12px !important;
+    line-height:1 !important;
+    font-weight:800 !important;
+    letter-spacing:-.02em !important;
+    white-space:nowrap !important;
+    text-align:right !important;
+    font-variant-numeric:tabular-nums lining-nums !important;
+    font-feature-settings:"tnum" 1,"lnum" 1 !important;
+  }
+
+  .housing-reference-map{
+    height:236px !important;
+    min-height:236px !important;
+  }
+
+  .housing-reference-map svg{
+    width:96% !important;
+    height:92% !important;
+  }
+}
+
+/* Desktop: padroniza igualmente os números e garante quatro linhas */
+@media (min-width:1101px){
+  .housing-reference-metric strong{
+    font-size:16px !important;
+    font-weight:800 !important;
+    font-variant-numeric:tabular-nums lining-nums !important;
+    font-feature-settings:"tnum" 1,"lnum" 1 !important;
+  }
+
+  .housing-reference-map-body{
+    grid-template-columns:minmax(0,64%) minmax(0,36%) !important;
+  }
+
+  .housing-reference-row{
+    grid-template-columns:34px minmax(0,1fr) 94px !important;
+  }
+
+  .housing-reference-row strong{
+    width:94px !important;
+    min-width:94px !important;
+    max-width:94px !important;
+    font-size:15px !important;
+    font-weight:800 !important;
+    font-variant-numeric:tabular-nums lining-nums !important;
+    font-feature-settings:"tnum" 1,"lnum" 1 !important;
+  }
+}
