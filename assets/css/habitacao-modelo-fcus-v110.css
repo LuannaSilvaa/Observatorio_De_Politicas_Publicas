@@ -554,3 +554,40 @@ body.high-contrast .housing-reference-card{
     font-feature-settings:"tnum" 1,"lnum" 1 !important;
   }
 }
+
+
+/* v112 — impede quebra de palavras no Recorte habitacional */
+.housing-reference-row small{
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+  hyphens:none !important;
+}
+
+/* População deve permanecer inteira; Pessoas potenciais pode quebrar apenas no espaço */
+.housing-reference-row:nth-child(1) small,
+.housing-reference-row:nth-child(2) small,
+.housing-reference-row:nth-child(3) small{
+  white-space:nowrap !important;
+}
+
+.housing-reference-row:nth-child(4) small{
+  white-space:normal !important;
+  overflow-wrap:normal !important;
+  word-break:keep-all !important;
+}
+
+/* Dá um pouco mais de espaço à coluna do nome no tablet */
+@media (min-width:760px) and (max-width:1100px){
+  .housing-reference-map-body{
+    grid-template-columns:minmax(0,70%) minmax(0,30%) !important;
+  }
+
+  .housing-reference-row{
+    grid-template-columns:28px minmax(88px,1fr) 62px !important;
+    column-gap:6px !important;
+  }
+
+  .housing-reference-row small{
+    font-size:7.9px !important;
+  }
+}
