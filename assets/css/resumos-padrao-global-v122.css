@@ -1,0 +1,562 @@
+/* v122 — PADRÃO GLOBAL FINAL DOS 3 CARDS INFERIORES
+   Território • Habitação • FCUs • Infraestrutura */
+
+/* ---------- FAIXAS: 3 COLUNAS IGUAIS ---------- */
+#observatorio-app #pages #page-territorio .territory-summary-strip,
+#observatorio-app #pages #page-fcus .fcu-summary-strip,
+#observatorio-app #pages #page-habitacao .housing-reference-strip,
+#observatorio-app #pages #page-infraestrutura .infra-reference-strip{
+  box-sizing:border-box !important;
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:14px !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  margin-top:16px !important;
+  align-items:stretch !important;
+}
+
+/* ---------- TODOS OS CARDS: MESMA ALTURA ---------- */
+#observatorio-app #pages #page-territorio .territory-summary-strip > article,
+#observatorio-app #pages #page-fcus .fcu-summary-strip > article,
+#observatorio-app #pages #page-habitacao .housing-reference-card,
+#observatorio-app #pages #page-infraestrutura .infra-reference-card{
+  box-sizing:border-box !important;
+  width:100% !important;
+  min-width:0 !important;
+  height:300px !important;
+  min-height:300px !important;
+  max-height:300px !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  display:grid !important;
+  grid-template-rows:60px minmax(0,1fr) !important;
+  border-radius:18px !important;
+}
+
+/* ---------- CABEÇALHOS ---------- */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-card > h3,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-card > h3,
+#observatorio-app #pages #page-habitacao .housing-reference-card > h3,
+#observatorio-app #pages #page-infraestrutura .infra-reference-card > h3{
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:60px !important;
+  min-height:60px !important;
+  max-height:60px !important;
+  margin:0 !important;
+  padding:0 42px 0 18px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  border-bottom:1px solid #ece8e2 !important;
+  font-size:14px !important;
+  line-height:1.12 !important;
+  font-weight:800 !important;
+  letter-spacing:-.015em !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-title-icon,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-title-icon,
+#observatorio-app #pages #page-habitacao .housing-reference-title-icon,
+#observatorio-app #pages #page-infraestrutura .infra-reference-title{
+  box-sizing:border-box !important;
+  width:34px !important;
+  height:34px !important;
+  min-width:34px !important;
+  flex:0 0 34px !important;
+  border-radius:9px !important;
+}
+
+/* ---------- CORPO DOS CARDS 1 E 2 ---------- */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid,
+#observatorio-app #pages #page-habitacao .housing-reference-metrics,
+#observatorio-app #pages #page-infraestrutura .infra-reference-metrics{
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:240px !important;
+  min-height:240px !important;
+  padding:16px 8px 18px !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  grid-template-rows:1fr !important;
+  gap:0 !important;
+  align-items:stretch !important;
+}
+
+/* ---------- CADA MÉTRICA DOS CARDS 1 E 2 ---------- */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid .reading-item,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid .reading-item,
+#observatorio-app #pages #page-habitacao .housing-reference-metric,
+#observatorio-app #pages #page-infraestrutura .infra-reference-metric{
+  box-sizing:border-box !important;
+  position:relative !important;
+  min-width:0 !important;
+  height:100% !important;
+  margin:0 !important;
+  padding:7px 7px !important;
+  display:grid !important;
+  grid-template-rows:50px 44px 32px !important;
+  row-gap:8px !important;
+  align-content:center !important;
+  justify-items:center !important;
+  align-items:center !important;
+  text-align:center !important;
+  overflow:visible !important;
+  background:transparent !important;
+  border:0 !important;
+}
+
+/* divisórias */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid .reading-item:not(:first-child)::before,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid .reading-item:not(:first-child)::before,
+#observatorio-app #pages #page-habitacao .housing-reference-metric:not(:first-child)::before,
+#observatorio-app #pages #page-infraestrutura .infra-reference-metric:not(:first-child)::before{
+  content:"" !important;
+  position:absolute !important;
+  left:0 !important;
+  top:10px !important;
+  bottom:10px !important;
+  width:1px !important;
+  background:#e9e4de !important;
+}
+
+/* ícones */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid .mini-icon,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid .mini-icon,
+#observatorio-app #pages #page-habitacao .housing-reference-metric .housing-reference-icon,
+#observatorio-app #pages #page-infraestrutura .infra-reference-metric .infra-reference-icon{
+  grid-row:1 !important;
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  margin:0 !important;
+  align-self:center !important;
+}
+
+/* rótulos */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid .reading-item small,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid .reading-item small,
+#observatorio-app #pages #page-habitacao .housing-reference-metric small,
+#observatorio-app #pages #page-infraestrutura .infra-reference-metric small{
+  grid-row:2 !important;
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:44px !important;
+  min-height:44px !important;
+  margin:0 !important;
+  padding:0 2px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  color:#68635e !important;
+  font-size:9px !important;
+  line-height:1.18 !important;
+  font-weight:650 !important;
+  text-align:center !important;
+  white-space:normal !important;
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+}
+
+/* números: UMA RÉGUA TIPOGRÁFICA */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid .reading-item strong,
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid .reading-item strong.reading-value-medium,
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid .reading-item strong.reading-value-long,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid .reading-item strong,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid .reading-item strong.reading-value-medium,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid .reading-item strong.reading-value-long,
+#observatorio-app #pages #page-habitacao .housing-reference-metric strong,
+#observatorio-app #pages #page-infraestrutura .infra-reference-metric strong{
+  grid-row:3 !important;
+  box-sizing:border-box !important;
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:#111511 !important;
+  font-family:inherit !important;
+  font-size:16px !important;
+  line-height:1 !important;
+  font-weight:800 !important;
+  letter-spacing:-.02em !important;
+  font-variant-numeric:tabular-nums lining-nums !important;
+  font-feature-settings:"tnum" 1,"lnum" 1 !important;
+  white-space:nowrap !important;
+  overflow:visible !important;
+  text-align:center !important;
+}
+
+/* Habitação econômica: mesma escala entre os 4, só ligeiramente menor por conter moeda */
+#observatorio-app #pages #page-habitacao
+.housing-reference-strip > .housing-reference-card:nth-child(2) .housing-reference-metric strong{
+  font-size:14px !important;
+  letter-spacing:-.035em !important;
+}
+
+/* ---------- TERCEIRO CARD: LISTA + MAPA ---------- */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-layout,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-layout,
+#observatorio-app #pages #page-habitacao .housing-reference-map-body,
+#observatorio-app #pages #page-infraestrutura .infra-reference-map-body-v2{
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:240px !important;
+  min-height:240px !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,64%) minmax(0,36%) !important;
+  overflow:hidden !important;
+}
+
+/* listas do 3º card */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-metrics,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-metrics,
+#observatorio-app #pages #page-habitacao .housing-reference-map-list,
+#observatorio-app #pages #page-infraestrutura .infra-reference-list-v2{
+  box-sizing:border-box !important;
+  width:100% !important;
+  min-width:0 !important;
+  height:240px !important;
+  min-height:240px !important;
+  padding:8px 11px !important;
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  grid-template-rows:repeat(4,minmax(0,1fr)) !important;
+  gap:0 !important;
+  overflow:hidden !important;
+}
+
+/* linhas do 3º card */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-metrics .reading-item,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-metrics .reading-item,
+#observatorio-app #pages #page-habitacao .housing-reference-row,
+#observatorio-app #pages #page-infraestrutura .infra-reference-row-v2{
+  box-sizing:border-box !important;
+  width:100% !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  height:100% !important;
+  margin:0 !important;
+  padding:4px 2px !important;
+  display:grid !important;
+  grid-template-columns:34px minmax(0,1fr) 88px !important;
+  grid-template-rows:1fr !important;
+  column-gap:9px !important;
+  align-items:center !important;
+  overflow:hidden !important;
+  border:0 !important;
+  background:transparent !important;
+}
+
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-metrics .reading-item:not(:first-child),
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-metrics .reading-item:not(:first-child),
+#observatorio-app #pages #page-habitacao .housing-reference-row:not(:first-child),
+#observatorio-app #pages #page-infraestrutura .infra-reference-row-v2:not(:first-child){
+  border-top:1px solid #eee9e3 !important;
+}
+
+/* remove pseudo-divisórias herdadas no 3º card */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-metrics .reading-item::before,
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-metrics .reading-item::after,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-metrics .reading-item::before,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-metrics .reading-item::after{
+  display:none !important;
+}
+
+/* ícones das linhas */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-metrics .mini-icon,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-metrics .mini-icon,
+#observatorio-app #pages #page-habitacao .housing-reference-row .housing-reference-icon,
+#observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 .infra-reference-icon{
+  grid-column:1 !important;
+  grid-row:1 !important;
+  width:34px !important;
+  height:34px !important;
+  min-width:34px !important;
+  margin:0 !important;
+  justify-self:center !important;
+  align-self:center !important;
+}
+
+/* nomes das linhas */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-metrics .reading-item small,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-metrics .reading-item small,
+#observatorio-app #pages #page-habitacao .housing-reference-row small,
+#observatorio-app #pages #page-habitacao .housing-reference-row .housing-potential-label,
+#observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 small{
+  grid-column:2 !important;
+  grid-row:1 !important;
+  min-width:0 !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:#68635e !important;
+  font-size:9px !important;
+  line-height:1.12 !important;
+  font-weight:650 !important;
+  text-align:left !important;
+}
+
+/* valores das linhas */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-metrics .reading-item strong,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-metrics .reading-item strong,
+#observatorio-app #pages #page-habitacao .housing-reference-row strong,
+#observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 strong{
+  grid-column:3 !important;
+  grid-row:1 !important;
+  width:88px !important;
+  min-width:88px !important;
+  max-width:88px !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:#111511 !important;
+  font-family:inherit !important;
+  font-size:15px !important;
+  line-height:1 !important;
+  font-weight:800 !important;
+  letter-spacing:-.015em !important;
+  font-variant-numeric:tabular-nums lining-nums !important;
+  font-feature-settings:"tnum" 1,"lnum" 1 !important;
+  white-space:nowrap !important;
+  text-align:right !important;
+  justify-self:end !important;
+}
+
+/* mapas: mesma área e mesma escala visual */
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-mini-map,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-mini-map,
+#observatorio-app #pages #page-habitacao .housing-reference-map,
+#observatorio-app #pages #page-infraestrutura .infra-reference-map-v2{
+  box-sizing:border-box !important;
+  width:100% !important;
+  min-width:0 !important;
+  height:240px !important;
+  min-height:240px !important;
+  padding:2px !important;
+  position:relative !important;
+  display:grid !important;
+  place-items:center !important;
+  overflow:hidden !important;
+  border-left:1px solid #eee9e2 !important;
+  background:
+    radial-gradient(circle at 50% 45%,rgba(82,145,91,.08),transparent 58%),
+    linear-gradient(180deg,#fbfdf9 0%,#f5f9f3 100%) !important;
+}
+
+#observatorio-app #pages #page-territorio .territory-summary-strip .summary-mini-map svg,
+#observatorio-app #pages #page-fcus .fcu-summary-strip .summary-mini-map svg,
+#observatorio-app #pages #page-habitacao .housing-reference-map svg,
+#observatorio-app #pages #page-infraestrutura .infra-reference-map-v2 svg{
+  width:98% !important;
+  height:92% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  transform:none !important;
+}
+
+/* Pessoas potenciais: duas linhas, palavras inteiras */
+#observatorio-app #pages #page-habitacao .housing-potential-label{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  justify-content:center !important;
+  gap:1px !important;
+}
+#observatorio-app #pages #page-habitacao .housing-potential-label > span{
+  display:block !important;
+  width:auto !important;
+  min-width:0 !important;
+  white-space:nowrap !important;
+}
+
+/* ---------- TABLET HORIZONTAL ---------- */
+@media (min-width:760px) and (max-width:1100px){
+  #observatorio-app #pages #page-territorio .territory-summary-strip,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip,
+  #observatorio-app #pages #page-habitacao .housing-reference-strip,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-strip{
+    gap:10px !important;
+    margin-top:14px !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip > article,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip > article,
+  #observatorio-app #pages #page-habitacao .housing-reference-card,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-card{
+    height:292px !important;
+    min-height:292px !important;
+    max-height:292px !important;
+    grid-template-rows:56px minmax(0,1fr) !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-card > h3,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-card > h3,
+  #observatorio-app #pages #page-habitacao .housing-reference-card > h3,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-card > h3{
+    height:56px !important;
+    min-height:56px !important;
+    max-height:56px !important;
+    padding-left:11px !important;
+    padding-right:31px !important;
+    gap:7px !important;
+    font-size:11.8px !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-title-icon,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-title-icon,
+  #observatorio-app #pages #page-habitacao .housing-reference-title-icon,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-title{
+    width:29px !important;
+    height:29px !important;
+    min-width:29px !important;
+    flex-basis:29px !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid,
+  #observatorio-app #pages #page-habitacao .housing-reference-metrics,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-metrics{
+    height:236px !important;
+    min-height:236px !important;
+    padding:13px 4px 15px !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid .reading-item,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid .reading-item,
+  #observatorio-app #pages #page-habitacao .housing-reference-metric,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-metric{
+    padding-left:4px !important;
+    padding-right:4px !important;
+    grid-template-rows:46px 40px 30px !important;
+    row-gap:6px !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid .mini-icon,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid .mini-icon,
+  #observatorio-app #pages #page-habitacao .housing-reference-metric .housing-reference-icon,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-metric .infra-reference-icon{
+    width:38px !important;
+    height:38px !important;
+    min-width:38px !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid .reading-item small,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid .reading-item small,
+  #observatorio-app #pages #page-habitacao .housing-reference-metric small,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-metric small{
+    height:40px !important;
+    min-height:40px !important;
+    padding-left:1px !important;
+    padding-right:1px !important;
+    font-size:8px !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid .reading-item strong,
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid .reading-item strong.reading-value-medium,
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-list-grid .reading-item strong.reading-value-long,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid .reading-item strong,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid .reading-item strong.reading-value-medium,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-list-grid .reading-item strong.reading-value-long,
+  #observatorio-app #pages #page-habitacao .housing-reference-metric strong,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-metric strong{
+    font-size:13.5px !important;
+  }
+
+  #observatorio-app #pages #page-habitacao
+  .housing-reference-strip > .housing-reference-card:nth-child(2) .housing-reference-metric strong{
+    font-size:11.5px !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-layout,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-layout,
+  #observatorio-app #pages #page-habitacao .housing-reference-map-body,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-map-body-v2{
+    height:236px !important;
+    min-height:236px !important;
+    grid-template-columns:minmax(0,66%) minmax(0,34%) !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-metrics,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-metrics,
+  #observatorio-app #pages #page-habitacao .housing-reference-map-list,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-list-v2{
+    height:236px !important;
+    min-height:236px !important;
+    padding:6px 8px !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-metrics .reading-item,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-metrics .reading-item,
+  #observatorio-app #pages #page-habitacao .housing-reference-row,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-row-v2{
+    grid-template-columns:28px minmax(0,1fr) 66px !important;
+    column-gap:6px !important;
+    padding:3px 2px !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-metrics .mini-icon,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-metrics .mini-icon,
+  #observatorio-app #pages #page-habitacao .housing-reference-row .housing-reference-icon,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 .infra-reference-icon{
+    width:28px !important;
+    height:28px !important;
+    min-width:28px !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-metrics .reading-item small,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-metrics .reading-item small,
+  #observatorio-app #pages #page-habitacao .housing-reference-row small,
+  #observatorio-app #pages #page-habitacao .housing-reference-row .housing-potential-label,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 small{
+    font-size:7.8px !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-map-metrics .reading-item strong,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-map-metrics .reading-item strong,
+  #observatorio-app #pages #page-habitacao .housing-reference-row strong,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 strong{
+    width:66px !important;
+    min-width:66px !important;
+    max-width:66px !important;
+    font-size:12px !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip .summary-mini-map,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip .summary-mini-map,
+  #observatorio-app #pages #page-habitacao .housing-reference-map,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-map-v2{
+    height:236px !important;
+    min-height:236px !important;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width:759px){
+  #observatorio-app #pages #page-territorio .territory-summary-strip,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip,
+  #observatorio-app #pages #page-habitacao .housing-reference-strip,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-strip{
+    grid-template-columns:1fr !important;
+  }
+
+  #observatorio-app #pages #page-territorio .territory-summary-strip > article,
+  #observatorio-app #pages #page-fcus .fcu-summary-strip > article,
+  #observatorio-app #pages #page-habitacao .housing-reference-card,
+  #observatorio-app #pages #page-infraestrutura .infra-reference-card{
+    height:auto !important;
+    min-height:280px !important;
+    max-height:none !important;
+  }
+}
+
+/* ---------- DARK MODE ---------- */
+body.dark #observatorio-app #pages #page-habitacao .housing-reference-card,
+body.dark #observatorio-app #pages #page-infraestrutura .infra-reference-card{
+  background:linear-gradient(180deg,#18231d 0%,#141d18 100%) !important;
+}
