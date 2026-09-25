@@ -1141,12 +1141,18 @@ function renderInfrastructure(rows,tot){const metrics=[['road','Vias pavimentada
       ['info','Sem conjunto completo',fmt.format(rows.filter(r=>!urbanFields.every(f=>hasNumber(r[f]))).length)],
       ['building','Municípios no recorte',fmt.format(rows.length)]
     ],'infra-coverage-card')}
-    ${summaryMapCard('Leitura territorial','pin',[
-      ['tree','Arborização',pct(weighted(rows,'pct_arborizacao'))],
-      ['walk','Calçadas',pct(weighted(rows,'pct_calcada'))],
-      ['lamp','Iluminação',pct(weighted(rows,'pct_iluminacao_publica'))],
-      ['access','Acessibilidade',pct(weighted(rows,'pct_rampa_cadeirante'))]
-    ],'infraSummaryMiniMap','infra-reading-card')}
+    <article class="card infra-reference-map-card">
+      <h3><span class="infra-reference-title-icon">${summaryTitleIcon('pin')}</span><span>Leitura territorial</span></h3>
+      <div class="infra-reference-map-body">
+        <div class="infra-reference-list">
+          <div class="infra-reference-row"><span class="infra-reference-icon green">${icon('tree')}</span><small>Arborização</small><strong>${pct(weighted(rows,'pct_arborizacao'))}</strong></div>
+          <div class="infra-reference-row"><span class="infra-reference-icon orange">${icon('walk')}</span><small>Calçadas</small><strong>${pct(weighted(rows,'pct_calcada'))}</strong></div>
+          <div class="infra-reference-row"><span class="infra-reference-icon blue">${icon('lamp')}</span><small>Iluminação</small><strong>${pct(weighted(rows,'pct_iluminacao_publica'))}</strong></div>
+          <div class="infra-reference-row"><span class="infra-reference-icon purple">${icon('access')}</span><small>Acessibilidade</small><strong>${pct(weighted(rows,'pct_rampa_cadeirante'))}</strong></div>
+        </div>
+        <div class="infra-reference-map" id="infraSummaryMiniMap"><div class="summary-mini-map-loading">Carregando recorte…</div></div>
+      </div>
+    </article>
   </div>`;hydrateIcons($('#page-infraestrutura'));drawSummaryMiniMap('infraSummaryMiniMap',rows,{kind:'infra',value:infraIndex,aggregate:'avg',label:'Índice de infraestrutura'})}
 
 /* REPORTS */
