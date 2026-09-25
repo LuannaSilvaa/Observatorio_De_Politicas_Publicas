@@ -1,0 +1,323 @@
+/* v123 — padrão isolado para Início, Território e FCUs */
+
+#observatorio-app .standard-reference-strip{
+  box-sizing:border-box !important;
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:14px !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  margin-top:16px !important;
+  align-items:stretch !important;
+}
+
+#observatorio-app .standard-reference-card{
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  height:292px !important;
+  min-height:292px !important;
+  max-height:292px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:grid !important;
+  grid-template-rows:64px minmax(0,1fr) !important;
+  overflow:hidden !important;
+  border:1px solid rgba(38,66,45,.12) !important;
+  border-radius:18px !important;
+  background:linear-gradient(180deg,#fff 0%,#fffdfa 100%) !important;
+  box-shadow:0 8px 24px rgba(35,46,37,.055) !important;
+}
+
+/* Cabeçalho: mais para baixo e realmente centralizado */
+#observatorio-app .standard-reference-card > h3{
+  box-sizing:border-box !important;
+  position:relative !important;
+  width:100% !important;
+  height:64px !important;
+  min-height:64px !important;
+  max-height:64px !important;
+  margin:0 !important;
+  padding:10px 50px 0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:10px !important;
+  border-bottom:1px solid #ece8e2 !important;
+  color:#171b18 !important;
+  font-size:14px !important;
+  line-height:1.12 !important;
+  font-weight:800 !important;
+  letter-spacing:-.015em !important;
+  text-align:center !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+}
+
+#observatorio-app .standard-reference-card > h3 > span:last-child{
+  min-width:0 !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  white-space:nowrap !important;
+}
+
+#observatorio-app .standard-reference-title{
+  box-sizing:border-box !important;
+  width:34px !important;
+  height:34px !important;
+  min-width:34px !important;
+  flex:0 0 34px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:9px !important;
+}
+#observatorio-app .standard-reference-title.green{
+  color:#176d39 !important;
+  border:1px solid #d7e9da !important;
+  background:#edf7ef !important;
+}
+#observatorio-app .standard-reference-title.blue{
+  color:#176c89 !important;
+  border:1px solid #d5e7ef !important;
+  background:#edf6fa !important;
+}
+#observatorio-app .standard-reference-title.orange{
+  color:#b55221 !important;
+  border:1px solid #f0dccb !important;
+  background:#fff3e8 !important;
+}
+#observatorio-app .standard-reference-title svg{
+  width:19px !important;
+  height:19px !important;
+}
+
+/* Cards 1 e 2 */
+#observatorio-app .standard-reference-metrics{
+  box-sizing:border-box !important;
+  height:228px !important;
+  min-height:228px !important;
+  padding:13px 8px 16px !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  align-items:stretch !important;
+}
+
+#observatorio-app .standard-reference-metric{
+  box-sizing:border-box !important;
+  position:relative !important;
+  min-width:0 !important;
+  height:100% !important;
+  padding:5px 6px !important;
+  display:grid !important;
+  grid-template-rows:46px 42px 30px auto !important;
+  row-gap:6px !important;
+  align-content:center !important;
+  justify-items:center !important;
+  text-align:center !important;
+}
+
+#observatorio-app .standard-reference-metric:not(:first-child)::before{
+  content:"" !important;
+  position:absolute !important;
+  left:0 !important;
+  top:8px !important;
+  bottom:8px !important;
+  width:1px !important;
+  background:#e9e4de !important;
+}
+
+#observatorio-app .standard-reference-icon{
+  width:40px !important;
+  height:40px !important;
+  min-width:40px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:50% !important;
+  border:1px solid #dcebdd !important;
+  background:#edf7ef !important;
+  color:#15703b !important;
+}
+#observatorio-app .standard-reference-icon.orange{background:#fff5eb !important;color:#ed6a19 !important;border-color:#f4e1cf !important;}
+#observatorio-app .standard-reference-icon.blue{background:#edf6ff !important;color:#2477c9 !important;border-color:#d9e9f8 !important;}
+#observatorio-app .standard-reference-icon.purple{background:#f4efff !important;color:#6c43bc !important;border-color:#e6dcf8 !important;}
+#observatorio-app .standard-reference-icon svg{width:19px !important;height:19px !important;}
+
+#observatorio-app .standard-reference-metric small{
+  width:100% !important;
+  min-height:42px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  color:#68635e !important;
+  font-size:8.7px !important;
+  line-height:1.15 !important;
+  font-weight:650 !important;
+  text-align:center !important;
+}
+
+#observatorio-app .standard-reference-metric strong{
+  width:100% !important;
+  color:#111511 !important;
+  font-size:15px !important;
+  line-height:1 !important;
+  font-weight:800 !important;
+  white-space:nowrap !important;
+  text-align:center !important;
+  font-variant-numeric:tabular-nums lining-nums !important;
+}
+
+#observatorio-app .standard-reference-note{
+  width:100% !important;
+  color:#8a857e !important;
+  font-size:7px !important;
+  line-height:1.1 !important;
+  text-align:center !important;
+}
+
+/* Card 3 */
+#observatorio-app .standard-reference-map-body{
+  box-sizing:border-box !important;
+  height:228px !important;
+  min-height:228px !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,64%) minmax(0,36%) !important;
+  overflow:hidden !important;
+}
+
+#observatorio-app .standard-reference-list{
+  box-sizing:border-box !important;
+  height:228px !important;
+  min-height:228px !important;
+  padding:5px 10px !important;
+  display:grid !important;
+  grid-template-rows:repeat(4,minmax(0,1fr)) !important;
+}
+
+#observatorio-app .standard-reference-row{
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  height:100% !important;
+  padding:3px 2px !important;
+  display:grid !important;
+  grid-template-columns:32px minmax(0,1fr) 76px !important;
+  column-gap:8px !important;
+  align-items:center !important;
+}
+#observatorio-app .standard-reference-row:not(:first-child){border-top:1px solid #eee9e3 !important;}
+#observatorio-app .standard-reference-row .standard-reference-icon{
+  width:30px !important;
+  height:30px !important;
+  min-width:30px !important;
+}
+#observatorio-app .standard-reference-row .standard-reference-icon svg{width:16px !important;height:16px !important;}
+
+#observatorio-app .standard-reference-row small{
+  min-width:0 !important;
+  color:#68635e !important;
+  font-size:8.5px !important;
+  line-height:1.12 !important;
+  font-weight:650 !important;
+  text-align:left !important;
+}
+
+#observatorio-app .standard-reference-row strong{
+  width:76px !important;
+  min-width:76px !important;
+  color:#111511 !important;
+  font-size:13.5px !important;
+  line-height:1 !important;
+  font-weight:800 !important;
+  white-space:nowrap !important;
+  text-align:right !important;
+  font-variant-numeric:tabular-nums lining-nums !important;
+}
+
+#observatorio-app .standard-reference-map{
+  box-sizing:border-box !important;
+  height:228px !important;
+  min-width:0 !important;
+  display:grid !important;
+  place-items:center !important;
+  position:relative !important;
+  overflow:hidden !important;
+  border-left:1px solid #eee9e2 !important;
+  background:radial-gradient(circle at 50% 45%,rgba(82,145,91,.08),transparent 58%),linear-gradient(180deg,#fbfdf9 0%,#f5f9f3 100%) !important;
+}
+#observatorio-app .standard-reference-map svg{
+  width:96% !important;
+  height:90% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+}
+
+/* Mantém o ? no canto e fora da centralização */
+#observatorio-app .standard-reference-card > .context-help{
+  top:13px !important;
+  right:13px !important;
+}
+
+/* tablet horizontal */
+@media (min-width:760px) and (max-width:1100px){
+  #observatorio-app .standard-reference-strip{
+    gap:10px !important;
+    margin-top:14px !important;
+  }
+  #observatorio-app .standard-reference-card{
+    height:278px !important;
+    min-height:278px !important;
+    max-height:278px !important;
+    grid-template-rows:62px minmax(0,1fr) !important;
+  }
+  #observatorio-app .standard-reference-card > h3{
+    height:62px !important;
+    min-height:62px !important;
+    max-height:62px !important;
+    padding:11px 40px 0 !important;
+    gap:8px !important;
+    font-size:12px !important;
+  }
+  #observatorio-app .standard-reference-title{
+    width:30px !important;
+    height:30px !important;
+    min-width:30px !important;
+    flex-basis:30px !important;
+  }
+  #observatorio-app .standard-reference-metrics{
+    height:216px !important;
+    min-height:216px !important;
+    padding:9px 4px 12px !important;
+  }
+  #observatorio-app .standard-reference-metric{
+    padding-left:3px !important;
+    padding-right:3px !important;
+    grid-template-rows:42px 38px 28px auto !important;
+    row-gap:5px !important;
+  }
+  #observatorio-app .standard-reference-icon{
+    width:36px !important;height:36px !important;min-width:36px !important;
+  }
+  #observatorio-app .standard-reference-metric small{min-height:38px !important;font-size:7.8px !important;}
+  #observatorio-app .standard-reference-metric strong{font-size:13px !important;}
+  #observatorio-app .standard-reference-note{font-size:6.7px !important;}
+
+  #observatorio-app .standard-reference-map-body{
+    height:216px !important;
+    min-height:216px !important;
+    grid-template-columns:minmax(0,67%) minmax(0,33%) !important;
+  }
+  #observatorio-app .standard-reference-list{
+    height:216px !important;
+    min-height:216px !important;
+    padding:4px 7px !important;
+  }
+  #observatorio-app .standard-reference-row{
+    grid-template-columns:28px minmax(0,1fr) 64px !important;
+    column-gap:6px !important;
+  }
+  #observatorio-app .standard-reference-row .standard-reference-icon{
+    width:27px !important;height:27px !important;min-width:27px !important;
+  }
+  #observatorio-app .standard-reference-row small{font-size:7.5px !important;}
+  #observatorio-app .standard-reference-row strong{width:64px !important;min-width:64px !important;font-size:11.5px !important;}
+  #observatorio-app .standard-reference-map{height:216px !important;}
+}
