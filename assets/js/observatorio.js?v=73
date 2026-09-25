@@ -251,27 +251,6 @@ function miniReading(iconName,label,value,note=''){
   const fitClass=valueText.length>=11?'reading-value-long':valueText.length>=9?'reading-value-medium':'';
   return `<div class="reading-item"><div class="mini-icon">${icon(iconName)}</div><small>${label}</small><strong class="${fitClass}" title="${esc(valueText)}">${value}</strong>${note?`<span class="reading-note">${note}</span>`:''}</div>`
 }
-
-function standardReferenceMetric(iconName,label,value,color='green',note=''){
-  return `<div class="standard-reference-metric"><span class="standard-reference-icon ${color}">${icon(iconName)}</span><small>${label}</small><strong>${value}</strong>${note?`<span class="standard-reference-note">${note}</span>`:''}</div>`;
-}
-function standardReferenceListCard(title,titleIcon,items,titleTone='green'){
-  const tones=['green','orange','blue','purple'];
-  return `<article class="card standard-reference-card">
-    <h3><span class="standard-reference-title ${titleTone}">${summaryTitleIcon(titleIcon)}</span><span>${title}</span></h3>
-    <div class="standard-reference-metrics">${items.map((item,i)=>standardReferenceMetric(item[0],item[1],item[2],tones[i%tones.length],item[3]||'')).join('')}</div>
-  </article>`;
-}
-function standardReferenceMapCard(title,titleIcon,items,mapId){
-  const tones=['green','orange','blue','purple'];
-  return `<article class="card standard-reference-card standard-reference-map-card">
-    <h3><span class="standard-reference-title orange">${summaryTitleIcon(titleIcon)}</span><span>${title}</span></h3>
-    <div class="standard-reference-map-body">
-      <div class="standard-reference-list">${items.map((item,i)=>`<div class="standard-reference-row"><span class="standard-reference-icon ${tones[i%tones.length]}">${icon(item[0])}</span><small>${item[1]}</small><strong>${item[2]}</strong></div>`).join('')}</div>
-      <div class="standard-reference-map" id="${mapId}"><div class="summary-mini-map-loading">Carregando recorte…</div></div>
-    </div>
-  </article>`;
-}
 function summaryListCard(title,titleIcon,items,extraClass=''){
   return `<article class="card metric-card summary-list-card ${extraClass}">
     <h3><span class="summary-title-icon">${summaryTitleIcon(titleIcon)}</span><span>${title}</span></h3>
@@ -877,25 +856,25 @@ function renderHome(rows,tot){
       <article class="card home-modality-card ref-modality-card home-exact-modality">${cardHead('Distribuição por modalidade MCMV')}${referenceModalityPanel(mods,modsTotal,{summary:true,municipios:tot.present})}</article>
     </div>
   </div>
-  <div class="standard-reference-strip home-standard-strip">
-    ${standardReferenceListCard('Presença do MCMV','home',[
+  <div class="bottom-cards home-summary-bottom summary-unified">
+    ${summaryListCard('Presença do MCMV','home',[
       ['building','Municípios com MCMV',fmt.format(tot.present||0)],
       ['percent','Presença no recorte',pct(mcmvShare)],
       ['home','UH contratadas',compact.format(tot.uh)],
       ['people','Pessoas potenciais',compact.format(tot.benef)]
-    ],'green')}
-    ${standardReferenceListCard('Cobertura útil do entorno nas FCUs','database',[
+    ],'home-presence-card')}
+    ${summaryListCard('Cobertura útil do entorno nas FCUs','database',[
       ['database','Setores com dado útil',fmt.format(tot.used||0)],
       ['shield','Cobertura dos setores',pct(tot.coverage)],
       ['globe','Área mapeada',two.format(tot.fcuArea)],
       ['info','Setores sem dado útil',fmt.format(tot.missing||0)]
-    ],'blue')}
-    ${standardReferenceMapCard('Leitura territorial do recorte','pin',[
+    ],'home-coverage-summary-card')}
+    ${summaryMapCard('Leitura territorial do recorte','pin',[
       ['people','População',compact.format(tot.pop)],
       ['building','Domicílios pesquisados',compact.format(tot.dom)],
       ['pin','UFs',fmt.format(uniq(rows.map(r=>r.uf)).length)],
       ['globe','Regiões',fmt.format(uniq(rows.map(r=>r.regiao)).length)]
-    ],'homeSummaryMiniMap')}
+    ],'homeSummaryMiniMap','home-reading-summary-card')}
   </div>
 `;
   hydrateIcons($('#page-inicio'));bindPageLinks();drawSummaryMiniMap('homeSummaryMiniMap',rows,{kind:'fcu',value:r=>r._fcu,label:'FCUs identificadas'});
@@ -960,25 +939,26 @@ function renderTerritory(rows,tot){
         </article>
       </div>
     </div>
-    <div class="standard-reference-strip territory-standard-strip">
-      ${standardReferenceListCard('Síntese territorial','map',[
+    <div class="bottom-cards housing-bottom territory-summary-strip summary-unified">
+      ${summaryListCard('Síntese territorial','map',[
         ['building','Municípios',fmt.format(rows.length)],
         ['pin','UFs',fmt.format(ufCount)],
         ['globe','Regiões',fmt.format(regionCount)],
         ['people','População',compact.format(tot.pop)]
-      ],'green')}
-      ${standardReferenceListCard('Presença das FCUs','people',[
+      ],'territory-summary-card')}
+      ${summaryListCard('Presença das FCUs','people',[
         ['building','Municípios com FCU',fmt.format(tot.withFcu),`${pct(fcuShare)} do recorte`],
         ['shield','Cobertura dos dados',coverageLabel],
         ['people','FCUs identificadas',fmt.format(tot.fcus)],
         ['globe','Área mapeada',`${two.format(tot.fcuArea)} km²`]
-      ],'blue')}
-      ${standardReferenceMapCard('Recorte integrado','pin',[
+      ],'territory-intensity-card')}
+      ${summaryMapCard('Recorte integrado','pin',[
         ['building','Domicílios pesquisados',compact.format(tot.dom)],
         ['home','UH MCMV',compact.format(tot.uh)],
         ['people','Pessoas potenciais',compact.format(tot.benef)],
         ['percent','Alcance potencial',pct(tot.reach)]
-      ],'territorySummaryMiniMap')}
+      ],'territorySummaryMiniMap','territory-recorte-card')}
+    </div>
     </div>`;
   hydrateIcons($('#page-territorio'));drawSummaryMiniMap('territorySummaryMiniMap',rows,{kind:'fcu',value:r=>r._fcu,label:'FCUs identificadas'});
   const rankingSelect=$('#page-territorio .territory-ranking-select');
@@ -1123,25 +1103,26 @@ function renderFcus(rows,tot){
         </div>
       </div>
     </div>
-    <div class="standard-reference-strip fcu-standard-strip">
-      ${standardReferenceListCard('Síntese das FCUs','bars',[
+    <div class="bottom-cards fcu-summary-strip summary-unified">
+      ${summaryListCard('Síntese das FCUs','bars',[
         ['people','FCUs identificadas',fmt.format(tot.fcus)],
         ['building','Municípios com FCU',fmt.format(tot.withFcu)],
         ['globe','Área mapeada',`${two.format(tot.fcuArea)} km²`],
         ['percent','Presença municipal',pct(fcuShare)]
-      ],'green')}
-      ${standardReferenceListCard('Cobertura dos dados nas FCUs','database',[
+      ],'fcu-summary-card')}
+      ${summaryListCard('Cobertura dos dados nas FCUs','database',[
         ['database','Setores com dado útil',fmt.format(tot.used)],
         ['shield','Cobertura dos setores',coverageLabel],
         ['building','Setores das FCUs',fmt.format(tot.sectors)],
         ['info','Setores sem dado útil',fmt.format(tot.missing)]
-      ],'blue')}
-      ${standardReferenceMapCard('Recorte territorial das FCUs','pin',[
+      ],'fcu-coverage-summary-card')}
+      ${summaryMapCard('Recorte territorial das FCUs','pin',[
         ['people','População',compact.format(fcuTot.pop)],
         ['building','Domicílios pesquisados',compact.format(fcuTot.dom)],
         ['pin','UFs com FCU',fmt.format(fcuUfCount)],
         ['globe','Regiões com FCU',fmt.format(fcuRegionCount)]
-      ],'fcuSummaryMiniMap')}
+      ],'fcuSummaryMiniMap','fcu-territorial-summary-card')}
+    </div>
     </div>`;
   hydrateIcons($('#page-fcus'));bindPageLinks();drawSummaryMiniMap('fcuSummaryMiniMap',fcuRows,{kind:'fcu',value:r=>r._fcu,label:'FCUs identificadas'})
 }
