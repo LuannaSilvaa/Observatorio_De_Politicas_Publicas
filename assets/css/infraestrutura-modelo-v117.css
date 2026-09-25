@@ -524,3 +524,22 @@ body.dark #observatorio-app #pages #page-infraestrutura .infra-reference-map-v2{
     max-width:66px !important;
   }
 }
+
+
+/* v119 — desce o conteúdo textual do card Leitura territorial */
+#observatorio-app #pages #page-infraestrutura .infra-reference-list-v2{
+  padding-top:18px !important;
+  padding-bottom:4px !important;
+}
+
+/* mantém o espaçamento uniforme após descer */
+#observatorio-app #pages #page-infraestrutura .infra-reference-row-v2{
+  align-items:center !important;
+}
+
+@media (min-width:760px) and (max-width:1100px){
+  #observatorio-app #pages #page-infraestrutura .infra-reference-list-v2{
+    padding-top:16px !important;
+    padding-bottom:3px !important;
+  }
+}
