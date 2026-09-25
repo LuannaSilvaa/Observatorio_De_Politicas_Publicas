@@ -979,7 +979,6 @@ function renderTerritory(rows,tot){
         ['people','Pessoas potenciais',compact.format(tot.benef)],
         ['percent','Alcance potencial',pct(tot.reach)]
       ],'territorySummaryMiniMap')}
-    </div>
     </div>`;
   hydrateIcons($('#page-territorio'));drawSummaryMiniMap('territorySummaryMiniMap',rows,{kind:'fcu',value:r=>r._fcu,label:'FCUs identificadas'});
   const rankingSelect=$('#page-territorio .territory-ranking-select');
@@ -1143,7 +1142,6 @@ function renderFcus(rows,tot){
         ['pin','UFs com FCU',fmt.format(fcuUfCount)],
         ['globe','Regiões com FCU',fmt.format(fcuRegionCount)]
       ],'fcuSummaryMiniMap')}
-    </div>
     </div>`;
   hydrateIcons($('#page-fcus'));bindPageLinks();drawSummaryMiniMap('fcuSummaryMiniMap',fcuRows,{kind:'fcu',value:r=>r._fcu,label:'FCUs identificadas'})
 }
