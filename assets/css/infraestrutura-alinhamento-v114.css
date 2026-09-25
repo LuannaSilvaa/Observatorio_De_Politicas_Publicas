@@ -314,3 +314,61 @@
     font-size:12px !important;
   }
 }
+
+
+/* v115 — centralização visual do card Leitura territorial */
+@media (min-width:760px){
+
+  #observatorio-app #pages #page-infraestrutura
+  .summary-unified .summary-map-metrics{
+    padding-left:14px !important;
+    padding-right:14px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura
+  .summary-unified .summary-map-metrics .reading-item{
+    width:100% !important;
+    max-width:430px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    grid-template-columns:36px minmax(110px,1fr) 88px !important;
+    column-gap:10px !important;
+    justify-content:center !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura
+  .summary-unified .summary-map-metrics .mini-icon{
+    justify-self:center !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura
+  .summary-unified .summary-map-metrics .reading-item small{
+    justify-self:center !important;
+    text-align:center !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura
+  .summary-unified .summary-map-metrics .reading-item strong,
+  #observatorio-app #pages #page-infraestrutura
+  .summary-unified .summary-map-metrics .reading-item strong.reading-value-medium,
+  #observatorio-app #pages #page-infraestrutura
+  .summary-unified .summary-map-metrics .reading-item strong.reading-value-long{
+    justify-self:center !important;
+    text-align:center !important;
+  }
+}
+
+@media (min-width:760px) and (max-width:1100px){
+  #observatorio-app #pages #page-infraestrutura
+  .summary-unified .summary-map-metrics{
+    padding-left:9px !important;
+    padding-right:9px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura
+  .summary-unified .summary-map-metrics .reading-item{
+    max-width:330px !important;
+    grid-template-columns:28px minmax(82px,1fr) 62px !important;
+    column-gap:6px !important;
+  }
+}
