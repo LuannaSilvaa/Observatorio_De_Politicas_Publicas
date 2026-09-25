@@ -814,3 +814,99 @@ body.high-contrast .housing-reference-card{
     font-size:7.8px !important;
   }
 }
+
+
+/* v118 — alinhamento real das quatro linhas do Recorte habitacional */
+.housing-reference-map-list{
+  padding-left:12px !important;
+  padding-right:12px !important;
+}
+
+.housing-reference-row{
+  grid-template-columns:36px minmax(0,1fr) 96px !important;
+  column-gap:12px !important;
+  align-items:center !important;
+}
+
+.housing-reference-row .housing-reference-icon{
+  justify-self:start !important;
+  align-self:center !important;
+}
+
+.housing-reference-row small,
+.housing-reference-row .housing-potential-label{
+  grid-column:2 !important;
+  justify-self:stretch !important;
+  align-self:center !important;
+  width:100% !important;
+  min-width:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  text-align:left !important;
+}
+
+.housing-reference-row:not(.housing-reference-potential-row) small{
+  display:block !important;
+  white-space:nowrap !important;
+}
+
+.housing-reference-potential-row .housing-potential-label{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  justify-content:center !important;
+  gap:1px !important;
+}
+
+.housing-reference-potential-row .housing-potential-label > span{
+  display:block !important;
+  width:auto !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  white-space:nowrap !important;
+  text-align:left !important;
+}
+
+.housing-reference-row strong{
+  grid-column:3 !important;
+  justify-self:end !important;
+  align-self:center !important;
+  width:96px !important;
+  min-width:96px !important;
+  max-width:96px !important;
+  margin:0 !important;
+  padding:0 !important;
+  text-align:right !important;
+}
+
+/* Tablet horizontal */
+@media (min-width:760px) and (max-width:1100px){
+  .housing-reference-map-body{
+    grid-template-columns:minmax(0,72%) minmax(0,28%) !important;
+  }
+
+  .housing-reference-map-list{
+    padding-left:9px !important;
+    padding-right:9px !important;
+  }
+
+  .housing-reference-row{
+    grid-template-columns:30px minmax(112px,1fr) 68px !important;
+    column-gap:8px !important;
+  }
+
+  .housing-reference-row small,
+  .housing-reference-row .housing-potential-label{
+    font-size:7.8px !important;
+    line-height:1.12 !important;
+  }
+
+  .housing-reference-row strong{
+    width:68px !important;
+    min-width:68px !important;
+    max-width:68px !important;
+    font-size:12px !important;
+  }
+}
