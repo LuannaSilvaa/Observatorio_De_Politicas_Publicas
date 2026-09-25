@@ -648,3 +648,28 @@ body.high-contrast .housing-reference-card{
     }
   }
 }
+
+
+/* v114 — mantém "potenciais" inteira, quebrando apenas entre as palavras */
+.housing-reference-potential-row small{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  column-gap:.25em !important;
+  align-items:center !important;
+  white-space:normal !important;
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+  hyphens:none !important;
+}
+
+.housing-reference-potential-row small > span{
+  white-space:nowrap !important;
+  display:inline-block !important;
+}
+
+/* Em tablet, reduz levemente apenas este rótulo se necessário */
+@media (min-width:760px) and (max-width:1100px){
+  .housing-reference-potential-row small{
+    font-size:7.6px !important;
+  }
+}
