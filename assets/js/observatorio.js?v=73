@@ -1128,29 +1128,37 @@ function renderFcus(rows,tot){
 }
 
 /* INFRASTRUCTURE */
-function renderInfrastructure(rows,tot){const metrics=[['road','Vias pavimentadas','pct_via_pavimentada'],['lamp','Iluminação pública','pct_iluminacao_publica'],['walk','Calçadas','pct_calcada'],['tree','Arborização urbana','pct_arborizacao'],['access','Rampas / acessibilidade','pct_rampa_cadeirante']];const rank=rows.map(r=>({key:placeLabel(r),value:infraIndex(r)})).sort((a,b)=>b.value-a.value);const cats=[{key:'Muito alto (≥80)',value:rows.filter(r=>infraIndex(r)>=80).length},{key:'Alto (60–79)',value:rows.filter(r=>infraIndex(r)>=60&&infraIndex(r)<80).length},{key:'Médio (40–59)',value:rows.filter(r=>infraIndex(r)>=40&&infraIndex(r)<60).length},{key:'Baixo (20–39)',value:rows.filter(r=>infraIndex(r)>=20&&infraIndex(r)<40).length},{key:'Muito baixo (<20)',value:rows.filter(r=>infraIndex(r)<20).length}].filter(x=>x.value);const avg=rows.length?rows.reduce((a,r)=>a+infraIndex(r),0)/rows.length:0;const catsTotal=cats.reduce((a,b)=>a+b.value,0);$('#page-infraestrutura').innerHTML=`<div class="kpi-grid five">${metrics.map((m,i)=>kpi(m[0],m[1],pct(weighted(rows,m[2])),'média do recorte',i===0||i===4)).join('')}</div><div class="split-main infra-split"><article class="card infra-map-card">${cardHead('Mapa de infraestrutura urbana')}<div class="map-frame" id="infraMap"><div class="map-loading">Carregando mapa de infraestrutura…</div>${mapLegend('infra')}</div></article><div class="stack-right infra-side"><article class="card rank-card">${cardHead('Ranking — municípios por índice de infraestrutura')}${rankList(rank,v=>pct(v),x=>x.key,6)}</article><article class="card infra-distribution-card">${cardHead('Distribuição dos municípios por índice')}${infrastructureIndexPanel(cats,catsTotal,avg)}</article></div></div><div class="bottom-cards infra-bottom summary-unified">
-    ${summaryListCard('Síntese de infraestrutura','road',[
-      ['target','Índice sintético',pct(avg)],
-      ['building','Índice alto ou muito alto',fmt.format(rows.filter(r=>infraIndex(r)>=60).length)],
-      ['road','Pavimentação',pct(weighted(rows,'pct_via_pavimentada'))],
-      ['lamp','Iluminação',pct(weighted(rows,'pct_iluminacao_publica'))]
-    ],'infra-summary-card')}
-    ${summaryListCard('Cobertura do recorte','database',[
-      ['database','Municípios com dados',fmt.format(rows.filter(r=>urbanFields.every(f=>hasNumber(r[f]))).length)],
-      ['shield','Cobertura municipal',pct(rows.length?rows.filter(r=>urbanFields.every(f=>hasNumber(r[f]))).length/rows.length*100:null)],
-      ['info','Sem conjunto completo',fmt.format(rows.filter(r=>!urbanFields.every(f=>hasNumber(r[f]))).length)],
-      ['building','Municípios no recorte',fmt.format(rows.length)]
-    ],'infra-coverage-card')}
-    <article class="card infra-reference-map-card">
-      <h3><span class="infra-reference-title-icon">${summaryTitleIcon('pin')}</span><span>Leitura territorial</span></h3>
-      <div class="infra-reference-map-body">
-        <div class="infra-reference-list">
-          <div class="infra-reference-row"><span class="infra-reference-icon green">${icon('tree')}</span><small>Arborização</small><strong>${pct(weighted(rows,'pct_arborizacao'))}</strong></div>
-          <div class="infra-reference-row"><span class="infra-reference-icon orange">${icon('walk')}</span><small>Calçadas</small><strong>${pct(weighted(rows,'pct_calcada'))}</strong></div>
-          <div class="infra-reference-row"><span class="infra-reference-icon blue">${icon('lamp')}</span><small>Iluminação</small><strong>${pct(weighted(rows,'pct_iluminacao_publica'))}</strong></div>
-          <div class="infra-reference-row"><span class="infra-reference-icon purple">${icon('access')}</span><small>Acessibilidade</small><strong>${pct(weighted(rows,'pct_rampa_cadeirante'))}</strong></div>
+function renderInfrastructure(rows,tot){const metrics=[['road','Vias pavimentadas','pct_via_pavimentada'],['lamp','Iluminação pública','pct_iluminacao_publica'],['walk','Calçadas','pct_calcada'],['tree','Arborização urbana','pct_arborizacao'],['access','Rampas / acessibilidade','pct_rampa_cadeirante']];const rank=rows.map(r=>({key:placeLabel(r),value:infraIndex(r)})).sort((a,b)=>b.value-a.value);const cats=[{key:'Muito alto (≥80)',value:rows.filter(r=>infraIndex(r)>=80).length},{key:'Alto (60–79)',value:rows.filter(r=>infraIndex(r)>=60&&infraIndex(r)<80).length},{key:'Médio (40–59)',value:rows.filter(r=>infraIndex(r)>=40&&infraIndex(r)<60).length},{key:'Baixo (20–39)',value:rows.filter(r=>infraIndex(r)>=20&&infraIndex(r)<40).length},{key:'Muito baixo (<20)',value:rows.filter(r=>infraIndex(r)<20).length}].filter(x=>x.value);const avg=rows.length?rows.reduce((a,r)=>a+infraIndex(r),0)/rows.length:0;const catsTotal=cats.reduce((a,b)=>a+b.value,0);$('#page-infraestrutura').innerHTML=`<div class="kpi-grid five">${metrics.map((m,i)=>kpi(m[0],m[1],pct(weighted(rows,m[2])),'média do recorte',i===0||i===4)).join('')}</div><div class="split-main infra-split"><article class="card infra-map-card">${cardHead('Mapa de infraestrutura urbana')}<div class="map-frame" id="infraMap"><div class="map-loading">Carregando mapa de infraestrutura…</div>${mapLegend('infra')}</div></article><div class="stack-right infra-side"><article class="card rank-card">${cardHead('Ranking — municípios por índice de infraestrutura')}${rankList(rank,v=>pct(v),x=>x.key,6)}</article><article class="card infra-distribution-card">${cardHead('Distribuição dos municípios por índice')}${infrastructureIndexPanel(cats,catsTotal,avg)}</article></div></div><div class="infra-reference-strip">
+    <article class="card infra-reference-card">
+      <h3><span class="infra-reference-title infra-title-green">${summaryTitleIcon('road')}</span><span>Síntese de infraestrutura</span></h3>
+      <div class="infra-reference-metrics">
+        <div class="infra-reference-metric"><span class="infra-reference-icon green">${icon('target')}</span><small>Índice sintético</small><strong>${pct(avg)}</strong></div>
+        <div class="infra-reference-metric"><span class="infra-reference-icon orange">${icon('building')}</span><small>Índice alto ou muito alto</small><strong>${fmt.format(rows.filter(r=>infraIndex(r)>=60).length)}</strong></div>
+        <div class="infra-reference-metric"><span class="infra-reference-icon blue">${icon('road')}</span><small>Pavimentação</small><strong>${pct(weighted(rows,'pct_via_pavimentada'))}</strong></div>
+        <div class="infra-reference-metric"><span class="infra-reference-icon purple">${icon('lamp')}</span><small>Iluminação</small><strong>${pct(weighted(rows,'pct_iluminacao_publica'))}</strong></div>
+      </div>
+    </article>
+
+    <article class="card infra-reference-card">
+      <h3><span class="infra-reference-title infra-title-blue">${summaryTitleIcon('database')}</span><span>Cobertura do recorte</span></h3>
+      <div class="infra-reference-metrics">
+        <div class="infra-reference-metric"><span class="infra-reference-icon green">${icon('database')}</span><small>Municípios com dados</small><strong>${fmt.format(rows.filter(r=>urbanFields.every(f=>hasNumber(r[f]))).length)}</strong></div>
+        <div class="infra-reference-metric"><span class="infra-reference-icon orange">${icon('shield')}</span><small>Cobertura municipal</small><strong>${pct(rows.length?rows.filter(r=>urbanFields.every(f=>hasNumber(r[f]))).length/rows.length*100:null)}</strong></div>
+        <div class="infra-reference-metric"><span class="infra-reference-icon blue">${icon('info')}</span><small>Sem conjunto completo</small><strong>${fmt.format(rows.filter(r=>!urbanFields.every(f=>hasNumber(r[f]))).length)}</strong></div>
+        <div class="infra-reference-metric"><span class="infra-reference-icon purple">${icon('building')}</span><small>Municípios no recorte</small><strong>${fmt.format(rows.length)}</strong></div>
+      </div>
+    </article>
+
+    <article class="card infra-reference-card infra-reference-map-card-v2">
+      <h3><span class="infra-reference-title infra-title-orange">${summaryTitleIcon('pin')}</span><span>Leitura territorial</span></h3>
+      <div class="infra-reference-map-body-v2">
+        <div class="infra-reference-list-v2">
+          <div class="infra-reference-row-v2"><span class="infra-reference-icon green">${icon('tree')}</span><small>Arborização</small><strong>${pct(weighted(rows,'pct_arborizacao'))}</strong></div>
+          <div class="infra-reference-row-v2"><span class="infra-reference-icon orange">${icon('walk')}</span><small>Calçadas</small><strong>${pct(weighted(rows,'pct_calcada'))}</strong></div>
+          <div class="infra-reference-row-v2"><span class="infra-reference-icon blue">${icon('lamp')}</span><small>Iluminação</small><strong>${pct(weighted(rows,'pct_iluminacao_publica'))}</strong></div>
+          <div class="infra-reference-row-v2"><span class="infra-reference-icon purple">${icon('access')}</span><small>Acessibilidade</small><strong>${pct(weighted(rows,'pct_rampa_cadeirante'))}</strong></div>
         </div>
-        <div class="infra-reference-map" id="infraSummaryMiniMap"><div class="summary-mini-map-loading">Carregando recorte…</div></div>
+        <div class="infra-reference-map-v2" id="infraSummaryMiniMap"><div class="summary-mini-map-loading">Carregando recorte…</div></div>
       </div>
     </article>
   </div>`;hydrateIcons($('#page-infraestrutura'));drawSummaryMiniMap('infraSummaryMiniMap',rows,{kind:'infra',value:infraIndex,aggregate:'avg',label:'Índice de infraestrutura'})}
