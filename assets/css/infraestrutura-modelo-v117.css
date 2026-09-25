@@ -1,0 +1,445 @@
+/* v117 — faixa inferior de Infraestrutura isolada e padronizada */
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-strip{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:14px !important;
+  width:100% !important;
+  min-width:0 !important;
+  margin-top:16px !important;
+  align-items:stretch !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-card{
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  height:300px !important;
+  min-height:300px !important;
+  max-height:300px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:grid !important;
+  grid-template-rows:60px minmax(0,1fr) !important;
+  overflow:hidden !important;
+  border:1px solid rgba(38,66,45,.12) !important;
+  border-radius:18px !important;
+  background:linear-gradient(180deg,#fff 0%,#fffdfa 100%) !important;
+  box-shadow:0 8px 24px rgba(35,46,37,.055) !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-card > h3{
+  box-sizing:border-box !important;
+  height:60px !important;
+  min-height:60px !important;
+  margin:0 !important;
+  padding:0 42px 0 18px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  border-bottom:1px solid #eee9e2 !important;
+  color:#171b18 !important;
+  font-size:14px !important;
+  line-height:1.15 !important;
+  font-weight:800 !important;
+  letter-spacing:-.015em !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-card > h3 > span:last-child{
+  min-width:0 !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  white-space:nowrap !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-title{
+  width:34px !important;
+  height:34px !important;
+  min-width:34px !important;
+  flex:0 0 34px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:9px !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-title-green{
+  color:#176d39 !important;
+  border:1px solid #d7e9da !important;
+  background:linear-gradient(180deg,#f3faf4 0%,#e8f4ea 100%) !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-title-blue{
+  color:#176c89 !important;
+  border:1px solid #d5e7ef !important;
+  background:linear-gradient(180deg,#f1f8fb 0%,#e7f2f7 100%) !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-title-orange{
+  color:#b55221 !important;
+  border:1px solid #f0dccb !important;
+  background:linear-gradient(180deg,#fff7f0 0%,#faecdf 100%) !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-title svg{
+  width:19px !important;
+  height:19px !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.65 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+/* Cards 1 e 2 */
+#observatorio-app #pages #page-infraestrutura .infra-reference-metrics{
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  height:240px !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  padding:16px 9px 18px !important;
+  align-items:stretch !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-metric{
+  box-sizing:border-box !important;
+  position:relative !important;
+  min-width:0 !important;
+  padding:8px 7px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  gap:8px !important;
+  overflow:visible !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-metric:not(:first-child)::before{
+  content:"" !important;
+  position:absolute !important;
+  left:0 !important;
+  top:12px !important;
+  bottom:12px !important;
+  width:1px !important;
+  background:#ebe6df !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-icon{
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:50% !important;
+  border:1px solid #dcebdd !important;
+  background:#edf7ef !important;
+  color:#15703b !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-icon.orange{
+  background:#fff5eb !important;
+  color:#ed6a19 !important;
+  border-color:#f4e1cf !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-icon.blue{
+  background:#edf6ff !important;
+  color:#2477c9 !important;
+  border-color:#d9e9f8 !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-icon.purple{
+  background:#f4efff !important;
+  color:#6c43bc !important;
+  border-color:#e6dcf8 !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-icon svg{
+  width:20px !important;
+  height:20px !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.7 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-metric small{
+  box-sizing:border-box !important;
+  width:100% !important;
+  min-height:42px !important;
+  padding:0 2px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  color:#68655f !important;
+  font-size:9.1px !important;
+  line-height:1.18 !important;
+  font-weight:650 !important;
+  text-align:center !important;
+  white-space:normal !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-metric strong{
+  box-sizing:border-box !important;
+  width:100% !important;
+  margin:2px 0 0 !important;
+  color:#131713 !important;
+  font-family:inherit !important;
+  font-size:16px !important;
+  line-height:1 !important;
+  font-weight:800 !important;
+  letter-spacing:-.02em !important;
+  font-variant-numeric:tabular-nums lining-nums !important;
+  font-feature-settings:"tnum" 1,"lnum" 1 !important;
+  white-space:nowrap !important;
+  text-align:center !important;
+}
+
+/* Card 3 */
+#observatorio-app #pages #page-infraestrutura .infra-reference-map-body-v2{
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  height:240px !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,62%) minmax(0,38%) !important;
+  overflow:hidden !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-list-v2{
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  height:240px !important;
+  padding:8px 11px !important;
+  display:grid !important;
+  grid-template-rows:repeat(4,minmax(0,1fr)) !important;
+  overflow:hidden !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-row-v2{
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  height:100% !important;
+  padding:4px 2px !important;
+  display:grid !important;
+  grid-template-columns:34px minmax(0,1fr) 84px !important;
+  column-gap:9px !important;
+  align-items:center !important;
+  overflow:hidden !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-row-v2:not(:first-child){
+  border-top:1px solid #eee9e3 !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 .infra-reference-icon{
+  width:34px !important;
+  height:34px !important;
+  min-width:34px !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 .infra-reference-icon svg{
+  width:17px !important;
+  height:17px !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 small{
+  min-width:0 !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:#68655f !important;
+  font-size:9px !important;
+  line-height:1.12 !important;
+  font-weight:650 !important;
+  text-align:left !important;
+  white-space:nowrap !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 strong{
+  width:84px !important;
+  min-width:84px !important;
+  max-width:84px !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:#131713 !important;
+  font-size:15px !important;
+  line-height:1 !important;
+  font-weight:800 !important;
+  letter-spacing:-.015em !important;
+  font-variant-numeric:tabular-nums lining-nums !important;
+  font-feature-settings:"tnum" 1,"lnum" 1 !important;
+  white-space:nowrap !important;
+  text-align:right !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-map-v2{
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  height:240px !important;
+  position:relative !important;
+  display:grid !important;
+  place-items:center !important;
+  overflow:hidden !important;
+  border-left:1px solid #eee9e2 !important;
+  background:
+    radial-gradient(circle at 50% 45%,rgba(82,145,91,.08),transparent 58%),
+    linear-gradient(180deg,#fbfdf9 0%,#f5f9f3 100%) !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-map-v2 svg{
+  width:98% !important;
+  height:94% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  display:block !important;
+  transform:none !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-map-v2 .summary-mini-map-label{
+  right:8px !important;
+  bottom:7px !important;
+}
+
+/* Tablet horizontal */
+@media (min-width:760px) and (max-width:1100px){
+  #observatorio-app #pages #page-infraestrutura .infra-reference-strip{
+    gap:9px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-card{
+    height:284px !important;
+    min-height:284px !important;
+    max-height:284px !important;
+    grid-template-rows:56px minmax(0,1fr) !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-card > h3{
+    height:56px !important;
+    min-height:56px !important;
+    padding-left:11px !important;
+    padding-right:31px !important;
+    gap:7px !important;
+    font-size:11.8px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-title{
+    width:29px !important;
+    height:29px !important;
+    min-width:29px !important;
+    flex-basis:29px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-metrics{
+    height:228px !important;
+    padding:13px 4px 15px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-metric{
+    padding-left:4px !important;
+    padding-right:4px !important;
+    gap:6px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-icon{
+    width:38px !important;
+    height:38px !important;
+    min-width:38px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-metric small{
+    min-height:40px !important;
+    font-size:7.8px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-metric strong{
+    font-size:13.5px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-map-body-v2{
+    height:228px !important;
+    grid-template-columns:minmax(0,68%) minmax(0,32%) !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-list-v2{
+    height:228px !important;
+    padding:5px 8px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-row-v2{
+    grid-template-columns:28px minmax(92px,1fr) 64px !important;
+    column-gap:6px !important;
+    padding:3px 2px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 .infra-reference-icon{
+    width:28px !important;
+    height:28px !important;
+    min-width:28px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 small{
+    font-size:7.8px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 strong{
+    width:64px !important;
+    min-width:64px !important;
+    max-width:64px !important;
+    font-size:12px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-map-v2{
+    height:228px !important;
+  }
+}
+
+/* Celular */
+@media (max-width:759px){
+  #observatorio-app #pages #page-infraestrutura .infra-reference-strip{
+    grid-template-columns:1fr !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-card{
+    height:auto !important;
+    min-height:280px !important;
+    max-height:none !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-map-body-v2{
+    height:auto !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto 180px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-map-v2{
+    min-height:180px !important;
+    height:180px !important;
+    border-left:0 !important;
+    border-top:1px solid #eee9e2 !important;
+  }
+}
+
+body.dark #observatorio-app #pages #page-infraestrutura .infra-reference-card{
+  background:linear-gradient(180deg,#18231d 0%,#141d18 100%) !important;
+  border-color:rgba(224,239,227,.12) !important;
+}
+
+body.dark #observatorio-app #pages #page-infraestrutura .infra-reference-card > h3,
+body.dark #observatorio-app #pages #page-infraestrutura .infra-reference-metric strong,
+body.dark #observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 strong{
+  color:#fff !important;
+}
+
+body.dark #observatorio-app #pages #page-infraestrutura .infra-reference-metric small,
+body.dark #observatorio-app #pages #page-infraestrutura .infra-reference-row-v2 small{
+  color:#bfc9c0 !important;
+}
+
+body.dark #observatorio-app #pages #page-infraestrutura .infra-reference-map-v2{
+  background:linear-gradient(180deg,#17221c 0%,#111a15 100%) !important;
+  border-left-color:rgba(255,255,255,.09) !important;
+}
