@@ -372,3 +372,238 @@
     column-gap:6px !important;
   }
 }
+
+
+/* v116 — estrutura isolada e estável do card Leitura territorial */
+#observatorio-app #pages #page-infraestrutura .infra-reference-map-card{
+  box-sizing:border-box !important;
+  grid-column:3 !important;
+  grid-row:1 !important;
+  width:100% !important;
+  min-width:0 !important;
+  height:278px !important;
+  min-height:278px !important;
+  max-height:278px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:grid !important;
+  grid-template-rows:58px minmax(0,1fr) !important;
+  overflow:hidden !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-map-card > h3{
+  box-sizing:border-box !important;
+  height:58px !important;
+  min-height:58px !important;
+  max-height:58px !important;
+  margin:0 !important;
+  padding:0 42px 0 15px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:9px !important;
+  border-bottom:1px solid #ebe7e1 !important;
+  color:#171b18 !important;
+  font-size:13.5px !important;
+  line-height:1.1 !important;
+  font-weight:800 !important;
+  white-space:nowrap !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-title-icon{
+  width:34px !important;
+  height:34px !important;
+  min-width:34px !important;
+  flex:0 0 34px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:9px !important;
+  border:1px solid #f0dccb !important;
+  background:linear-gradient(180deg,#fff7f0 0%,#faecdf 100%) !important;
+  color:#b55221 !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-title-icon svg{
+  width:19px !important;
+  height:19px !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.65 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-map-body{
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  height:220px !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,64%) minmax(0,36%) !important;
+  overflow:hidden !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-list{
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  height:220px !important;
+  padding:6px 10px !important;
+  display:grid !important;
+  grid-template-rows:repeat(4,minmax(0,1fr)) !important;
+  overflow:hidden !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-row{
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  height:100% !important;
+  padding:3px 2px !important;
+  display:grid !important;
+  grid-template-columns:30px minmax(0,1fr) 68px !important;
+  column-gap:7px !important;
+  align-items:center !important;
+  overflow:hidden !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-row:not(:first-child){
+  border-top:1px solid #eee9e3 !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-icon{
+  width:30px !important;
+  height:30px !important;
+  min-width:30px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:50% !important;
+  border:1px solid #dcebdd !important;
+  background:#edf7ef !important;
+  color:#15703b !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-icon.orange{
+  background:#fff5eb !important;
+  color:#ed6a19 !important;
+  border-color:#f4e1cf !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-icon.blue{
+  background:#edf6ff !important;
+  color:#2477c9 !important;
+  border-color:#d9e9f8 !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-icon.purple{
+  background:#f4efff !important;
+  color:#6c43bc !important;
+  border-color:#e6dcf8 !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-icon svg{
+  width:16px !important;
+  height:16px !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.7 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-row small{
+  min-width:0 !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:#68635e !important;
+  font-size:8px !important;
+  line-height:1.1 !important;
+  font-weight:650 !important;
+  text-align:left !important;
+  white-space:nowrap !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-row strong{
+  width:68px !important;
+  min-width:68px !important;
+  max-width:68px !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:#111511 !important;
+  font-size:12.5px !important;
+  line-height:1 !important;
+  font-weight:800 !important;
+  letter-spacing:-.015em !important;
+  font-variant-numeric:tabular-nums lining-nums !important;
+  font-feature-settings:"tnum" 1,"lnum" 1 !important;
+  white-space:nowrap !important;
+  text-align:right !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-map{
+  box-sizing:border-box !important;
+  min-width:0 !important;
+  width:100% !important;
+  height:220px !important;
+  display:grid !important;
+  place-items:center !important;
+  position:relative !important;
+  overflow:hidden !important;
+  border-left:1px solid #eee9e2 !important;
+  background:
+    radial-gradient(circle at 50% 45%,rgba(82,145,91,.08),transparent 58%),
+    linear-gradient(180deg,#fbfdf9 0%,#f5f9f3 100%) !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-map svg{
+  width:98% !important;
+  height:94% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  display:block !important;
+  transform:none !important;
+}
+
+#observatorio-app #pages #page-infraestrutura .infra-reference-map .summary-mini-map-label{
+  right:8px !important;
+  bottom:7px !important;
+}
+
+@media (min-width:1101px){
+  #observatorio-app #pages #page-infraestrutura .infra-reference-map-body{
+    grid-template-columns:minmax(0,61%) minmax(0,39%) !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-row{
+    grid-template-columns:34px minmax(0,1fr) 88px !important;
+    column-gap:9px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-icon{
+    width:34px !important;
+    height:34px !important;
+    min-width:34px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-row small{
+    font-size:9px !important;
+  }
+
+  #observatorio-app #pages #page-infraestrutura .infra-reference-row strong{
+    width:88px !important;
+    min-width:88px !important;
+    max-width:88px !important;
+    font-size:15px !important;
+  }
+}
+
+body.dark #observatorio-app #pages #page-infraestrutura .infra-reference-map-card{
+  background:linear-gradient(180deg,#18231d 0%,#141d18 100%) !important;
+}
+
+body.dark #observatorio-app #pages #page-infraestrutura .infra-reference-map-card > h3,
+body.dark #observatorio-app #pages #page-infraestrutura .infra-reference-row strong{
+  color:#fff !important;
+}
+
+body.dark #observatorio-app #pages #page-infraestrutura .infra-reference-row small{
+  color:#bfc9c0 !important;
+}
