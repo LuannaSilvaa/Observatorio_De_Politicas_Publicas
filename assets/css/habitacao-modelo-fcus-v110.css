@@ -713,3 +713,104 @@ body.high-contrast .housing-reference-card{
     font-size:7.4px !important;
   }
 }
+
+
+/* v117 — alinhamento final do Recorte habitacional */
+.housing-reference-map-list{
+  box-sizing:border-box !important;
+  display:grid !important;
+  grid-template-rows:repeat(4,minmax(0,1fr)) !important;
+  align-items:stretch !important;
+}
+
+.housing-reference-row{
+  box-sizing:border-box !important;
+  width:100% !important;
+  min-width:0 !important;
+  height:100% !important;
+  margin:0 !important;
+  display:grid !important;
+  grid-template-columns:34px minmax(0,1fr) 94px !important;
+  column-gap:10px !important;
+  align-items:center !important;
+}
+
+.housing-reference-row .housing-reference-icon{
+  grid-column:1 !important;
+  justify-self:center !important;
+  align-self:center !important;
+}
+
+.housing-reference-row small,
+.housing-reference-row .housing-potential-label{
+  grid-column:2 !important;
+  width:100% !important;
+  min-width:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  text-align:left !important;
+}
+
+.housing-reference-row:not(.housing-reference-potential-row) small{
+  white-space:nowrap !important;
+}
+
+.housing-reference-potential-row .housing-potential-label{
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  justify-content:center !important;
+  gap:1px !important;
+}
+
+.housing-reference-potential-row .housing-potential-label > span{
+  margin:0 !important;
+  padding:0 !important;
+  line-height:1.08 !important;
+}
+
+.housing-reference-row strong{
+  grid-column:3 !important;
+  width:94px !important;
+  min-width:94px !important;
+  max-width:94px !important;
+  margin:0 !important;
+  padding:0 !important;
+  justify-self:end !important;
+  align-self:center !important;
+  text-align:right !important;
+  white-space:nowrap !important;
+  font-variant-numeric:tabular-nums lining-nums !important;
+  font-feature-settings:"tnum" 1,"lnum" 1 !important;
+}
+
+/* Tablet horizontal */
+@media (min-width:760px) and (max-width:1100px){
+  .housing-reference-map-body{
+    grid-template-columns:minmax(0,73%) minmax(0,27%) !important;
+  }
+
+  .housing-reference-map-list{
+    padding-left:8px !important;
+    padding-right:8px !important;
+  }
+
+  .housing-reference-row{
+    grid-template-columns:28px minmax(108px,1fr) 66px !important;
+    column-gap:7px !important;
+  }
+
+  .housing-reference-row strong{
+    width:66px !important;
+    min-width:66px !important;
+    max-width:66px !important;
+    font-size:12px !important;
+  }
+
+  .housing-reference-row small,
+  .housing-reference-row .housing-potential-label{
+    font-size:7.8px !important;
+  }
+}
