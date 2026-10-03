@@ -1,0 +1,40 @@
+/* v125 — centraliza os rótulos com os ícones no card Leitura territorial do recorte */
+
+#observatorio-app #pages #page-inicio
+.home-reading-summary-card .summary-map-metrics .reading-item{
+  align-items:center !important;
+}
+
+#observatorio-app #pages #page-inicio
+.home-reading-summary-card .summary-map-metrics .mini-icon{
+  align-self:center !important;
+  justify-self:center !important;
+}
+
+#observatorio-app #pages #page-inicio
+.home-reading-summary-card .summary-map-metrics .reading-item small{
+  box-sizing:border-box !important;
+  height:100% !important;
+  min-height:36px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  align-self:center !important;
+  text-align:left !important;
+  line-height:1.16 !important;
+}
+
+#observatorio-app #pages #page-inicio
+.home-reading-summary-card .summary-map-metrics .reading-item strong{
+  align-self:center !important;
+}
+
+/* Tablet horizontal */
+@media (min-width:760px) and (max-width:1100px){
+  #observatorio-app #pages #page-inicio
+  .home-reading-summary-card .summary-map-metrics .reading-item small{
+    min-height:32px !important;
+  }
+}
