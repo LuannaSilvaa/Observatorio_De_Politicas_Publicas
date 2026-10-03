@@ -869,12 +869,30 @@ function renderHome(rows,tot){
       ['globe','Área mapeada',two.format(tot.fcuArea)],
       ['info','Setores sem dado útil',fmt.format(tot.missing||0)]
     ],'home-coverage-summary-card')}
-    ${summaryMapCard('Leitura territorial do recorte','pin',[
-      ['people','População',compact.format(tot.pop)],
-      ['building','Domicílios pesquisados',compact.format(tot.dom)],
-      ['pin','UFs',fmt.format(uniq(rows.map(r=>r.uf)).length)],
-      ['globe','Regiões',fmt.format(uniq(rows.map(r=>r.regiao)).length)]
-    ],'homeSummaryMiniMap','home-reading-summary-card')}
+    <article class="card metric-card summary-list-card summary-map-card home-reading-summary-card home-reading-card-v126">
+      <h3><span class="summary-title-icon">${summaryTitleIcon('pin')}</span><span>Leitura territorial do recorte</span></h3>
+      <div class="summary-map-layout">
+        <div class="home-reading-metrics-v126">
+          <div class="home-reading-row-v126">
+            <div class="home-reading-key-v126"><span class="mini-icon">${icon('people')}</span><small>População</small></div>
+            <strong>${compact.format(tot.pop)}</strong>
+          </div>
+          <div class="home-reading-row-v126">
+            <div class="home-reading-key-v126"><span class="mini-icon">${icon('building')}</span><small>Domicílios pesquisados</small></div>
+            <strong>${compact.format(tot.dom)}</strong>
+          </div>
+          <div class="home-reading-row-v126">
+            <div class="home-reading-key-v126"><span class="mini-icon">${icon('pin')}</span><small>UFs</small></div>
+            <strong>${fmt.format(uniq(rows.map(r=>r.uf)).length)}</strong>
+          </div>
+          <div class="home-reading-row-v126">
+            <div class="home-reading-key-v126"><span class="mini-icon">${icon('globe')}</span><small>Regiões</small></div>
+            <strong>${fmt.format(uniq(rows.map(r=>r.regiao)).length)}</strong>
+          </div>
+        </div>
+        <div class="summary-mini-map" id="homeSummaryMiniMap"><div class="summary-mini-map-loading">Carregando recorte…</div></div>
+      </div>
+    </article>
   </div>
 `;
   hydrateIcons($('#page-inicio'));bindPageLinks();drawSummaryMiniMap('homeSummaryMiniMap',rows,{kind:'fcu',value:r=>r._fcu,label:'FCUs identificadas'});
